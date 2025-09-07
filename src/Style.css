@@ -1,14 +1,32 @@
 @font-face {
   font-family: MRFont;
-  src: url(../src/assets/fonts/Refrigerator\ Deluxe.otf);
+  src: url("../src/assets/fonts/converted/RefrigeratorDeluxe.eot");
+  src: url("../src/assets/fonts/converted/RefrigeratorDeluxe.eot?#iefix")
+      format("embedded-opentype"),
+    url("../src/assets/fonts/converted/RefrigeratorDeluxe.woff2")
+      format("woff2"),
+    url("../src/assets/fonts/converted/RefrigeratorDeluxe.woff") format("woff"),
+    url("../src/assets/fonts/converted/../src/assets/fonts/converted/RefrigeratorDeluxe.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: MRFont_Heavy;
-  src: url(../src/assets/fonts/Refrigerator\ Deluxe\ Heavy.otf);
-}
-@font-face {
-  font-family: NunitoSans;
-  src: url(https://fonts.google.com/specimen/Nunito+Sans);
+  src: url("../src/assets/fonts/converted/RefrigeratorDeluxe-Heavy.eot");
+  src: url("../src/assets/fonts/converted/RefrigeratorDeluxe-Heavy.eot?#iefix")
+      format("embedded-opentype"),
+    url("../src/assets/fonts/converted/RefrigeratorDeluxe-Heavy.woff2")
+      format("woff2"),
+    url("../src/assets/fonts/converted/RefrigeratorDeluxe-Heavy.woff")
+      format("woff"),
+    url("../src/assets/fonts/converted/RefrigeratorDeluxe-Heavy.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 #root {

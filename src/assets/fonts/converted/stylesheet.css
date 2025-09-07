@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Refrigerator Deluxe';
+    src: url('RefrigeratorDeluxe.eot');
+    src: url('RefrigeratorDeluxe.eot?#iefix') format('embedded-opentype'),
+        url('RefrigeratorDeluxe.woff2') format('woff2'),
+        url('RefrigeratorDeluxe.woff') format('woff'),
+        url('RefrigeratorDeluxe.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Refrigerator Deluxe';
+    src: url('RefrigeratorDeluxe-Heavy.eot');
+    src: url('RefrigeratorDeluxe-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('RefrigeratorDeluxe-Heavy.woff2') format('woff2'),
+        url('RefrigeratorDeluxe-Heavy.woff') format('woff'),
+        url('RefrigeratorDeluxe-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

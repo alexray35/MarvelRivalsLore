@@ -14,20 +14,52 @@ export interface GameData {
   [key: string]: any;
 }
 
+export interface GameDataSource {
+  data: GameData;
+  displayName: string;
+}
+
 export interface GameDataSources {
-  [key: string]: GameData;
+  [key: string]: GameDataSource;
 }
 
 export const gameDataSources: GameDataSources = {
-  default: gameData,
-  beta: gameBetaData,
-  season0: gameSeason0Data,
-  season2: gameSeason2Data,
-  season2_5: gameSeason2_5Data,
-  season3: gameSeason3Data,
-  season3FF: gameSeason3FFData,
-  season3_5: gameSeason3_5Data,
-  limbo: limboData,
+  default: {
+    data: gameData,
+    displayName: "Current",
+  },
+  beta: {
+    data: gameBetaData,
+    displayName: "Beta",
+  },
+  season0: {
+    data: gameSeason0Data,
+    displayName: "Season 0",
+  },
+  season2: {
+    data: gameSeason2Data,
+    displayName: "Season 2",
+  },
+  season2_5: {
+    data: gameSeason2_5Data,
+    displayName: "Season 2.5",
+  },
+  season3: {
+    data: gameSeason3Data,
+    displayName: "Season 3",
+  },
+  season3FF: {
+    data: gameSeason3FFData,
+    displayName: "Season 3 FF",
+  },
+  season3_5: {
+    data: gameSeason3_5Data,
+    displayName: "Season 3.5",
+  },
+  limbo: {
+    data: limboData,
+    displayName: "Limbo",
+  },
 };
 
 export default gameDataSources;

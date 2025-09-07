@@ -1,0 +1,617 @@
+<<<<<<< HEAD
+/* StyleMobile.css - Mobile Responsive Adaptations */
+
+@media only screen and (max-width: 768px) {
+  /* Base Layout Adjustments */
+  #root {
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .page {
+    margin-bottom: 300px;
+    padding: 0 10px;
+  }
+
+  /* Typography Scaling */
+  .pagetitle {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+
+  .story-container .pagetitle {
+    font-size: 48px;
+  }
+
+  .subpagetitle {
+    font-size: 28px;
+    min-width: unset;
+    text-align: center;
+  }
+
+  .herorealname {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  /* Navigation */
+  nav {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: block;
+  }
+
+  .navarea {
+    margin-bottom: 0px;
+  }
+
+  /* Gallery Adjustments */
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    margin-right: 0;
+    gap: 10px;
+  }
+
+  .gallery-story .gallery-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .storyimage {
+    margin-left: 80px;
+    width: 60% !important;
+  }
+
+  .storyimage:hover {
+    transform: none !important;
+  }
+
+  .image-caption {
+    font-size: 1.2rem !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+
+  .story-illustration {
+    max-height: 300px !important;
+  }
+
+  .story-illustration .img {
+    width: 100px !important;
+  }
+
+  /* Hero Page Adjustments */
+  .hero-page {
+    max-width: 90%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 10px;
+  }
+
+  .character-render {
+    display: none;
+  }
+
+  .character-logo {
+    position: relative;
+    height: 80px;
+    top: 0;
+    left: 0;
+    margin-bottom: 10px;
+  }
+
+  .character-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  /* Magazine Gallery */
+  .gallery-group {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .gallery-cover {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .gallery-cover img {
+    height: auto;
+    max-width: 80%;
+  }
+
+  .magazine-grid {
+    margin-top: 30px;
+    margin-left: -20px;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .magazine-item {
+    width: 100%;
+    height: 150px;
+  }
+
+  /* Map Page */
+  .mapinfo-page {
+    grid-template-columns: 1fr;
+    max-width: 95%;
+  }
+
+  .map-loading,
+  .map-video {
+    grid-column: 1;
+  }
+
+  .map-video {
+    margin: 10px 0;
+  }
+
+  .video-gallery-container {
+    grid-template-columns: 1fr;
+  }
+
+  .video-item {
+    width: 100%;
+  }
+
+  /* Story Container */
+  .story-container {
+    width: 100%;
+    margin-bottom: 300px;
+    padding: 0 10px;
+  }
+
+  .long-text {
+    margin-right: 15px;
+    font-size: 18px;
+  }
+
+  /* Activity Page */
+  .activityinfo-page {
+    max-width: 95%;
+  }
+
+  .gallery-activity .activity-image {
+    width: 100%;
+  }
+
+  .gallery-activity .gallery-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .subsection-container {
+    display: block;
+  }
+
+  .subsection-content {
+    display: block;
+  }
+
+  .subsection-image-container {
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .subsection-text-container {
+    display: block;
+  }
+
+  /* Toggle Switch */
+  .gallery-toggle {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  /* Tab Selector */
+  .tab-selector-container {
+    justify-content: center;
+  }
+
+  .tab-selector {
+    font-size: 18px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Collectables */
+  .collectables-container {
+    flex-direction: column;
+  }
+
+  .collectables-gallery {
+    width: 100%;
+  }
+
+  .collectable-detail .subsection-text-container {
+    width: 100%;
+  }
+
+  .teamups-container {
+    flex-direction: column;
+  }
+
+  .teamups-gallery {
+    width: 100%;
+  }
+
+  .teamups-detail .subsection-text-container {
+    width: 100%;
+  }
+
+  .gallery-hero .hero-portrait {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .gallery-hero .gallery-grid {
+    display: grid;
+    margin: 0px;
+    gap: 0px;
+    grid-template-columns: repeat(3, minmax(20px, 170px)) !important;
+  }
+
+  .teamup-heroes-section .gallery-hero .gallery-grid {
+    display: grid;
+    gap: 0px;
+
+    grid-template-columns: repeat(3, minmax(0px, 100%)) !important;
+  }
+  .teamup-heroes-section .hero-portrait {
+    width: 100px !important;
+    margin: 0px;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media only screen and (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pagetitle {
+    font-size: 28px;
+  }
+
+  .story-container .pagetitle {
+    font-size: 36px;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+  }
+
+  .tab-selector {
+    font-size: 16px;
+  }
+}
+=======
+/* StyleMobile.css - Mobile Responsive Adaptations */
+
+@media only screen and (max-width: 768px) {
+  /* Base Layout Adjustments */
+  #root {
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .page {
+    margin-bottom: 300px;
+    padding: 0 10px;
+  }
+
+  /* Typography Scaling */
+  .pagetitle {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+
+  .story-container .pagetitle {
+    font-size: 48px;
+  }
+
+  .subpagetitle {
+    font-size: 28px;
+    min-width: unset;
+    text-align: center;
+  }
+
+  .herorealname {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  /* Navigation */
+  nav {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    display: block;
+  }
+
+  .navarea {
+    margin-bottom: 0px;
+  }
+
+  /* Gallery Adjustments */
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    margin-right: 0;
+    gap: 10px;
+  }
+
+  .gallery-story .gallery-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .storyimage {
+    margin-left: 80px;
+    width: 60% !important;
+  }
+
+  .storyimage:hover {
+    transform: none !important;
+  }
+
+  .image-caption {
+    font-size: 1.2rem !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+
+  .story-illustration {
+    max-height: 300px !important;
+  }
+
+  .story-illustration .img {
+    width: 100px !important;
+  }
+
+  /* Hero Page Adjustments */
+  .hero-page {
+    max-width: 90%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 10px;
+  }
+
+  .character-render {
+    display: none;
+  }
+
+  .character-logo {
+    position: relative;
+    height: 80px;
+    top: 0;
+    left: 0;
+    margin-bottom: 10px;
+  }
+
+  .character-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  /* Magazine Gallery */
+  .gallery-group {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .gallery-cover {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .gallery-cover img {
+    height: auto;
+    max-width: 80%;
+  }
+
+  .magazine-grid {
+    margin-top: 30px;
+    margin-left: -20px;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .magazine-item {
+    width: 100%;
+    height: 150px;
+  }
+
+  /* Map Page */
+  .mapinfo-page {
+    grid-template-columns: 1fr;
+    max-width: 95%;
+  }
+
+  .map-loading,
+  .map-video {
+    grid-column: 1;
+  }
+
+  .map-video {
+    margin: 10px 0;
+  }
+
+  .video-gallery-container {
+    grid-template-columns: 1fr;
+  }
+
+  .video-item {
+    width: 100%;
+  }
+
+  /* Story Container */
+  .story-container {
+    width: 100%;
+    margin-bottom: 300px;
+    padding: 0 10px;
+  }
+
+  .long-text {
+    margin-right: 15px;
+    font-size: 18px;
+  }
+
+  /* Activity Page */
+  .activityinfo-page {
+    max-width: 95%;
+  }
+
+  .gallery-activity .activity-image {
+    width: 100%;
+  }
+
+  .gallery-activity .gallery-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .subsection-container {
+    display: block;
+  }
+
+  .subsection-content {
+    display: block;
+  }
+
+  .subsection-image-container {
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .subsection-text-container {
+    display: block;
+  }
+
+  /* Toggle Switch */
+  .gallery-toggle {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  /* Tab Selector */
+  .tab-selector-container {
+    justify-content: center;
+  }
+
+  .tab-selector {
+    font-size: 18px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Collectables */
+  .collectables-container {
+    flex-direction: column;
+  }
+
+  .collectables-gallery {
+    width: 100%;
+  }
+
+  .collectable-detail .subsection-text-container {
+    width: 100%;
+  }
+
+  .teamups-container {
+    flex-direction: column;
+  }
+
+  .teamups-gallery {
+    width: 100%;
+  }
+
+  .teamups-detail .subsection-text-container {
+    width: 100%;
+  }
+
+  .gallery-hero .hero-portrait {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .gallery-hero .gallery-grid {
+    display: grid;
+    margin: 0px;
+    gap: 0px;
+    grid-template-columns: repeat(3, minmax(20px, 170px)) !important;
+  }
+
+  .teamup-heroes-section .gallery-hero .gallery-grid {
+    display: grid;
+    gap: 0px;
+
+    grid-template-columns: repeat(3, minmax(0px, 100%)) !important;
+  }
+  .teamup-heroes-section .hero-portrait {
+    width: 100px !important;
+    margin: 0px;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media only screen and (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pagetitle {
+    font-size: 28px;
+  }
+
+  .story-container .pagetitle {
+    font-size: 36px;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+  }
+
+  .tab-selector {
+    font-size: 16px;
+  }
+}
+>>>>>>> a2f7a1fa8d31ffb4995f76e6b112c16b053b6899

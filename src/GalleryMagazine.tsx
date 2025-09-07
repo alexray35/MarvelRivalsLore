@@ -90,7 +90,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
           style={{ cursor: onMagazineSelect ? "pointer" : "default" }}
         >
           <img
-            src={`/textures/gallerycards_lq/${item.imageName}`}
+            src={`/.netlify/images?url=/textures/gallerycards_lq/${item.imageName}`}
             alt={item.imageName}
             loading="lazy"
           />

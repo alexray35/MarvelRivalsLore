@@ -1,5 +1,5 @@
 // CollectableList.tsx
-import gameDataSources from "./GameData";
+import { gameDataSources } from "./GameData"; // Changed import
 
 interface CollectableInfo {
   id: string;
@@ -10,15 +10,13 @@ interface CollectableInfo {
 
 // Define the structure of the game data
 interface GameData {
-  [mainKey: string]: {
-    [subKey: string]: string;
-  };
+  [key: string]: any; // Simplified to match GameData.tsx
 }
 
 const extractIdsFromGameData = (): CollectableInfo[] => {
   try {
     const idSet = new Set<string>();
-    const typedGameData = gameDataSources.default as GameData;
+    const typedGameData = gameDataSources.default.data as GameData; // Added .data
 
     // Iterate through all main keys in the game data
     for (const mainKey in typedGameData) {

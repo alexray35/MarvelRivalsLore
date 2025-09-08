@@ -40,20 +40,26 @@
   margin: 0 auto;
   margin-top: 0px;
   height: 100vh;
+  vertical-align: top;
 }
 
 .pagetitle {
   vertical-align: bottom;
   color: #ffffff;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 0px;
   font-size: 50px;
   text-transform: uppercase;
   font-family: MRFont_Heavy;
 }
 
-.story-container .pagetitle {
+.mainpagetitle {
+  vertical-align: bottom;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 0px;
   color: #fbdc2c;
+  font-family: MRFont_Heavy;
   font-size: 90px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
 }
@@ -584,12 +590,17 @@ nav a.active::after {
   height: 100%;
 }
 
+.page:has(.mainPageStories) {
+  height: 100%;
+  margin-bottom: 350px;
+}
+
 .page:has(.gallery-hero) {
   height: 100%;
   margin-bottom: 200px;
 }
 .page:has(.teamup-detail) {
-  height: 100vh;
+  height: 100%;
   margin-bottom: 0px;
 }
 .page:has(.activity-content) {
@@ -601,8 +612,15 @@ nav a.active::after {
   margin-bottom: 250px;
 }
 
-.page:has(.accessory-detail) {
-  margin-bottom: 250px;
+.page:has(.collectables-gallery) {
+  height: 100%;
+  margin: 0px;
+}
+
+.pageContent {
+  margin: auto !important;
+  vertical-align: top;
+  top: 0;
 }
 
 .collectable-detail .long-text {
@@ -1143,4 +1161,19 @@ nav a.active::after {
   overflow-y: auto;
   padding-right: 10px;
   scroll-behavior: smooth;
+}
+
+.mainPageStories {
+  width: 400px;
+  margin: auto;
+  margin-left: 280px;
+  padding: 0px;
+  align-items: center;
+}
+
+.mainPageActivities {
+  width: 400px;
+  margin: auto;
+  padding: 0px;
+  align-items: center;
 }

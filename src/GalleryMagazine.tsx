@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import {
   serials as magazineSerials,
   specials as magazineSpecials,
+  magazineMaxSerialSeason,
 } from "./MagazineList";
 import {
   serials as seasonSerials,
@@ -12,6 +13,7 @@ import JsonValue from "./JsonValue";
 
 interface GalleryMagazineProps {
   onMagazineSelect?: (id: string, overrideName: string) => void;
+  showOnlyLastSeason?: boolean; // New optional parameter
 }
 
 interface MagazineItem {
@@ -23,6 +25,7 @@ interface MagazineItem {
 
 const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
   onMagazineSelect,
+  showOnlyLastSeason = false, // Default to false for backward compatibility
 }) => {
   const [activeTab, setActiveTab] = useState<"serials" | "specials">("serials");
   const [seasonGroups, setSeasonGroups] = useState<
@@ -40,8 +43,16 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
       const items =
         activeTab === "serials" ? magazineSerials : magazineSpecials;
 
+      // If showOnlyLastSeason is true, only include the last season
+      const filteredItems =
+        showOnlyLastSeason && activeTab === "serials"
+          ? items.filter(
+              (item) => parseInt(item.season) === magazineMaxSerialSeason
+            )
+          : items;
+
       // Group items by season
-      items.forEach((item) => {
+      filteredItems.forEach((item) => {
         const seasonNum = parseInt(item.season);
         if (!groups[seasonNum]) {
           groups[seasonNum] = [];
@@ -62,7 +73,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
       );
       setIsLoading(false);
     }
-  }, [activeTab]);
+  }, [activeTab, showOnlyLastSeason]); // Add showOnlyLastSeason to dependency array
 
   const getSeasonImage = (seasonNumber: number): string => {
     const allSeasons = [...seasonSerials, ...seasonSpecials];
@@ -123,20 +134,26 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
 
   return (
     <div className="gallery-magazine">
-      <div className="tab-selector-container">
-        <span
-          className={`tab-selector ${activeTab === "serials" ? "active" : ""}`}
-          onClick={() => setActiveTab("serials")}
-        >
-          Main
-        </span>
-        <span
-          className={`tab-selector ${activeTab === "specials" ? "active" : ""}`}
-          onClick={() => setActiveTab("specials")}
-        >
-          Special Edition
-        </span>
-      </div>
+      {!showOnlyLastSeason && (
+        <div className="tab-selector-container">
+          <span
+            className={`tab-selector ${
+              activeTab === "serials" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("serials")}
+          >
+            Main
+          </span>
+          <span
+            className={`tab-selector ${
+              activeTab === "specials" ? "active" : ""
+            }`}
+            onClick={() => setActiveTab("specials")}
+          >
+            Special Edition
+          </span>
+        </div>
+      )}
 
       {[...Object.entries(seasonGroups)]
         .sort(([a], [b]) =>
@@ -148,11 +165,13 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
           const season = parseInt(seasonStr);
           return (
             <React.Fragment key={`season-${season}`}>
-              <h1 className="subpagetitle">
-                {activeTab === "serials"
-                  ? `Season ${season}: ${getSeasonName(season)}`
-                  : getSeasonName(season)}
-              </h1>
+              {!showOnlyLastSeason && (
+                <h1 className="subpagetitle">
+                  {activeTab === "serials"
+                    ? `Season ${season}: ${getSeasonName(season)}`
+                    : getSeasonName(season)}
+                </h1>
+              )}
               <div className={`gallery-group group-${season}`}>
                 <div className="gallery-cover">
                   <img

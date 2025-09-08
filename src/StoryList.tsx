@@ -5,6 +5,7 @@ interface StoryInfo {
   contentPath: string;
   imageName: string;
   hero: string;
+  highlight: string;
 }
 
 const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
@@ -20,6 +21,8 @@ const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
       const contentPath = row["Content"]?.trim() || "";
       const contentID = row["id"]?.trim() || "";
       const hero = row["Hero"]?.trim() || "";
+      const highlight = row["New"]?.trim() || "";
+
       // Generate image name based on contentID and position in titlePath
       let imageName = "img_herostory_superlogo_hover.png"; // default
       if (contentPath && contentID) {
@@ -37,6 +40,7 @@ const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
         contentPath,
         imageName,
         hero,
+        highlight,
       };
     });
 

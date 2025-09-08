@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import MainPage from "./pages/MainPage";
 import StoriesPage from "./pages/Stories";
 import StoryPage from "./pages/Story";
 import MagazinesPage from "./pages/Magazines";
@@ -21,6 +22,9 @@ function App() {
       <div className="navarea">
         <nav>
           <ul>
+            <li>
+              <Link to="/main">New</Link>
+            </li>
             <li>
               <Link to="/stories">Stories</Link>
             </li>
@@ -51,6 +55,7 @@ function App() {
       </div>
 
       <Routes>
+        <Route path="/main" element={<MainPage />} />
         <Route path="/stories" element={<StoriesPage />} />
         <Route path="/serials" element={<MagazinesPage />} />
         <Route path="/story" element={<StoryPage />} />

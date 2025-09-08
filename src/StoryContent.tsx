@@ -107,7 +107,7 @@ const Story: React.FC<StoryProps> = ({
 
   return (
     <div className="story-container">
-      <h1 className="pagetitle">
+      <h1 className="mainpagetitle">
         {titleOverride ? (
           titleOverride
         ) : (

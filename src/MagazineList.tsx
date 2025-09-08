@@ -22,10 +22,11 @@ const processMagazineData = async (): Promise<{
 }> => {
   try {
     const response = await fetch(
-      "https://sheetdb.io/api/v1/f885sh79xfxqs?sheet=Magazine"
+      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/Magazine"
     );
 
-    const data = await response.json();
+    const apiData = await response.json();
+    const data = apiData.data; //new API shenanigans
 
     const result: MagazineGroups = {
       serials: [],

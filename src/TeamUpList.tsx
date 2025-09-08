@@ -18,10 +18,11 @@ interface TeamUp {
 const processTeamUps = async (): Promise<TeamUp[]> => {
   try {
     const response = await fetch(
-      "https://sheetdb.io/api/v1/f885sh79xfxqs?sheet=TeamUps"
+      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/TeamUps"
     );
 
-    const data = await response.json();
+    const apiData = await response.json();
+    const data = apiData.data; //new API shenanigans
 
     // Group entries by ref instead of id
     const teamUpsMap = new Map<string, TeamUp>();

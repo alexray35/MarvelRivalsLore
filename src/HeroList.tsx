@@ -9,9 +9,10 @@ interface HeroInfo {
 const processKeys = async (): Promise<HeroInfo[]> => {
   try {
     const response = await fetch(
-      "https://sheetdb.io/api/v1/f885sh79xfxqs?sheet=Heroes"
+      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/Heroes"
     );
-    const data = await response.json();
+    const apiData = await response.json();
+    const data = apiData.data; //new API shenanigans
 
     const heroInfo = data
       .map((row: { [x: string]: string }) => {

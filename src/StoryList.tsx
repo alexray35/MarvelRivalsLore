@@ -11,7 +11,8 @@ const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
   try {
     const response = await fetch(csvPath);
 
-    const data = await response.json();
+    const apiData = await response.json();
+    const data = apiData.data; //new API shenanigans
 
     // Filter rows that have a Title value and map to StoryTrio objects
     const storyInfo = data.map((row: { [x: string]: string }) => {
@@ -48,13 +49,13 @@ const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
 
 const processStories = async (): Promise<StoryInfo[]> => {
   return await processKeys(
-    "https://sheetdb.io/api/v1/f885sh79xfxqs?sheet=Stories"
+    "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/Stories"
   );
 };
 
 const processStoriesBeta = async (): Promise<StoryInfo[]> => {
   return await processKeys(
-    "https://sheetdb.io/api/v1/f885sh79xfxqs?sheet=StoriesBETA"
+    "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/StoriesBETA"
   );
 };
 

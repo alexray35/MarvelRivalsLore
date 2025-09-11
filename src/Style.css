@@ -30,20 +30,24 @@
 }
 
 #root {
+  max-width: 100%;
+  min-width: 100%;
   margin: 0 auto;
   padding: 0rem;
   text-align: center;
 }
 
 .page {
-  max-width: 100%;
+  max-width: 90%;
+  min-width: 90%;
   margin: 0 auto;
   margin-top: 0px;
-  height: 100vh;
   vertical-align: top;
+  min-height: 800px;
 }
 
 .pagetitle {
+  width: 100%;
   vertical-align: bottom;
   color: #ffffff;
   margin-top: 40px;
@@ -51,6 +55,7 @@
   font-size: 50px;
   text-transform: uppercase;
   font-family: MRFont_Heavy;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
 }
 
 .mainpagetitle {
@@ -64,6 +69,25 @@
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
 }
 
+.mainpage .magazine-grid {
+  margin-bottom: 10px;
+}
+
+.mainpage .gallery-group {
+  margin-bottom: 30px;
+  box-shadow: none;
+}
+
+.mainpage .gallery-group::before {
+  background-image: none !important;
+  opacity: 0;
+}
+
+.mainpage .pagetitle {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .subpagetitle {
   font-size: 45px;
   min-width: 600px;
@@ -72,7 +96,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-family: MRFont_Heavy;
-  text-align: left;
+  text-align: center;
 }
 
 .heroname {
@@ -192,13 +216,16 @@ input:checked + .toggle-slider:before {
 }
 
 /* Story Gallery */
-
 .gallery-grid {
-  margin-right: 80px;
+  margin: auto;
   padding-top: 20px;
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.mainpage .gallery-grid {
+  margin-left: -50px;
 }
 
 .image-caption {
@@ -232,6 +259,7 @@ input:checked + .toggle-slider:before {
 }
 
 .storyimage {
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
   width: 135%;
   transition: all 0.2s ease;
   height: 200px;
@@ -286,14 +314,9 @@ input:checked + .toggle-slider:before {
   gap: 10px;
 }
 
-.gallery-group {
-  width: 1500px;
-  display: flex;
-  align-items: flex-start;
-  height: 530px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+.mainpage .gallery-magazine {
+  margin-top: -30px;
+  margin-bottom: -25px;
 }
 
 .gallery-group::before {
@@ -362,17 +385,16 @@ input:checked + .toggle-slider:before {
 }
 
 .gallery-group {
-  background-color: transparent;
-}
-
-.gallery-group {
-  width: 1500px;
   display: flex;
   align-items: flex-start;
   height: 530px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+
+  margin-bottom: 50px;
+  width: 100%;
 }
 
 .gallery-group::before {
@@ -430,11 +452,6 @@ input:checked + .toggle-slider:before {
   z-index: 1;
 }
 
-.gallery-group {
-  background-color: transparent;
-  margin-bottom: 50px;
-}
-
 .magazine-grid {
   padding: 20px;
   flex: 1;
@@ -442,6 +459,7 @@ input:checked + .toggle-slider:before {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   width: 2200px;
+  margin-left: 20px;
 }
 
 /* Magazine Items */
@@ -528,7 +546,7 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 nav li {
@@ -556,21 +574,12 @@ nav a.active {
   color: #fbdc2c;
 }
 
-nav a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 3px;
-  background-color: #fbdc2c;
-  border-radius: 3px;
-}
-
 .story-container {
-  width: 1000px;
   margin-bottom: 350px;
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+  place-items: center;
 }
 
 .story-content {
@@ -584,37 +593,6 @@ nav a.active::after {
   text-align: justify;
   text-justify: inter-word;
   line-height: 1.4;
-}
-
-.page:has(.story-content) {
-  height: 100%;
-}
-
-.page:has(.mainPageStories) {
-  height: 100%;
-  margin-bottom: 350px;
-}
-
-.page:has(.gallery-hero) {
-  height: 100%;
-  margin-bottom: 200px;
-}
-.page:has(.teamup-detail) {
-  height: 100%;
-  margin-bottom: 0px;
-}
-.page:has(.activity-content) {
-  height: 100%;
-  margin-bottom: 250px;
-}
-.page:has(.map-thumbnail) {
-  height: 100%;
-  margin-bottom: 250px;
-}
-
-.page:has(.collectables-gallery) {
-  height: 100%;
-  margin: 0px;
 }
 
 .pageContent {
@@ -638,6 +616,9 @@ nav a.active::after {
 
 .gallery-hero {
   margin-bottom: 50px;
+  margin: auto;
+  justify-content: center;
+  place-items: center;
 }
 
 .gallery-hero .gallery-grid {
@@ -648,7 +629,7 @@ nav a.active::after {
 
 .gallery-collect .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(10px, 200px));
+  grid-template-columns: repeat(5, minmax(10px, 150px));
 }
 
 .gallery-hero .gallery-item {
@@ -681,6 +662,13 @@ nav a.active::after {
   margin: 0 auto;
 }
 
+.gallery-map {
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  place-items: center;
+}
+
 .gallery-map .gallery-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -694,8 +682,8 @@ nav a.active::after {
 }
 
 .gallery-map .gallery-item:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+  transform: scale(1.02);
+  filter: brightness(1.2);
 }
 
 .gallery-map .image-container {
@@ -732,6 +720,13 @@ nav a.active::after {
   font-weight: bold;
   margin-top: 4px;
   word-break: break-word;
+}
+
+.gallery-activity {
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  place-items: center;
 }
 
 .gallery-activity .gallery-grid {
@@ -902,6 +897,13 @@ nav a.active::after {
   transition: opacity 0.5s ease, transform 0.3s ease;
 }
 
+.gallery-story {
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  place-items: center;
+}
+
 .hero-page .gallery-story {
   margin: 0 auto;
   padding-left: 5%;
@@ -916,6 +918,10 @@ nav a.active::after {
 .hero-page .image-caption {
   font-size: 1.3rem;
   padding-left: 0px;
+}
+
+.collectables-gallery .image-caption {
+  font-size: 1.2rem;
 }
 
 .mapinfo-page {
@@ -1072,7 +1078,6 @@ nav a.active::after {
   padding: 20px;
   color: #fff;
   font-family: "Arial", sans-serif;
-  margin-bottom: 300px;
 }
 
 .collectable-detail .subsection-image-container {
@@ -1084,6 +1089,7 @@ nav a.active::after {
 
 .collectables-container {
   display: flex;
+  margin-bottom: 200px;
 }
 
 .collectables-gallery {
@@ -1105,12 +1111,17 @@ nav a.active::after {
   width: 20%;
 }
 
+.teamup-detail {
+  min-height: 900px;
+  max-height: 900px;
+}
+
 .teamups-detail .subsection-text-container {
-  width: 600px;
   flex: 1;
 }
 
 .tabspacing {
+  width: 100%;
   height: 55px;
 }
 
@@ -1153,7 +1164,15 @@ nav a.active::after {
 
 .gallery-teamup .hero-portrait {
   width: 100px;
+  height: 100px;
   margin-bottom: 10px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687)), saturate(50%);
+}
+
+.teamup-icon {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.438));
 }
 
 .teamup-detail .teamuptext {
@@ -1164,9 +1183,8 @@ nav a.active::after {
 }
 
 .mainPageStories {
-  width: 400px;
+  width: 100%;
   margin: auto;
-  margin-left: 280px;
   padding: 0px;
   align-items: center;
 }
@@ -1176,4 +1194,78 @@ nav a.active::after {
   margin: auto;
   padding: 0px;
   align-items: center;
+}
+
+.mainpage .activity-image {
+  width: 230%;
+}
+
+.mainpagebackground {
+  position: fixed; /* Changed to fixed to make it static behind everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/textures/gallerycards/img_gallerys3_magazine_01.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(2px);
+  z-index: -1;
+  display: block;
+  opacity: 0.1;
+}
+
+.body {
+  margin: 0 auto;
+  height: 100%;
+  min-width: 1400px;
+}
+
+.footer {
+  z-index: 5;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  border-top: 1px solid #fbdc2c;
+  justify-content: center;
+  display: inline-flex;
+  background-color: #000000;
+  filter: drop-shadow(0px -5px 5px #000000a0);
+  overflow-x: hidden;
+}
+
+.footer ul {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+  gap: 1rem; /* Space between items */
+}
+
+.footer li a {
+  text-decoration: none;
+  color: inherit; /* Inherit text color */
+}
+
+.footerLinks {
+  margin-top: 10px;
+}
+
+.socialLinks a {
+  margin-left: 8px;
+  font-size: 1.2rem; /* adjust size if needed */
+  color: inherit; /* keeps the same text color */
+  text-decoration: none;
+}
+
+.socialLinks a:hover {
+  color: #1da1f2; /* optional hover color (Twitter blue) */
 }

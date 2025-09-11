@@ -32,7 +32,7 @@ function MainPage() {
   };
 
   return (
-    <div className="page">
+    <div className="page mainpage">
       <h1 className="mainpagetitle">Season 3: The Abyss Awakens</h1>
 
       <h1 className="pagetitle">Stories</h1>
@@ -56,6 +56,7 @@ function MainPage() {
           onActivitySelect={handleActivitySelect}
         />
       </div>
+      <div className="mainpagebackground"></div>
     </div>
   );
 }

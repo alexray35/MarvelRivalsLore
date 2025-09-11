@@ -33,7 +33,7 @@ const GalleryTeamUp: React.FC<GalleryTeamUpProps> = ({ onTeamUpSelect }) => {
           const anchorHero = HeroInfo.find(
             (h) => h.heroName === latestVersion.anchor
           );
-          const anchorHeroColor = anchorHero?.heroColor || "#ffffff"; // Default to white if no color found
+          const anchorHeroColor = anchorHero?.heroColor || "#0c0909ff"; // Default to white if no color found
 
           return (
             <div
@@ -44,16 +44,20 @@ const GalleryTeamUp: React.FC<GalleryTeamUpProps> = ({ onTeamUpSelect }) => {
                 cursor: "pointer",
               }}
             >
-              <img
+              <div
                 className="hero-portrait"
-                src={latestVersion.image}
-                alt={teamUp.ref}
-                loading="lazy"
                 style={{
                   cursor: "pointer",
                   backgroundColor: "#" + anchorHeroColor,
                 }}
-              />
+              >
+                <img
+                  className="teamup-icon"
+                  src={latestVersion.image}
+                  alt={teamUp.ref}
+                  loading="lazy"
+                />
+              </div>
             </div>
           );
         })}

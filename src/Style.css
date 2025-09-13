@@ -84,8 +84,8 @@
 }
 
 .mainpage .pagetitle {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 15px;
+  margin-bottom: -10px;
 }
 
 .subpagetitle {
@@ -97,6 +97,37 @@
   letter-spacing: 2px;
   font-family: MRFont_Heavy;
   text-align: center;
+}
+
+.gallery-activity .subpagetitle {
+  margin-top: 20px;
+}
+
+.page:not(:has(.mainpagetitle)) .gallery-activity .gallery-grid {
+  width: 100%;
+  border-bottom: 2px solid #ffffff65;
+  margin-bottom: 10px;
+}
+
+.mapinfo-page .subpagetitle {
+  text-align: left;
+  margin: 0;
+  line-height: 60px;
+}
+
+.hero-page .subpagetitle {
+  text-align: left;
+}
+
+.character-content .subpagetitle {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: -15px;
+  line-height: 40px;
+}
+
+.mapinfo-page .pagetitle {
+  margin-bottom: 10px;
 }
 
 .heroname {
@@ -250,6 +281,7 @@ input:checked + .toggle-slider:before {
 .gallery-story .gallery-grid {
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
+  margin-left: -50px;
 }
 
 .gallery-item {
@@ -316,7 +348,7 @@ input:checked + .toggle-slider:before {
 
 .mainpage .gallery-magazine {
   margin-top: -30px;
-  margin-bottom: -25px;
+  margin-bottom: -45px;
 }
 
 .gallery-group::before {
@@ -351,6 +383,10 @@ input:checked + .toggle-slider:before {
 .gallery-group.group-3::before {
   background-image: url("/textures/gallerycards/img_gallerys3_magazine_01.png");
   bottom: -50%;
+}
+.gallery-group.group-4::before {
+  background-image: url("/textures/gallerycards/img_gallerys4_magazine_01.png");
+  bottom: -80%;
 }
 
 .gallery-group.group--1::before {
@@ -629,7 +665,7 @@ nav a.active {
 
 .gallery-collect .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(10px, 150px));
+  grid-template-columns: repeat(4, minmax(10px, 160px));
 }
 
 .gallery-hero .gallery-item {
@@ -759,6 +795,7 @@ nav a.active {
   margin-top: 8px;
   text-align: center;
   font-size: 25px;
+  width: 200%;
 }
 
 .activityinfo-page {
@@ -793,7 +830,8 @@ nav a.active {
 
 .subsection-image-container {
   vertical-align: top;
-  min-width: 250px;
+  min-width: 300px;
+  max-width: 300px;
   margin: 10px;
   margin-top: 10px;
 }
@@ -905,14 +943,10 @@ nav a.active {
 }
 
 .hero-page .gallery-story {
-  margin: 0 auto;
+  margin: 10px auto;
   padding-left: 5%;
   padding-right: 5%;
-  width: 100%;
-}
-
-.hero-page .gallery-grid {
-  grid-template-columns: repeat(auto-fill, minmax(190px, 240px));
+  width: 80%;
 }
 
 .hero-page .image-caption {
@@ -926,14 +960,18 @@ nav a.active {
 
 .mapinfo-page {
   position: relative;
-  max-width: 80%;
+  max-width: 70%;
   margin: 0 auto;
   padding: 0px;
   color: #fff;
   font-family: "Arial", sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 0px;
+}
+
+.mapinfo-page .tab-selector-container {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
 }
 .map-loading {
   grid-column: 1;
@@ -942,11 +980,19 @@ nav a.active {
   line-height: 1.5;
   margin-bottom: 20px;
   padding: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-family: MRFont;
   font-size: 22px;
   text-align: left;
   background-color: rgba(0, 0, 0, 0.415);
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.map-header {
+  position: relative;
+  margin-bottom: 0px;
+  z-index: 2;
 }
 
 .map-content p {
@@ -957,10 +1003,12 @@ nav a.active {
   top: 20px;
   height: fit-content;
   margin: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
   text-align: left;
   flex-grow: 1;
   margin-top: 0;
+
+  border-bottom: 2px solid #ffffff65;
 }
 
 .map-video .h3 {
@@ -973,10 +1021,12 @@ nav a.active {
   gap: 0px;
   background-color: rgba(0, 0, 0, 0.415);
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
 }
 
 .video-item {
-  width: 300px;
+  width: 500px;
+  height: auto;
   padding: 15px;
 }
 
@@ -992,13 +1042,6 @@ nav a.active {
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
-}
-
-.map-header {
-  grid-column: 1 / -1;
-  position: relative;
-  margin-bottom: 0px;
-  z-index: 2;
 }
 
 .header-content {
@@ -1126,7 +1169,7 @@ nav a.active {
 }
 
 .teamup-heroes-section .gallery-hero {
-  width: 100%;
+  width: 70%;
   margin: 0px;
 }
 
@@ -1148,7 +1191,8 @@ nav a.active {
 .teamup-detail .subsection-image-container {
   vertical-align: top;
   width: 150px;
-  margin: 10px;
+  margin: 0px;
+  margin-right: 15px;
   margin-top: 0px;
 }
 
@@ -1206,7 +1250,7 @@ nav a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/textures/gallerycards/img_gallerys3_magazine_01.png");
+  background-image: url("/textures/gallerycards/img_gallerys4_magazine_01.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

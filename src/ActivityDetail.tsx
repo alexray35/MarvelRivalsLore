@@ -5,6 +5,7 @@ import {
   ActivityInfo_Season1,
   ActivityInfo_Season2,
   ActivityInfo_Season3,
+  ActivityInfo_Season4,
   ActivityInfo_SeasonBETA,
 } from "./ActivityList";
 import { getNestedValue } from "./getNestedValue";
@@ -36,6 +37,8 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
       ? ActivityInfo_Season2
       : season === 3
       ? ActivityInfo_Season3
+      : season === 4
+      ? ActivityInfo_Season4
       : ActivityInfo_SeasonBETA;
 
   const activity = activityList.find((a) => a.name === activityName);

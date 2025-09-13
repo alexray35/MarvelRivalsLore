@@ -1,5 +1,5 @@
 // GameData.tsx
-import gameData from "./gamedata/Game 2025 08 22.json";
+import gameData from "./gamedata/Game 2025 09 12.json";
 import gameBetaData from "./gamedata/Game 2024 08 05 BETA.json";
 import gameSeason0Data from "./gamedata/Game 2024 12 04.json";
 import gameSeason2Data from "./gamedata/Game 2025 04 11 2.json";
@@ -7,6 +7,7 @@ import gameSeason2_5Data from "./gamedata/Game 2025 07 03.json";
 import gameSeason3Data from "./gamedata/Game 2025 07 11.json";
 import gameSeason3FFData from "./gamedata/Game 2025 07 24.json";
 import gameSeason3_5Data from "./gamedata/Game 2025 08 08.json";
+import gameSeason4Data from "./gamedata/Game 2025 09 12.json";
 import limboData from "./gamedata/Game Limbo.json";
 
 export interface GameData {
@@ -55,6 +56,10 @@ export const gameDataSources: GameDataSources = {
   season3_5: {
     data: gameSeason3_5Data,
     displayName: "Season 3.5",
+  },
+  season4: {
+    data: gameSeason4Data,
+    displayName: "Season 4",
   },
   limbo: {
     data: limboData,

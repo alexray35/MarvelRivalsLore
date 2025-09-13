@@ -480,10 +480,74 @@ const ActivityInfo_Season3: ActivityInfo[] = [
   },
 ];
 
+const ActivityInfo_Season4: ActivityInfo[] = [
+  {
+    name: "MarvelActivityTable_133_Name",
+    image: "img_home_activity_s4seasonstory_normal.png",
+    sections: [
+      {
+        sectionTitle: "",
+        subsections: [
+          {
+            subsectionTitle: "MarvelActivityTable133_1_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_1_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event1.png",
+          },
+          {
+            subsectionTitle: "MarvelActivityTable133_2_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_2_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event2.png",
+          },
+          {
+            subsectionTitle: "MarvelActivityTable133_3_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_3_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event3.png",
+          },
+
+          {
+            subsectionTitle: "MarvelActivityTable133_4_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_4_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event4.png",
+          },
+          {
+            subsectionTitle: "MarvelActivityTable133_5_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_5_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event5.png",
+          },
+          {
+            subsectionTitle: "MarvelActivityTable133_6_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_6_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event6.png",
+          },
+          {
+            subsectionTitle: "MarvelActivityTable133_7_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_7_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event7.png",
+          },
+          {
+            subsectionTitle: "MarvelActivityTable133_8_Title",
+            subsectionSubTitle: "",
+            subsectionText: "MarvelActivityTable133_8_StoryContent",
+            subsectionImage: "img_s4seasonstory_eventdetails_event8.png",
+          },
+        ],
+      },
+    ],
+  },
+];
+
 export {
   ActivityInfo_Season0,
   ActivityInfo_Season1,
   ActivityInfo_Season2,
   ActivityInfo_Season3,
+  ActivityInfo_Season4,
   ActivityInfo_SeasonBETA,
 };

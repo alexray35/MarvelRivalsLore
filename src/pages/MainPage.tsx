@@ -33,7 +33,7 @@ function MainPage() {
 
   return (
     <div className="page mainpage">
-      <h1 className="mainpagetitle">Season 3: The Abyss Awakens</h1>
+      <h1 className="mainpagetitle">Season 4: Heart of the Dragon</h1>
 
       <h1 className="pagetitle">Stories</h1>
       <div className="mainPageStories">

@@ -22,6 +22,7 @@ interface TabData {
 // Define the desired order for the tabs (newest to oldest)
 const TAB_ORDER = [
   "default", // Current
+  "season4",
   "season3_5", // Season 3.5
   "season3FF", // Season 3 FF
   "season3", // Season 3

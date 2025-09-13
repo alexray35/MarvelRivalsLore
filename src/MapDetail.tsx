@@ -67,16 +67,9 @@ const MapDetail: React.FC<MapDetailProps> = ({
 
   return (
     <div className="mapinfo-page">
-      <header className="map-header">
-        <div className="header-content">
-          <div className="name-container">
-            <h2 className="subpagetitle">
-              {" "}
-              {map.group}: {map.name}
-            </h2>
-          </div>
-        </div>
-      </header>
+      <h1 className="pagetitle">
+        {map.group}: {map.name}
+      </h1>
 
       {/* Loading tips section */}
       <section className="map-content">
@@ -111,7 +104,6 @@ const MapDetail: React.FC<MapDetailProps> = ({
           />
         </div>
         <section className="map-loading">
-          <p className="subpagetitle">Lore</p>
           <section className="long-text">
             {map.loadingTips.map((tip, index) => (
               <p key={index}>{getNestedValue(gameDataSources.default, tip)}</p>

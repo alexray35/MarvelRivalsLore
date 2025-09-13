@@ -614,6 +614,7 @@ nav a.active {
   margin-bottom: 350px;
   width: 70%;
   margin: auto;
+  margin-bottom: 100px;
   justify-content: center;
   place-items: center;
 }
@@ -766,14 +767,17 @@ nav a.active {
 }
 
 .gallery-activity .gallery-grid {
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25%;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping if needed */
+  justify-content: center; /* center contents */
+  align-items: center;
+  gap: 20px; /* use a fixed gap instead of % */
+  margin: 0px auto;
 }
 
 .gallery-activity .gallery-item {
-  width: 100%;
+  width: auto; /* let content define width */
+  max-width: 350px; /* match your image size */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -792,7 +796,8 @@ nav a.active {
 }
 
 .gallery-activity .image-caption {
-  margin-top: 8px;
+  margin-top: 0px;
+  margin-bottom: 10px;
   text-align: center;
   font-size: 25px;
   width: 200%;

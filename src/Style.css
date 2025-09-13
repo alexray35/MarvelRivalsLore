@@ -829,7 +829,15 @@ nav a.active {
   border-collapse: collapse;
 }
 
+.skin-detail .subsection-container {
+  max-height: 800px;
+  min-height: 800px;
+}
+
 .subsection-content {
+  min-width: 920px;
+  max-width: 920px;
+
   display: table-row;
 }
 
@@ -1137,12 +1145,21 @@ nav a.active {
 
 .collectables-container {
   display: flex;
-  margin-bottom: 200px;
 }
 
 .collectables-gallery {
   flex: 2;
-  width: 20%;
+  min-height: 550px;
+  max-height: 550px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  min-width: 45%;
+  margin-top: 20px;
+}
+
+.skins-gallery {
+  min-height: 750px;
+  max-height: 750px;
 }
 
 .collectable-detail .subsection-text-container {
@@ -1225,6 +1242,7 @@ nav a.active {
 }
 
 .teamup-detail .teamuptext {
+  min-height: 450px;
   max-height: 450px;
   overflow-y: auto;
   padding-right: 10px;
@@ -1317,4 +1335,39 @@ nav a.active {
 
 .socialLinks a:hover {
   color: #1da1f2; /* optional hover color (Twitter blue) */
+}
+
+.skin-detail .subsection-content {
+  display: table-cell;
+  width: 500px;
+  min-width: 4%;
+  max-width: 40%;
+}
+
+.skin-detail .skin-image {
+  width: 100%;
+  align-items: center;
+}
+
+.skin-detail .subsection-image-container {
+  min-width: 100%;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.gallery-skins .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(100px, 120px));
+}
+
+.gallery-skins .hero-portrait {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.skin-source {
+  font-style: italic;
+  opacity: 0.6;
+  font-size: 20px;
 }

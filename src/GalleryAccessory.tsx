@@ -1,8 +1,6 @@
 // GalleryAccessory.tsx
 import React from "react";
 import { AccessoryInfo } from "./AccessoryList";
-import { getNestedValue } from "./getNestedValue";
-import gameDataSources from "./GameData";
 
 interface GalleryAccessoryProps {
   onAccessorySelect: (id: string) => void;
@@ -31,12 +29,6 @@ const GalleryAccessory: React.FC<GalleryAccessoryProps> = ({
               alt={collectable.accessoryName}
               loading="lazy"
             />
-            <div className="image-caption">
-              {getNestedValue(
-                gameDataSources.default,
-                collectable.accessoryName
-              )}
-            </div>
           </div>
         ))}
       </div>

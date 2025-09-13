@@ -27,7 +27,7 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
   const [currentHighlights, setStoryHighlights] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [showAllStories, setShowAllStories] = useState<boolean>(true);
+  const [showAllStories, setShowAllStories] = useState<boolean>(false);
   const [showBetaStories, setShowBetaStories] = useState<boolean>(false);
 
   useEffect(() => {

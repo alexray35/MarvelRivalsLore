@@ -1,8 +1,6 @@
 // GalleryCollectable.tsx
 import React from "react";
 import { CollectableInfo } from "./CollectableList";
-import { getNestedValue } from "./getNestedValue";
-import gameDataSources from "./GameData";
 
 interface GalleryCollectableProps {
   onCollectableSelect: (id: string) => void;
@@ -31,12 +29,6 @@ const GalleryCollectable: React.FC<GalleryCollectableProps> = ({
               alt={collectable.collectableName}
               loading="lazy"
             />
-            <div className="image-caption">
-              {getNestedValue(
-                gameDataSources.default,
-                collectable.collectableName
-              )}
-            </div>
           </div>
         ))}
       </div>

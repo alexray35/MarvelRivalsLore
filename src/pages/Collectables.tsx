@@ -3,6 +3,9 @@ import { useState } from "react";
 import GalleryCollectable from "../GalleryCollectable";
 import CollectableDetail from "../CollectableDetail";
 import { CollectableInfo } from "../CollectableList";
+import GalleryAccessory from "../GalleryAccessory";
+import AccessoryDetail from "../AccessoryDetail";
+import { AccessoryInfo } from "../AccessoryList";
 import "../CollectablePage.css";
 
 function CollectablesPage() {
@@ -10,8 +13,16 @@ function CollectablesPage() {
     CollectableInfo[0]?.id || "0180011"
   ); // Use first element's ID as default with fallback
 
+  const [selectedAccessoryId, setSelectedAccessoryId] = useState<string>(
+    AccessoryInfo[0]?.id || "0180011"
+  ); // Use first element's ID as default with fallback
+
   const handleCollectableSelect = (id: string) => {
     setSelectedCollectableId(id);
+  };
+
+  const handleAccessorySelect = (id: string) => {
+    setSelectedAccessoryId(id);
   };
 
   return (
@@ -23,6 +34,16 @@ function CollectablesPage() {
         </div>
         <div className="collectables-detail">
           <CollectableDetail id={selectedCollectableId} />
+        </div>
+      </div>
+
+      <h1 className="pagetitle">Accessories</h1>
+      <div className="collectables-container">
+        <div className="collectables-gallery">
+          <GalleryAccessory onAccessorySelect={handleAccessorySelect} />
+        </div>
+        <div className="collectables-detail">
+          <AccessoryDetail id={selectedAccessoryId} />
         </div>
       </div>
     </div>

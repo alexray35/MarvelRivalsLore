@@ -18,10 +18,10 @@ export function getNestedValue(obj: any, targetKey: string): any {
   if (targetKey.includes('.')) {
     const [parentKey, ...restKeys] = targetKey.split('.');
     const nestedObj = obj[parentKey];
-    if (nestedObj === undefined) return undefined;
+    if (nestedObj === undefined) return nestedObj;
     return getNestedValue(nestedObj, restKeys.join('.'));
   }
 
  
 
-  return undefined;}
+ }

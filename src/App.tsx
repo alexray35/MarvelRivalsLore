@@ -17,8 +17,8 @@ import MapsPage from "./pages/Maps";
 import ActivityPage from "./pages/Activity";
 import ActivitiesPage from "./pages/Activities";
 import CollectablesPage from "./pages/Collectables";
-import AccesoriesPage from "./pages/Accessories";
 import TeamUpPage from "./pages/TeamUps";
+import SkinsPage from "./pages/Skins";
 import Footer from "./Footer";
 
 import "./Style.css";
@@ -98,14 +98,6 @@ function App() {
               </li>
               <li>
                 <NavLink
-                  to="/accessories"
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  Accessories
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
                   to="/skins"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
@@ -136,7 +128,7 @@ function App() {
           <Route path="/activities" element={<ActivitiesPage />} />
           <Route path="/teamups" element={<TeamUpPage />} />
           <Route path="/collectables" element={<CollectablesPage />} />
-          <Route path="/accessories" element={<AccesoriesPage />} />
+          <Route path="/skins" element={<SkinsPage />} />
           <Route path="/" element={<Navigate to="/main" replace />} />
         </Routes>
       </Router>

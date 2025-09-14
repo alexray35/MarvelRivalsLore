@@ -1,13 +1,10 @@
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import HeroDetail from "../HeroDetail";
 import { useEffect } from "react";
 import "../CharacterPage.css";
 
 function HeroPage() {
-  const location = useLocation();
-  const { id } = location.state || {
-    id: "1027", // Default hero ID
-  };
+  const { linkID } = useParams(); // Get linkID from URL parameter
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,7 +12,7 @@ function HeroPage() {
 
   return (
     <div className="page">
-      <HeroDetail id={id} />
+      <HeroDetail linkID={linkID} /> {/* Pass linkID instead of id */}
     </div>
   );
 }

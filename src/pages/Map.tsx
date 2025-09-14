@@ -1,23 +1,24 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import MapDetail from "../MapDetail";
 import { useEffect } from "react";
 import "../MapPage.css";
 
 function MapPage() {
+  const { linkID } = useParams(); // Get linkID from URL parameter
   const location = useLocation();
-  const { name, isArcade } = location.state || {
-    name: "Royal Palace", // Default map name
+  const { isArcade } = location.state || {
+    // Get isArcade from state
     isArcade: false,
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(name);
   }, []);
 
   return (
     <div className="page">
-      <MapDetail name={name} isArcade={isArcade} />
+      <MapDetail linkID={linkID} isArcade={isArcade} />{" "}
+      {/* Pass linkID instead of name */}
     </div>
   );
 }

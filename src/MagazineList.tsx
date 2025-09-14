@@ -5,6 +5,7 @@ interface MagazineItem {
   season: string;
   imageName: string;
   overrideName: string;
+  linkID: string; // Added linkID field
 }
 
 interface MagazineGroups {
@@ -37,6 +38,9 @@ const processMagazineData = async (): Promise<{
     let maxSerialSeason = 0;
     let maxSpecialSeason = 0;
 
+    // Track counts for each season
+    const seasonCounts: { [key: string]: number } = {};
+
     data
       .filter((row: { [x: string]: string }) => row["Id"]?.trim())
       .forEach((row: { [x: string]: string }) => {
@@ -47,7 +51,23 @@ const processMagazineData = async (): Promise<{
         const seasonNum = parseInt(season);
 
         if (id.length >= 7) {
-          const magazineItem = { id, season, imageName, overrideName };
+          // Generate linkID based on season type
+          let linkID: string;
+
+          if (seasonNum >= 0) {
+            // For serials: "season" + season + number
+            const seasonKey = `season${season}`;
+            seasonCounts[seasonKey] = (seasonCounts[seasonKey] || 0) + 1;
+            linkID = `${seasonKey}-${seasonCounts[seasonKey]}`;
+          } else {
+            // For specials: "special" + season (without dashes) + number
+            const cleanedSeason = season.replace(/-/g, "");
+            const seasonKey = `special${cleanedSeason}`;
+            seasonCounts[seasonKey] = (seasonCounts[seasonKey] || 0) + 1;
+            linkID = `${seasonKey}${seasonCounts[seasonKey]}`;
+          }
+
+          const magazineItem = { id, season, imageName, overrideName, linkID };
 
           // Add to bySeason dictionary
           if (!result.bySeason[seasonNum]) {

@@ -12,41 +12,39 @@ import { getNestedValue } from "./getNestedValue";
 import gameDataSources from "./GameData";
 
 interface ActivityDetailProps {
-  name?: string;
-  season?: number;
+  linkID?: string; // Changed from name/season to linkID
 }
 
 const ActivityDetail: React.FC<ActivityDetailProps> = ({
-  name: propName,
-  season = 0,
+  linkID: propLinkID,
 }) => {
-  const { name: paramName } = useParams<{ name: string }>();
+  const { linkID: paramLinkID } = useParams<{ linkID: string }>();
   const [selectedSectionIndex, setSelectedSectionIndex] = useState<
     number | null
   >(null);
 
-  const activityName = propName || paramName || "Example Activity Season 0";
-  const isBetaSeason = season === -1;
+  const activityLinkID = propLinkID || paramLinkID || "season0activity1"; // Default fallback
 
-  const activityList =
-    season === 0
-      ? ActivityInfo_Season0
-      : season === 1
-      ? ActivityInfo_Season1
-      : season === 2
-      ? ActivityInfo_Season2
-      : season === 3
-      ? ActivityInfo_Season3
-      : season === 4
-      ? ActivityInfo_Season4
-      : ActivityInfo_SeasonBETA;
+  // Combine all activity lists into one array for easier searching
+  const allActivities = [
+    ...ActivityInfo_SeasonBETA,
+    ...ActivityInfo_Season0,
+    ...ActivityInfo_Season1,
+    ...ActivityInfo_Season2,
+    ...ActivityInfo_Season3,
+    ...ActivityInfo_Season4,
+  ];
 
-  const activity = activityList.find((a) => a.name === activityName);
+  // Find activity by linkID
+  const activity = allActivities.find((a) => a.linkID === activityLinkID);
 
   if (!activity) {
-    console.error(`No activity found with name: ${activityName}`);
+    console.error(`No activity found with linkID: ${activityLinkID}`);
     return null;
   }
+
+  // Determine if it's a beta season activity
+  const isBetaSeason = ActivityInfo_SeasonBETA.includes(activity);
 
   const handleSectionClick = (index: number | null) => {
     setSelectedSectionIndex(index);
@@ -95,7 +93,7 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
                 <div className="subsection-content">
                   <div className="subsection-image-container">
                     <img
-                      src={`./textures/activities/${subsection.subsectionImage}`}
+                      src={`/textures/activities/${subsection.subsectionImage}`}
                       alt={
                         isBetaSeason
                           ? subsection.subsectionTitle

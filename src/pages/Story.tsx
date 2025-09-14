@@ -1,15 +1,15 @@
 // Story.tsx
-import { useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import StoryContent from "../StoryContent";
 import { useEffect } from "react";
 
 function StoryPage() {
+  const { linkID } = useParams(); // Get linkID from URL parameter
   const location = useLocation();
-  const { titlePath, isBeta, titleOverride } = location.state || {
-    titlePath: "UIGalleryTable_01010001_CardCaption_CaptionTitle",
-    isBeta: false,
-    titleOverride: "", // Default to empty string
-  };
+  const { titleOverride } = location.state || { titleOverride: "" };
+
+  // Default fallback if no linkID in URL
+  const storyLinkID = linkID || "defaultStory";
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,11 +17,7 @@ function StoryPage() {
 
   return (
     <div className="page">
-      <StoryContent
-        storyTitlePath={titlePath}
-        isBeta={isBeta}
-        titleOverride={titleOverride} // Pass the override text directly
-      />
+      <StoryContent storyLinkID={storyLinkID} titleOverride={titleOverride} />
     </div>
   );
 }

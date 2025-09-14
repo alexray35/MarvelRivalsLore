@@ -6,7 +6,7 @@ import { gameDataSources } from "./GameData";
 import { getNestedValue } from "./getNestedValue";
 
 interface StoryProps {
-  storyTitlePath: string;
+  storyLinkID: string; // Changed from storyTitlePath to storyLinkID
   isBeta?: boolean;
   titleOverride?: string;
 }
@@ -34,15 +34,15 @@ const TAB_ORDER = [
 ];
 
 const Story: React.FC<StoryProps> = ({
-  storyTitlePath,
+  storyLinkID, // Changed from storyTitlePath to storyLinkID
   isBeta = false,
   titleOverride = "",
 }) => {
   const [selectedVersionIndex, setSelectedVersionIndex] = useState<number>(0);
-  const loreItem = LoreItems.find((item) => item.titlePath === storyTitlePath);
+  const loreItem = LoreItems.find((item) => item.linkID === storyLinkID); // Changed to use linkID
 
   if (!loreItem) {
-    console.error(`No lore item found for title path: ${storyTitlePath}`);
+    console.error(`No lore item found for link ID: ${storyLinkID}`);
     return null;
   }
 

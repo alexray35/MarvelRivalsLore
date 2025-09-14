@@ -18,6 +18,7 @@ interface LoreItem {
   imagePath: string;
   type: string;
   source: string;
+  linkID: string; // Added linkID field
 }
 
 const getSeasonName = (seasonNumber: number): string => {
@@ -50,6 +51,7 @@ const processLoreData = async (): Promise<LoreItem[]> => {
       source: isSpecial
         ? `Special: ${getSeasonName(seasonNum)}`
         : `Magazine: Season ${seasonNum}`,
+      linkID: magazine.linkID, // Added magazine linkID
     });
   });
 
@@ -63,6 +65,7 @@ const processLoreData = async (): Promise<LoreItem[]> => {
         imagePath: `/textures/stories/${story.imageName}`,
         type: "Hero Story",
         source: "Hero: " + story.hero,
+        linkID: story.linkID, // Added story linkID
       });
     }
   });

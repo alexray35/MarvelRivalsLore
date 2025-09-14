@@ -1,3 +1,4 @@
+// GalleryActivity.tsx
 import React from "react";
 import {
   ActivityInfo_Season0,
@@ -12,22 +13,19 @@ import { getNestedValue } from "./getNestedValue";
 import gameDataSources from "./GameData";
 
 interface GalleryActivityProps {
-  onActivitySelect?: (name: string, season: number) => void;
-  showOnlyLatestSeason?: boolean; // New optional parameter
+  onActivitySelect?: (linkID: string) => void; // Changed to accept linkID
+  showOnlyLatestSeason?: boolean;
 }
 
 const GalleryActivity: React.FC<GalleryActivityProps> = ({
   onActivitySelect,
-  showOnlyLatestSeason = false, // Default to false for backward compatibility
+  showOnlyLatestSeason = false,
 }) => {
   const navigate = useNavigate();
 
-  const handleActivityClick = (name: string, season: number) => {
-    if (onActivitySelect) {
-      onActivitySelect(name, season);
-    } else {
-      navigate("/activity", { state: { name, season } });
-    }
+  const handleActivitySelect = (linkID: string) => {
+    // Changed to accept linkID
+    navigate(`/activity/${linkID}`); // Use URL parameter
   };
 
   const seasonData = [
@@ -39,10 +37,9 @@ const GalleryActivity: React.FC<GalleryActivityProps> = ({
     { number: -999, activities: ActivityInfo_SeasonBETA, isBeta: true },
   ].filter((season) => season.activities.length > 0);
 
-  // Filter to only show the latest season if showOnlyLatestSeason is true
   const filteredSeasonData =
     showOnlyLatestSeason && seasonData.length > 0
-      ? [seasonData[0]] // Get the first item (latest season)
+      ? [seasonData[0]]
       : seasonData;
 
   return (
@@ -57,14 +54,9 @@ const GalleryActivity: React.FC<GalleryActivityProps> = ({
           <div className="gallery-grid">
             {season.activities.map((activity) => (
               <div
-                key={activity.name}
+                key={activity.linkID} // Use linkID as key
                 className="gallery-item"
-                onClick={() =>
-                  handleActivityClick(
-                    activity.name,
-                    season.isBeta ? -1 : season.number
-                  )
-                }
+                onClick={() => handleActivitySelect(activity.linkID)} // Pass linkID
                 style={{ cursor: "pointer" }}
               >
                 <img

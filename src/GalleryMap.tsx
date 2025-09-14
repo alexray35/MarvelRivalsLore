@@ -1,14 +1,15 @@
-import React from 'react';
-import { MapInfoRegular, MapInfoArcade } from './MapList';
+import React from "react";
+import { MapInfoRegular, MapInfoArcade } from "./MapList";
 
 interface GalleryMapProps {
-  onMapSelect?: (name: string, isArcade: boolean) => void;
+  onMapSelect?: (linkID: string, isArcade: boolean) => void; // Changed to accept linkID
 }
 
 const GalleryMap: React.FC<GalleryMapProps> = ({ onMapSelect }) => {
-  const handleMapClick = (name: string, isArcade: boolean) => {
+  const handleMapClick = (linkID: string, isArcade: boolean) => {
+    // Changed to accept linkID
     if (onMapSelect) {
-      onMapSelect(name, isArcade);
+      onMapSelect(linkID, isArcade);
     }
   };
 
@@ -21,16 +22,16 @@ const GalleryMap: React.FC<GalleryMapProps> = ({ onMapSelect }) => {
       <div className="gallery-section">
         <div className="gallery-grid">
           {maps.map((map) => (
-            <div 
-              key={map.name}
+            <div
+              key={map.linkID} // Use linkID as key
               className="gallery-item"
-              onClick={() => handleMapClick(map.name, isArcade)}
-              style={{ cursor: 'pointer' }}
+              onClick={() => handleMapClick(map.linkID, isArcade)} // Pass linkID
+              style={{ cursor: "pointer" }}
             >
               <div className="image-wrapper">
                 <img
                   className="map-thumbnail"
-                  src={`./textures/map_gallery/${map.galleryImage}`}
+                  src={`/textures/map_gallery/${map.galleryImage}`} // Fixed path with /
                   alt={map.name}
                   loading="lazy"
                 />
@@ -48,7 +49,7 @@ const GalleryMap: React.FC<GalleryMapProps> = ({ onMapSelect }) => {
   return (
     <div className="gallery-map">
       {renderGallery(MapInfoRegular, false)}
-      <h2 className='pagetitle'>Arcade</h2>
+      <h2 className="pagetitle">Arcade</h2>
       {renderGallery(MapInfoArcade, true)}
     </div>
   );

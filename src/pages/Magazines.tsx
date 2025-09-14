@@ -6,14 +6,10 @@ import { useEffect } from "react";
 function MagazinesPage() {
   const navigate = useNavigate();
 
-  const handleMagazineSelect = (id: string, overrideName: string) => {
-    const titlePath = `UIGalleryTable_${id}_CardCaption_CaptionTitle`;
-    const contentPath = `UIGalleryTable_${id}_CardCaption_CaptionContent`;
-    navigate("/story", {
+  const handleMagazineSelect = (linkID: string, overrideName: string) => {
+    navigate(`/story/${linkID}`, {
       state: {
-        titlePath,
-        contentPath,
-        titleOverride: overrideName,
+        titleOverride: overrideName, // Still pass titleOverride via state
       },
     });
   };

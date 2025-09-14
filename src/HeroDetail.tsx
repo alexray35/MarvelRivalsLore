@@ -1,35 +1,29 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { HeroDetailInfo } from "./HeroDetailList";
+import { useNavigate, useParams } from "react-router-dom";
 import JsonValue from "./JsonValue";
 import GalleryStory from "./GalleryStory";
 import { HeroInfo } from "./HeroList";
 
 interface HeroDetailProps {
-  id?: string; // Optional prop with default value
+  linkID?: string; // Changed from id to linkID
 }
 
-const HeroDetail: React.FC<HeroDetailProps> = ({ id = "1017" }) => {
+const HeroDetail: React.FC<HeroDetailProps> = ({ linkID: propLinkID }) => {
   const navigate = useNavigate();
+  const { linkID: paramLinkID } = useParams<{ linkID: string }>(); // Get linkID from URL
 
-  // Find the hero data matching the provided id
-  const hero = HeroDetailInfo.find(
-    (item) =>
-      item.heroRender.includes(id) ||
-      item.heroSignature.includes(id) ||
-      item.heroLogo.includes(id)
-  );
+  // Use propLinkID if provided, otherwise use the URL parameter, otherwise default
+  const heroLinkID = propLinkID || paramLinkID || "IronMan"; // Default fallback
 
-  // Find the hero name from HeroInfo using the id
-  const heroData = HeroInfo.find((h) => h.id === id);
-  const heroName = heroData?.heroName || "";
+  // Find the hero data matching the provided linkID
+  const hero = HeroInfo.find((h) => h.linkID === heroLinkID);
 
-  const handleStorySelect = (titlePath: string, contentPath: string) => {
-    navigate("/story", { state: { titlePath, contentPath } });
+  const handleStorySelect = (linkID: string) => {
+    navigate(`/story/${linkID}`);
   };
 
   if (!hero) {
-    console.error(`No hero found with id: ${id}`);
+    console.error(`No hero found with linkID: ${heroLinkID}`);
     return null;
   }
 
@@ -53,9 +47,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({ id = "1017" }) => {
             className="character-logo"
           />
           <div className="name-container">
-            <h1 className="subpagetitle heroname">
-              <JsonValue path={hero.heroName} />
-            </h1>
+            <h1 className="subpagetitle heroname">{hero.heroName}</h1>
             <h2 className="subpagetitle heroname herorealname">
               <JsonValue path={hero.heroRealName} />
             </h2>
@@ -86,7 +78,11 @@ const HeroDetail: React.FC<HeroDetailProps> = ({ id = "1017" }) => {
       {/* Stories section */}
       <section className="character-content">
         <p className="subpagetitle">Stories</p>
-        <GalleryStory heroFilter={heroName} onStorySelect={handleStorySelect} />
+        <GalleryStory
+          heroFilter={hero.heroName} // Use heroName for filtering
+          showingAllStories={true}
+          onStorySelect={handleStorySelect}
+        />
       </section>
     </div>
   );

@@ -1,5 +1,6 @@
 // MapList.tsx
 interface MapInfo {
+  linkID: string;
   group: string;
   name: string;
   domNames: string[];
@@ -31,6 +32,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Yggsgard",
@@ -53,6 +55,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Tokyo 2099",
@@ -70,6 +73,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "TokyoH01_Attack_Video.mp4", caption: "Attack" },
       { video: "TokyoH01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Tokyo 2099",
@@ -85,6 +89,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "TokyoE01_Attack_Video.mp4", caption: "Attack" },
       { video: "TokyoE01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Intergalactic Empire of Wakanda",
@@ -112,6 +117,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "WakandaC01_Attack_Video.mp4", caption: "Attack" },
       { video: "WakandaC01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Intergalactic Empire of Wakanda",
@@ -134,6 +140,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "WakandaH01_Attack_Video.mp4", caption: "Attack" },
       { video: "WakandaH01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Klyntar",
@@ -156,6 +163,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "KlyntarH01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Hydra Charteris Base",
@@ -178,6 +186,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "HydraMC01_Attack_Video.mp4", caption: "Attack" },
       { video: "HydraMC01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Empire of Eternal Night",
@@ -200,6 +209,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "NewYorkE01_Attack_Video.mp4", caption: "Attack" },
       { video: "NewYorkE01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Empire of Eternal Night",
@@ -222,6 +232,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "NewYorkH01_Attack_Video.mp4", caption: "Attack" },
       { video: "NewYorkH01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Hellfire Gala",
@@ -243,6 +254,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "KrakoaMC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KrakoaMC01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Hellfire Gala",
@@ -265,6 +277,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "ArakkoE01_Attack_Video.mp4", caption: "Attack" },
       { video: "ArakkoE01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Klyntar",
@@ -294,6 +307,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "KlyntarMC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KlyntarMC01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   {
     group: "Klyntar",
@@ -304,6 +318,8 @@ const MapInfoRegularOrdered: MapInfo[] = [
     domImages: [],
     loadingTips: [
       "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#0_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#1_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#2_Text",
     ],
     loadingvideos: [{ video: "KlyntarEC01_Loading_Video.mp4", caption: "" }],
     introvideos: [],
@@ -311,6 +327,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "KlyntarEC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KlyntarEC01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
   /*
   {
@@ -347,6 +364,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     loadingvideos: [{ video: "Loading_Tokyo.mp4", caption: "" }],
     introvideos: [{ video: "TojyoE01_Video.mp4", caption: "Attack & Defend" }],
     outrovideos: [],
+    linkID: "",
   },
   {
     group: "Empire of Eternal Night",
@@ -363,6 +381,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     loadingvideos: [{ video: "NewYorkM01_Loading_Video.mp4", caption: "" }],
     introvideos: [],
     outrovideos: [],
+    linkID: "",
   },
   {
     group: "Intergalactic Empire of Wakanda",
@@ -379,6 +398,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     loadingvideos: [{ video: "Springfestival_Loading.mp4", caption: "" }],
     introvideos: [],
     outrovideos: [],
+    linkID: "",
   },
   {
     group: "Age of Ultron",
@@ -393,10 +413,21 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
     introvideos: [],
     outrovideos: [],
+    linkID: "",
   },
 ];
 
-const MapInfoRegular = [...MapInfoRegularOrdered].reverse();
-const MapInfoArcade = [...MapInfoArcadeOrdered].reverse();
+const MapInfoWithLinkIDs = MapInfoRegularOrdered.map((map) => ({
+  ...map,
+  linkID: map.name.replace(/\s+/g, ""), // Remove all spaces
+}));
+
+const MapArcadeInfoWithLinkIDs = MapInfoArcadeOrdered.map((map) => ({
+  ...map,
+  linkID: map.name.replace(/\s+/g, ""), // Remove all spaces
+}));
+
+const MapInfoRegular = [...MapInfoWithLinkIDs].reverse();
+const MapInfoArcade = [...MapArcadeInfoWithLinkIDs].reverse();
 
 export { MapInfoRegular, MapInfoArcade };

@@ -5,8 +5,11 @@ import { useEffect } from "react";
 function MapsPage() {
   const navigate = useNavigate();
 
-  const handleMapSelect = (name: string, isArcade: boolean) => {
-    navigate("/map", { state: { name, isArcade } });
+  const handleMapSelect = (linkID: string, isArcade: boolean) => {
+    // Changed to accept linkID
+    navigate(`/map/${linkID}`, {
+      state: { isArcade }, // Only pass isArcade via state
+    });
   };
 
   useEffect(() => {

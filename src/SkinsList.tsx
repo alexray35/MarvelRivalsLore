@@ -1,23 +1,55 @@
 // SkinsList.tsx
 import { gameDataSources } from "./GameData";
 import { HeroInfo } from "./HeroList";
+import skinTable from "./gamedata/UISkinTable.json";
 
 interface SkinInfo {
-  id: string; // XXXXYYY format (character ID + skin ID)
-  characterId: string; // XXXX format
+  id: string;
+  characterId: string;
+  heroName?: string;
+
   skinName: string;
   skinDescription: string;
   skinSource: string;
+
   skinIcon: string;
   skinRender: string;
-  heroName?: string;
   skinActualName: string;
+
+  skinTheme: string;
 }
 
-// Define the structure of the game data
+/// Define the structure of the game data
 interface GameData {
   [key: string]: any;
 }
+
+const extractSkinTheme = (fullSkinId: string): string => {
+  try {
+    const skinData = skinTable as GameData;
+
+    if (!skinData || Object.keys(skinData).length === 0) {
+      return "default";
+    }
+
+    const skinPath = skinData[0].Rows[fullSkinId + "0"].SkinLevel.AssetPathName;
+
+    if (!skinPath) {
+      return "Common";
+    }
+
+    const match = skinPath.match(/Lobby_(\d{4})/);
+
+    if (match && match[1]) {
+      return match[1];
+    }
+
+    return "Common";
+  } catch (error) {
+    console.error("Error extracting skin theme:", error);
+    return "error";
+  }
+};
 
 const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
   try {
@@ -62,6 +94,9 @@ const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
           const renderPath = `/textures/skin_render/img_skin_${fullSkinId}.png`;
           const skinKeydName = subKeys[nameKey] || nameKey;
 
+          // Extract skin theme from UISkinTable
+          const skinTheme = extractSkinTheme(fullSkinId);
+
           const skinInfo: SkinInfo = {
             id: fullSkinId,
             characterId: characterId,
@@ -72,6 +107,7 @@ const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
             skinRender: renderPath,
             heroName: heroInfo?.heroName || "Unknown Hero",
             skinActualName: skinKeydName,
+            skinTheme,
           };
 
           skinMap.set(fullSkinId, skinInfo);
@@ -92,5 +128,4 @@ const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
 };
 
 const SkinsInfo = extractSkinsFromGameData(HeroInfo);
-console.log(SkinsInfo);
 export { SkinsInfo };

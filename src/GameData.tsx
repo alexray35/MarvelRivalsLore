@@ -9,6 +9,7 @@ import gameSeason3FFData from "./gamedata/Game 2025 07 24.json";
 import gameSeason3_5Data from "./gamedata/Game 2025 08 08.json";
 import gameSeason4Data from "./gamedata/Game 2025 09 12.json";
 import limboData from "./gamedata/Game Limbo.json";
+import skinData from "./gamedata/UISkinTable.json";
 
 export interface GameData {
   // Define the structure of your game data if needed
@@ -64,6 +65,10 @@ export const gameDataSources: GameDataSources = {
   limbo: {
     data: limboData,
     displayName: "Limbo",
+  },
+  skins: {
+    data: skinData,
+    displayName: "skin",
   },
 };
 

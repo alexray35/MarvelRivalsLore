@@ -6,14 +6,17 @@ interface StoryInfo {
   imageName: string;
   hero: string;
   highlight: string;
+  linkID: string; // Added linkID field
 }
 
 const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
   try {
     const response = await fetch(csvPath);
-
     const apiData = await response.json();
     const data = apiData.data; //new API shenanigans
+
+    // Track hero story counts
+    const heroStoryCounts: { [key: string]: number } = {};
 
     // Filter rows that have a Title value and map to StoryTrio objects
     const storyInfo = data.map((row: { [x: string]: string }) => {
@@ -35,12 +38,18 @@ const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
         }
       }
 
+      // Generate linkID: hero (without spaces) + sequential number
+      const heroKey = hero.replace(/\s+/g, "");
+      heroStoryCounts[heroKey] = (heroStoryCounts[heroKey] || 0) + 1;
+      const linkID = `${heroKey}${heroStoryCounts[heroKey]}`;
+
       return {
         titlePath,
         contentPath,
         imageName,
         hero,
         highlight,
+        linkID, // Added linkID
       };
     });
 
@@ -57,13 +66,6 @@ const processStories = async (): Promise<StoryInfo[]> => {
   );
 };
 
-const processStoriesBeta = async (): Promise<StoryInfo[]> => {
-  return await processKeys(
-    "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/StoriesBETA"
-  );
-};
-
 const StoryInfo = await processStories();
-const StoryInfoBeta = await processStoriesBeta();
 
-export { StoryInfo, StoryInfoBeta };
+export { StoryInfo };

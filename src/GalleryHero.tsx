@@ -3,8 +3,13 @@ import { HeroInfo as DefaultHeroInfo } from "./HeroList";
 import { useNavigate } from "react-router-dom";
 
 interface GalleryHeroProps {
-  onHeroSelect?: (id: string) => void;
-  heroes?: Array<{ id: string; heroName: string; heroImage: string }>;
+  onHeroSelect?: (linkID: string) => void; // Changed from id to linkID
+  heroes?: Array<{
+    id: string;
+    heroName: string;
+    heroImage: string;
+    linkID: string;
+  }>; // Added linkID
 }
 
 const GalleryHero: React.FC<GalleryHeroProps> = ({
@@ -13,11 +18,12 @@ const GalleryHero: React.FC<GalleryHeroProps> = ({
 }) => {
   const navigate = useNavigate();
 
-  const handleHeroClick = (id: string) => {
+  const handleHeroClick = (linkID: string) => {
+    // Changed from id to linkID
     if (onHeroSelect) {
-      onHeroSelect(id);
+      onHeroSelect(linkID);
     } else {
-      navigate("/hero", { state: { id } });
+      navigate(`/hero/${linkID}`); // Use URL parameter
     }
   };
 
@@ -30,9 +36,9 @@ const GalleryHero: React.FC<GalleryHeroProps> = ({
       <div className="gallery-grid">
         {heroes.map((hero) => (
           <div
-            key={hero.id}
+            key={hero.linkID} // Use linkID as key
             className="gallery-item"
-            onClick={() => handleHeroClick(hero.id)}
+            onClick={() => handleHeroClick(hero.linkID)} // Pass linkID
             style={{ cursor: "pointer" }}
           >
             <img

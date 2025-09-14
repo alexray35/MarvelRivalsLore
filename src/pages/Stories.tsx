@@ -1,3 +1,4 @@
+// Stories.tsx
 import { useNavigate } from "react-router-dom";
 import GalleryStory from "../GalleryStory";
 import { useEffect } from "react";
@@ -5,12 +6,8 @@ import { useEffect } from "react";
 function StoriesPage() {
   const navigate = useNavigate();
 
-  const handleStorySelect = (
-    titlePath: string,
-    contentPath: string,
-    isBeta: boolean
-  ) => {
-    navigate("/story", { state: { titlePath, contentPath, isBeta } });
+  const handleStorySelect = (linkID: string) => {
+    navigate(`/story/${linkID}`); // Use URL parameter instead of state
   };
 
   useEffect(() => {

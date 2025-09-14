@@ -7,28 +7,24 @@ import GalleryActivity from "../GalleryActivity";
 function MainPage() {
   const navigate = useNavigate();
 
-  const handleStorySelect = (titlePath: string, contentPath: string) => {
-    navigate("/story", { state: { titlePath, contentPath } });
+  const handleStorySelect = (linkID: string) => {
+    navigate(`/story/${linkID}`); // Use URL parameter instead of state
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleMagazineSelect = (id: string, overrideName: string) => {
-    const titlePath = `UIGalleryTable_${id}_CardCaption_CaptionTitle`;
-    const contentPath = `UIGalleryTable_${id}_CardCaption_CaptionContent`;
-    navigate("/story", {
+  const handleMagazineSelect = (linkID: string, overrideName: string) => {
+    navigate(`/story/${linkID}`, {
       state: {
-        titlePath,
-        contentPath,
-        titleOverride: overrideName,
+        titleOverride: overrideName, // Keep titleOverride via state
       },
     });
   };
-
-  const handleActivitySelect = (name: string, season: number) => {
-    navigate("/activity", { state: { name, season } });
+  const handleActivitySelect = (linkID: string) => {
+    // Changed to accept linkID
+    navigate(`/activity/${linkID}`); // Use URL parameter
   };
 
   return (

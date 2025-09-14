@@ -15,10 +15,12 @@ interface ActivityInfo {
   name: string;
   image: string;
   sections: ActivitySection[];
+  linkID: string; // Add linkID field
 }
 
 const ActivityInfo_SeasonBETA: ActivityInfo[] = [
   {
+    linkID: "beta_event1",
     name: "Galacta's Quest",
     image: "beta.png",
     sections: [
@@ -86,6 +88,7 @@ const ActivityInfo_Season0: ActivityInfo[] = [];
 
 const ActivityInfo_Season1: ActivityInfo[] = [
   {
+    linkID: "season1_event1",
     name: "MarvelActivityTable_114_Name",
     image: "img_home_activity_s1seasonstory_normal.png",
     sections: [
@@ -127,6 +130,7 @@ const ActivityInfo_Season1: ActivityInfo[] = [
     ],
   },
   {
+    linkID: "season1_event2",
     name: "MarvelActivityTable_115_Name",
     image: "img_home_activity_s1seasonstory_normal2.png",
     sections: [
@@ -171,6 +175,7 @@ const ActivityInfo_Season1: ActivityInfo[] = [
 
 const ActivityInfo_Season2: ActivityInfo[] = [
   {
+    linkID: "season2_event1",
     name: "133_MatchActivity_118_ST.TXT_Activity_Title",
     image: "img_home_activity_s21seasonstory_normal.png",
     sections: [
@@ -293,6 +298,7 @@ const ActivityInfo_Season2: ActivityInfo[] = [
     ],
   },
   {
+    linkID: "season2_event2",
     name: "133_MatchActivity_119_ST.TXT_Activity_Title",
     image: "img_home_activity_s22seasonstory_normal.png",
     sections: [
@@ -419,6 +425,7 @@ const ActivityInfo_Season2: ActivityInfo[] = [
 
 const ActivityInfo_Season3: ActivityInfo[] = [
   {
+    linkID: "season3_event1",
     name: "MarvelActivityTable_129_Name",
     image: "img_home_activity_s31seasonstory_normal.png",
     sections: [
@@ -482,6 +489,7 @@ const ActivityInfo_Season3: ActivityInfo[] = [
 
 const ActivityInfo_Season4: ActivityInfo[] = [
   {
+    linkID: "season4_event1",
     name: "MarvelActivityTable_133_Name",
     image: "img_home_activity_s4seasonstory_normal.png",
     sections: [

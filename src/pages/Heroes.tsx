@@ -5,8 +5,9 @@ import { useEffect } from "react";
 function HeroesPage() {
   const navigate = useNavigate();
 
-  const handleHeroSelect = (id: string) => {
-    navigate("/hero", { state: { id } });
+  const handleHeroSelect = (linkID: string) => {
+    // Changed from id to linkID
+    navigate(`/hero/${linkID}`); // Use URL parameter
   };
 
   useEffect(() => {

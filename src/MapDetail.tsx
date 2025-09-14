@@ -5,32 +5,32 @@ import { getNestedValue } from "./getNestedValue";
 import gameDataSources from "./GameData";
 
 interface MapDetailProps {
-  name?: string; // Optional prop with default value
-  isArcade?: boolean; // New prop to determine which map list to use
+  linkID?: string; // Changed from name to linkID
+  isArcade?: boolean;
 }
 
 const MapDetail: React.FC<MapDetailProps> = ({
-  name: propName,
+  linkID: propLinkID,
   isArcade = false,
 }) => {
-  const { name: paramName } = useParams<{ name: string }>();
+  const { linkID: paramLinkID } = useParams<{ linkID: string }>(); // Changed from name to linkID
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Use propName if provided, otherwise use the URL parameter
-  const mapName = propName || paramName || "Yggsdrasill Path";
+  // Use propLinkID if provided, otherwise use the URL parameter
+  const mapLinkID = propLinkID || paramLinkID || "YggsdrasillPath"; // Default fallback
 
   // Use the correct map list based on isArcade
   const mapList = isArcade ? MapInfoArcade : MapInfoRegular;
 
-  // Find the map data matching the provided name
-  const map = mapList.find((m) => m.name === mapName);
+  // Find the map data matching the provided linkID
+  const map = mapList.find((m) => m.linkID === mapLinkID); // Changed to use linkID
 
   if (!map) {
-    console.error(`No map found with name: ${mapName}`);
+    console.error(`No map found with linkID: ${mapLinkID}`);
     return null;
   }
 
-  // Rest of the component remains the same...
+  // Rest of the component with fixed image paths...
   const renderVideoGallery = (
     videos: { video: string; caption: string }[],
     folder: string
@@ -41,7 +41,7 @@ const MapDetail: React.FC<MapDetailProps> = ({
           <div key={index} className="video-item">
             <video controls className="video-player">
               <source
-                src={`./textures/${folder}/${video.video}`}
+                src={`/textures/${folder}/${video.video}`} // Fixed path with /
                 type="video/mp4"
               />
               Your browser does not support the video tag.
@@ -98,7 +98,7 @@ const MapDetail: React.FC<MapDetailProps> = ({
         )}
         <div className="map-mainimage">
           <img
-            src={`./textures/map_background/${displayImage}`}
+            src={`/textures/map_background/${displayImage}`} // Fixed path with /
             alt={map.name}
             className="map-image"
           />

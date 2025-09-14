@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { StoryInfo, StoryInfoBeta } from "./StoryList";
+import { StoryInfo } from "./StoryList";
 import JsonValue from "./JsonValue";
 import gameDataSources from "./GameData";
 
 interface GalleryStoryProps {
-  onStorySelect?: (
-    titlePath: string,
-    contentPath: string,
-    isBeta: boolean
-  ) => void;
+  onStorySelect?: (linkID: string) => void; // Changed to accept linkID
   heroFilter?: string;
   togglesON?: boolean; // New optional parameter
   showOnlyHighlighted?: boolean; // New optional parameter
+  showingAllStories?: boolean;
 }
 
 const GalleryStory: React.FC<GalleryStoryProps> = ({
@@ -19,20 +16,22 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
   heroFilter,
   togglesON = true, // Default to true for backward compatibility
   showOnlyHighlighted = false, // Default to false for backward compatibility
+  showingAllStories = false,
 }) => {
   const [currentImages, setImageNames] = useState<string[]>([]);
   const [currentTitles, setStoryTitles] = useState<string[]>([]);
   const [currentContents, setStoryContents] = useState<string[]>([]);
   const [currentHeroes, setStoryHeroes] = useState<string[]>([]);
   const [currentHighlights, setStoryHighlights] = useState<string[]>([]);
+  const [currentLinkIDs, setStoryLinkIDs] = useState<string[]>([]); // Added for linkIDs
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [showAllStories, setShowAllStories] = useState<boolean>(false);
-  const [showBetaStories, setShowBetaStories] = useState<boolean>(false);
+  const [showAllStories, setShowAllStories] =
+    useState<boolean>(showingAllStories);
 
   useEffect(() => {
     try {
-      const activeStoryInfo = showBetaStories ? StoryInfoBeta : StoryInfo;
+      const activeStoryInfo = StoryInfo;
 
       if (activeStoryInfo.length === 0) {
         throw new Error("No story data found in StoryList");
@@ -43,12 +42,14 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
       const contents = activeStoryInfo.map((info) => info.contentPath);
       const heroes = activeStoryInfo.map((info) => info.hero);
       const highlights = activeStoryInfo.map((info) => info.highlight);
+      const linkIDs = activeStoryInfo.map((info) => info.linkID); // Added linkIDs
 
       setImageNames(images);
       setStoryTitles(titles);
       setStoryContents(contents);
       setStoryHeroes(heroes);
       setStoryHighlights(highlights);
+      setStoryLinkIDs(linkIDs); // Set linkIDs
       setIsLoading(false);
     } catch (err) {
       setError(
@@ -56,7 +57,7 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
       );
       setIsLoading(false);
     }
-  }, [showBetaStories]);
+  }, []);
 
   if (isLoading) {
     return <div>Loading gallery...</div>;
@@ -77,6 +78,7 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
       index,
       hero: currentHeroes[index],
       highlight: currentHighlights[index],
+      linkID: currentLinkIDs[index], // Added linkID to filter
     }))
     .filter(({ hero }) => !heroFilter || hero === heroFilter)
     .filter(({ highlight }) => !showOnlyHighlighted || highlight?.trim() !== "")
@@ -107,23 +109,6 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
                   </span>
                 </label>
               </div>
-              <div className="beta gallery-toggle">
-                <label>
-                  <span style={{ marginRight: "10px" }}>
-                    {showBetaStories
-                      ? "Show BETA stories"
-                      : "Show current stories"}
-                  </span>
-                  <span className="toggle-switch">
-                    <input
-                      type="checkbox"
-                      checked={showBetaStories}
-                      onChange={() => setShowBetaStories(!showBetaStories)}
-                    />
-                    <span className="toggle-slider"></span>
-                  </span>
-                </label>
-              </div>
             </>
           )}
         </div>
@@ -133,6 +118,7 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
           const title = currentTitles[originalIndex];
           const content = currentContents[originalIndex];
           const image = currentImages[originalIndex];
+          const linkID = currentLinkIDs[originalIndex]; // Get linkID
           const hasContent = content?.trim() !== "";
           const highlight = currentHighlights[originalIndex];
           const isHighlighted = highlight?.trim() !== "";
@@ -140,18 +126,16 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
           return (
             <div
               key={originalIndex}
-              className={`gallery-item ${showBetaStories ? "beta-item" : ""} ${
+              className={`gallery-item ${
                 isHighlighted ? "highlighted-item" : ""
               }`}
-              onClick={() =>
-                hasContent && onStorySelect?.(title, content, showBetaStories)
-              }
+              onClick={() => hasContent && onStorySelect?.(linkID)} // Send linkID instead
               style={{ cursor: hasContent ? "pointer" : "default" }}
             >
               <img
                 className={`storyimage ${hasContent ? "" : "nocontent"} ${
-                  showBetaStories ? "beta-image" : ""
-                } ${isHighlighted ? "highlighted-image" : ""}`}
+                  isHighlighted ? "highlighted-image" : ""
+                }`}
                 src={`/textures/stories/${image}`}
                 alt={image}
                 loading="lazy"
@@ -159,21 +143,10 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
               <div
                 className="image-caption"
                 style={{
-                  color: hasContent
-                    ? showBetaStories
-                      ? "#36fe89"
-                      : "#ffffff"
-                    : "#ffffff60",
+                  color: hasContent ? "#ffffff" : "#ffffff60",
                 }}
               >
-                <JsonValue
-                  path={title}
-                  gameData={
-                    showBetaStories
-                      ? gameDataSources.beta
-                      : gameDataSources.default
-                  }
-                />
+                <JsonValue path={title} gameData={gameDataSources.default} />
                 {isHighlighted && <span className="highlight-badge">NEW</span>}
               </div>
             </div>

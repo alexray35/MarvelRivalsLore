@@ -12,8 +12,8 @@ import {
 import JsonValue from "./JsonValue";
 
 interface GalleryMagazineProps {
-  onMagazineSelect?: (id: string, overrideName: string) => void;
-  showOnlyLastSeason?: boolean; // New optional parameter
+  onMagazineSelect?: (linkID: string, overrideName: string) => void; // Updated to include overrideName
+  showOnlyLastSeason?: boolean;
 }
 
 interface MagazineItem {
@@ -21,6 +21,7 @@ interface MagazineItem {
   season: string;
   imageName: string;
   overrideName: string;
+  linkID: string; // Added linkID
 }
 
 const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
@@ -97,7 +98,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
         <div
           key={`${season}-${index}`}
           className="magazine-item"
-          onClick={() => onMagazineSelect?.(item.id, item.overrideName)}
+          onClick={() => onMagazineSelect?.(item.linkID, item.overrideName)} // Pass both values
           style={{ cursor: onMagazineSelect ? "pointer" : "default" }}
         >
           <img

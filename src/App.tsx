@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,14 +21,27 @@ import CollectablesPage from "./pages/Collectables";
 import TeamUpPage from "./pages/TeamUps";
 import SkinsPage from "./pages/Skins";
 import Footer from "./Footer";
+import LoadingScreen from "./LoadingScreen"; // Import the loading screen
 
 import "./Style.css";
 import "./StyleMobile.css";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Simulate loading time (you can replace this with actual loading logic)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // 2.5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
   return (
-    <body>
-      <div className="polka-bg" />
+    <div>
       <Router>
         <div className="navarea">
           <nav>
@@ -119,12 +133,16 @@ function App() {
           <Route path="/main" element={<MainPage />} />
           <Route path="/stories" element={<StoriesPage />} />
           <Route path="/serials" element={<MagazinesPage />} />
-          <Route path="/story" element={<StoryPage />} />
-          <Route path="/hero" element={<HeroPage />} />
+          <Route path="/story/:linkID?" element={<StoryPage />} />{" "}
+          {/* Add parameter */}
+          <Route path="/hero/:linkID?" element={<HeroPage />} />{" "}
+          {/* Add parameter */}
           <Route path="/heroes" element={<HeroesPage />} />
           <Route path="/maps" element={<MapsPage />} />
-          <Route path="/map" element={<MapPage />} />
-          <Route path="/activity" element={<ActivityPage />} />
+          <Route path="/map/:linkID?" element={<MapPage />} />{" "}
+          {/* Add parameter */}
+          <Route path="/activity/:linkID?" element={<ActivityPage />} />{" "}
+          {/* Add parameter */}
           <Route path="/activities" element={<ActivitiesPage />} />
           <Route path="/teamups" element={<TeamUpPage />} />
           <Route path="/collectables" element={<CollectablesPage />} />
@@ -135,7 +153,7 @@ function App() {
       <footer>
         <Footer />
       </footer>
-    </body>
+    </div>
   );
 }
 

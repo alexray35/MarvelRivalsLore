@@ -18,7 +18,6 @@ interface GalleryActivityProps {
 }
 
 const GalleryActivity: React.FC<GalleryActivityProps> = ({
-  onActivitySelect,
   showOnlyLatestSeason = false,
 }) => {
   const navigate = useNavigate();

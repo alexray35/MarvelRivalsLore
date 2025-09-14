@@ -5,8 +5,9 @@ import { useEffect } from "react";
 function ActivitiesPage() {
   const navigate = useNavigate();
 
-  const handleActivitySelect = (name: string, season: number) => {
-    navigate("/activity", { state: { name, season } });
+  const handleActivitySelect = (linkID: string) => {
+    // Changed to accept linkID
+    navigate(`/activity/${linkID}`); // Use URL parameter
   };
 
   useEffect(() => {

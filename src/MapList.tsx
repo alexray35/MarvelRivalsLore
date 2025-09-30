@@ -329,12 +329,11 @@ const MapInfoRegularOrdered: MapInfo[] = [
     ],
     linkID: "",
   },
-  /*
   {
     group: "K'un-Lun",
     name: "Heart of Heaven",
     domNames: [],
-    galleryImage: "img_mapselect_klyntar_abyssthrone.png",
+    galleryImage: "img_mapselect_kunlun_heartoftiandu.png",
     backgroundImage: "img_map_kunlun_heartoftiandu.png",
     domImages: [],
     loadingTips: [
@@ -348,8 +347,8 @@ const MapInfoRegularOrdered: MapInfo[] = [
       { video: "KlyntarEC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KlyntarEC01_Defence_Video.mp4", caption: "Defend" },
     ],
+    linkID: "",
   },
-*/
 ];
 
 const MapInfoArcadeOrdered: MapInfo[] = [

@@ -30,18 +30,20 @@ const AccessoryDetail: React.FC<AccessoryDetailProps> = ({
             />
           </div>
           <div className="subsection-text-container">
-            <h2 className="subsection-title">
-              {getNestedValue(
-                gameDataSources.default,
-                collectable.accessoryName
-              )}
-            </h2>
-            <p className="long-text">
-              {getNestedValue(
-                gameDataSources.default,
-                collectable.accessoryDescription
-              )}
-            </p>
+            <div className="scrollable-area">
+              <h2 className="subsection-title">
+                {getNestedValue(
+                  gameDataSources.default,
+                  collectable.accessoryName
+                )}
+              </h2>
+              <p className="long-text">
+                {getNestedValue(
+                  gameDataSources.default,
+                  collectable.accessoryDescription
+                )}
+              </p>
+            </div>
           </div>
         </div>
       </div>

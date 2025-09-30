@@ -17,12 +17,29 @@ interface SkinInfo {
   skinActualName: string;
 
   skinTheme: string;
+
+  skinStory: string;
 }
 
 /// Define the structure of the game data
 interface GameData {
   [key: string]: any;
 }
+
+// Array of skin IDs with their respective story IDs
+const skinStories: { skinID: string; storyID: string }[] = [
+  { skinID: "1026301", storyID: "BlackPanther2" },
+  { skinID: "1034502", storyID: "IronMan3" },
+  { skinID: "1037300", storyID: "Magneto2" },
+  { skinID: "1023500", storyID: "RocketRaccoon2" },
+  { skinID: "1032302", storyID: "SquirrelGirl2" },
+  { skinID: "1028500", storyID: "Ultron1" },
+  { skinID: "1049500", storyID: "Wolverine2" },
+  { skinID: "1035301", storyID: "Venom2" },
+  { skinID: "1024303", storyID: "Hela2" },
+  { skinID: "1047501", storyID: "JefftheLandShark2" },
+  { skinID: "1016300", storyID: "Loki2" },
+];
 
 const extractSkinTheme = (fullSkinId: string): string => {
   try {
@@ -86,13 +103,34 @@ const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
         const fullSkinId = characterId + skinId;
 
         if (!skinMap.has(fullSkinId)) {
-          // Get skin name and description keys
-          const nameKey = `MarvelItemTable_${fullSkinId}_ItemName`;
-          const descKey = `MarvelItemTable_${fullSkinId}_ItemDescription_NormalDescription`;
+          // Determine the name key based on whether this is a special skin
+          var nameKey = `MarvelItemTable_${fullSkinId}_ItemName`;
+          var descKey = `MarvelItemTable_${fullSkinId}_ItemDescription_NormalDescription`;
           const sourceKey = `MarvelItemTable_${fullSkinId}_ItemDescription_AppearanceItemIPSource`;
           const iconPath = `/textures/skin_icon/item_skin_${fullSkinId}.png`;
           const renderPath = `/textures/skin_render/img_skin_${fullSkinId}.png`;
-          const skinKeydName = subKeys[nameKey] || nameKey;
+          var skinKeydName = subKeys[nameKey] || nameKey;
+          var skinStory = "";
+
+          // Check if this skin has a dedicated story
+          const skinStoryData = skinStories.find(
+            (story) => story.skinID === fullSkinId
+          );
+          if (skinStoryData) {
+            skinStory = skinStoryData.storyID;
+          }
+
+          if (nameKey == skinKeydName) {
+            nameKey = `UISkinTable_${fullSkinId}0_SkinBasic_SkinName`;
+            skinKeydName = subKeys[nameKey] || nameKey;
+          }
+
+          if (fullSkinId == "1011501")
+            descKey = "UISkinTable_10115010_SkinBasic_SkinDesc";
+          else if (fullSkinId == "1016100") {
+            nameKey = "HeroUIAssetBPTable_10161000_SkinInfo_SkinName";
+            skinKeydName = subKeys[nameKey] || nameKey;
+          }
 
           // Extract skin theme from UISkinTable
           const skinTheme = extractSkinTheme(fullSkinId);
@@ -108,6 +146,7 @@ const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
             heroName: heroInfo?.heroName || "Unknown Hero",
             skinActualName: skinKeydName,
             skinTheme,
+            skinStory,
           };
 
           skinMap.set(fullSkinId, skinInfo);
@@ -128,4 +167,5 @@ const extractSkinsFromGameData = (heroes: HeroInfo[]): SkinInfo[] => {
 };
 
 const SkinsInfo = extractSkinsFromGameData(HeroInfo);
+console.log(SkinsInfo);
 export { SkinsInfo };

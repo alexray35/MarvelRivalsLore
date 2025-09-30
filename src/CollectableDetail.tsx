@@ -25,23 +25,28 @@ const CollectableDetail: React.FC<CollectableDetailProps> = ({
           <div className="subsection-image-container">
             <img
               src={`.${collectable.collectableImage}`}
-              alt={collectable.collectableName}
+              alt={getNestedValue(
+                gameDataSources.default,
+                collectable.collectableName
+              )}
               className="subsection-image"
             />
           </div>
           <div className="subsection-text-container">
-            <h2 className="subsection-title">
-              {getNestedValue(
-                gameDataSources.default,
-                collectable.collectableName
-              )}
-            </h2>
-            <p className="long-text">
-              {getNestedValue(
-                gameDataSources.default,
-                collectable.collectableDescription
-              )}
-            </p>
+            <div className="scrollable-area">
+              <h2 className="subsection-title">
+                {getNestedValue(
+                  gameDataSources.default,
+                  collectable.collectableName
+                )}
+              </h2>
+              <p className="long-text">
+                {getNestedValue(
+                  gameDataSources.default,
+                  collectable.collectableDescription
+                )}
+              </p>
+            </div>
           </div>
         </div>
       </div>

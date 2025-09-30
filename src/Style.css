@@ -666,7 +666,7 @@ nav a.active {
 
 .gallery-collect .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(10px, 160px));
+  grid-template-columns: repeat(5, minmax(10px, 140px));
 }
 
 .gallery-hero .gallery-item {
@@ -686,7 +686,14 @@ nav a.active {
   width: 150px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.105);
+}
+
+.gallery-collect .hero-portrait {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .gallery-hero .image-caption {
@@ -827,11 +834,6 @@ nav a.active {
   width: 100%;
   margin-bottom: 10px;
   border-collapse: collapse;
-}
-
-.skin-detail .subsection-container {
-  max-height: 800px;
-  min-height: 800px;
 }
 
 .subsection-content {
@@ -1141,23 +1143,33 @@ nav a.active {
   width: 250px;
   margin: 10px;
   margin-top: 0px;
+  margin-right: 20px;
 }
 
 .collectables-container {
   display: flex;
 }
 
+.collectables-detail {
+  min-height: 550px;
+  max-height: 550px;
+  margin: 0px;
+}
+
 .collectables-gallery {
   flex: 2;
-  min-height: 550px;
+  min-height: 450px;
   max-height: 550px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  min-width: 45%;
   margin-top: 20px;
+  min-width: 45%;
 }
 
 .skins-gallery {
+  margin: 0px;
+  min-width: 60%;
+  max-width: 60%;
   min-height: 750px;
   max-height: 750px;
 }
@@ -1192,14 +1204,14 @@ nav a.active {
 
 .teamup-heroes-section .gallery-hero {
   width: 70%;
-  margin: 0px;
+  margin: 20px;
 }
 
 .teamup-heroes-section .gallery-hero .gallery-grid {
   display: grid;
   margin: 0px;
-  gap: 40px;
-  grid-template-columns: repeat(4, minmax(20px, 150px));
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(150px, 150px));
 }
 
 .teamup-detail {
@@ -1223,6 +1235,16 @@ nav a.active {
   flex: 1;
 }
 
+.teamups-gallery {
+  min-width: 42%;
+  max-width: 42%;
+  min-height: 700px;
+  max-height: 700px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  margin-right: 10px;
+}
+
 .gallery-teamup .gallery-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(10px, 120px));
@@ -1232,7 +1254,6 @@ nav a.active {
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687)), saturate(50%);
 }
 
 .teamup-icon {
@@ -1242,8 +1263,8 @@ nav a.active {
 }
 
 .teamup-detail .teamuptext {
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 350px;
+  max-height: 350px;
   overflow-y: auto;
   padding-right: 10px;
   scroll-behavior: smooth;
@@ -1337,11 +1358,22 @@ nav a.active {
   color: #1da1f2; /* optional hover color (Twitter blue) */
 }
 
+.skin-detail {
+  min-width: 40%;
+  max-width: 40%;
+  min-height: 750px;
+  max-height: 750px;
+}
+
 .skin-detail .subsection-content {
   display: table-cell;
-  width: 500px;
   min-width: 4%;
   max-width: 40%;
+}
+
+.skin-detail .subsection-text-container {
+  width: 100%;
+  flex: 1;
 }
 
 .skin-detail .skin-image {
@@ -1358,7 +1390,7 @@ nav a.active {
 
 .gallery-skins .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(9, minmax(100px, 120px));
+  grid-template-columns: repeat(8, minmax(100px, 120px));
 }
 
 .gallery-skins .hero-portrait {
@@ -1408,4 +1440,38 @@ nav a.active {
   font-size: 1.5rem;
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.skin-detail .collectable-detail {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: block;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  overflow-y: auto;
+  padding-right: 20px;
+  scroll-behavior: smooth;
+}
+
+.skin-container {
+  margin-top: 20px;
+}
+
+.scrollable-area {
+  display: block;
+  min-height: 450px;
+  max-height: 550px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.skin-story {
+  font-family: MRFont;
+  text-transform: uppercase;
+  color: #ffffff;
+  align-items: left;
+}
+
+.skin-story:hover {
+  color: #fbdc2c;
 }

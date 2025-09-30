@@ -26,7 +26,7 @@ function CollectablesPage() {
   };
 
   return (
-    <div className="page">
+    <div className="page collectables-page">
       <h1 className="pagetitle">Collectables</h1>
       <div className="collectables-container">
         <div className="collectables-gallery">

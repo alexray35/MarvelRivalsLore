@@ -17,11 +17,11 @@ function SkinsPage() {
   return (
     <div className="page">
       <h1 className="pagetitle">Skins</h1>
-      <div className="collectables-container">
+      <div className="collectables-container skin-container">
         <div className="collectables-gallery skins-gallery">
           <GallerySkins onSkinSelect={handleSkinSelect} />
         </div>
-        <div className="collectables-detail">
+        <div className="collectables-detail skin-detail">
           <SkinDetail id={selectedSkinId} />
         </div>
       </div>

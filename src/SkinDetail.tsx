@@ -3,6 +3,7 @@ import React from "react";
 import { SkinsInfo } from "./SkinsList";
 import gameDataSources from "./GameData";
 import { getNestedValue } from "./getNestedValue";
+import { Link } from "react-router-dom";
 
 interface SkinDetailProps {
   id?: string;
@@ -19,7 +20,7 @@ const SkinDetail: React.FC<SkinDetailProps> = ({
   }
 
   return (
-    <div className="collectable-detail skin-detail">
+    <div className="collectable-detail ">
       <div className="subsection-container">
         <div className="subsection-content">
           <div className="subsection-image-container">
@@ -40,6 +41,17 @@ const SkinDetail: React.FC<SkinDetailProps> = ({
               {getNestedValue(
                 gameDataSources.default,
                 collectable.skinDescription
+              )}
+              {collectable.skinStory && (
+                <span>
+                  {" — "}
+                  <Link
+                    to={`/story/${collectable.skinStory}`}
+                    className="long-text skin-story"
+                  >
+                    Read More
+                  </Link>
+                </span>
               )}
             </p>
           </div>

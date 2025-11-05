@@ -549,6 +549,54 @@ const ActivityInfo_Season4: ActivityInfo[] = [
       },
     ],
   },
+  {
+    linkID: "season4_event2",
+    name: "MarvelActivityTable_130_Name",
+    image: "img_136activityitem_hover.png",
+    sections: [
+      {
+        sectionTitle: "",
+        subsections: [
+          {
+            subsectionTitle: "",
+            subsectionSubTitle: "",
+            subsectionText: "TXT_Halloween_OverView_Describe",
+            subsectionImage: "img_newarrival_136halloween_bg02.png",
+          },
+          {
+            subsectionTitle: "",
+            subsectionSubTitle: "",
+            subsectionText: "UI_TEXT_Story_Desc_1014",
+            subsectionImage: "img_selecthero_1014001.png",
+          },
+          {
+            subsectionTitle: "",
+            subsectionSubTitle: "",
+            subsectionText: "UI_TEXT_Story_Desc_1029",
+            subsectionImage: "img_selecthero_1029001.png",
+          },
+          {
+            subsectionTitle: "",
+            subsectionSubTitle: "",
+            subsectionText: "UI_TEXT_Story_Desc_1039",
+            subsectionImage: "img_selecthero_1039001.png",
+          },
+          {
+            subsectionTitle: "",
+            subsectionSubTitle: "",
+            subsectionText: "UI_TEXT_Story_Desc_1044",
+            subsectionImage: "img_selecthero_1044001.png",
+          },
+          {
+            subsectionTitle: "",
+            subsectionSubTitle: "",
+            subsectionText: "UI_TEXT_Story_Desc_1047",
+            subsectionImage: "img_selecthero_1047001.png",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export {

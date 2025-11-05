@@ -77,4 +77,19 @@ export const gameDataSources: GameDataSources = {
   },
 };
 
+// Define the desired order for the tabs (newest to oldest)
+export const TAB_ORDER = [
+  "default", // Current
+  "season4_5", // Season 4.5
+  "season4", // Season 4
+  "season3_5", // Season 3.5
+  "season3FF", // Season 3 FF
+  "season3", // Season 3
+  "season2_5", // Season 2.5
+  "season2", // Season 2
+  "season0", // Season 0
+  "beta", // Beta
+  "limbo", // Limbo
+];
+
 export default gameDataSources;

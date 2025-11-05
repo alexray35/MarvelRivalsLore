@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from "react";
 import JsonValue from "./JsonValue";
 import { LoreItems } from "./LoreList";
-import { gameDataSources } from "./GameData";
+import { gameDataSources, TAB_ORDER } from "./GameData";
 import { getNestedValue } from "./getNestedValue";
 
 interface StoryProps {
@@ -18,20 +18,6 @@ interface TabData {
   gameData: object;
   isDifferent: boolean;
 }
-
-// Define the desired order for the tabs (newest to oldest)
-const TAB_ORDER = [
-  "default", // Current
-  "season4",
-  "season3_5", // Season 3.5
-  "season3FF", // Season 3 FF
-  "season3", // Season 3
-  "season2_5", // Season 2.5
-  "season2", // Season 2
-  "season0", // Season 0
-  "beta", // Beta
-  "limbo", // Limbo
-];
 
 const Story: React.FC<StoryProps> = ({
   storyLinkID, // Changed from storyTitlePath to storyLinkID

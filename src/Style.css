@@ -413,6 +413,10 @@ input:checked + .toggle-slider:before {
   background-image: url("/textures/gallerycards/img_gallery_card_25summer01.png");
   bottom: -90%;
 }
+.gallery-group.group--6::before {
+  background-image: url("/textures/gallerycards/img_gallery_card_25halloween.png");
+  bottom: -90%;
+}
 
 .gallery-cover,
 .magazine-grid {

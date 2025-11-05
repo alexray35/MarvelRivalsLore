@@ -414,6 +414,23 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     outrovideos: [],
     linkID: "",
   },
+  {
+    group: "Marvel Zombies",
+    name: "Midtown",
+    domNames: [],
+    galleryImage: "img_mapselect_midtown.png",
+    backgroundImage: "img_map_midtown.png",
+    domImages: [],
+    loadingTips: [
+      "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#0_Text",
+      "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#1_Text",
+      "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#2_Text",
+    ],
+    loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
+    introvideos: [],
+    outrovideos: [],
+    linkID: "",
+  },
 ];
 
 const MapInfoWithLinkIDs = MapInfoRegularOrdered.map((map) => ({

@@ -23,7 +23,7 @@ const processMagazineData = async (): Promise<{
 }> => {
   try {
     const response = await fetch(
-      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/Magazine"
+      "https://sheets.livepolls.app/api/spreadsheets/f9d0fcbd-88b5-4dfe-a857-c30d1619aaf9/Magazine"
     );
 
     const apiData = await response.json();

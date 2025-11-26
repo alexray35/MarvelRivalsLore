@@ -1,5 +1,5 @@
 // GameData.tsx
-import gameData from "./gamedata/Game Most Recent.json";
+import gameData from "./gamedata/Game 2025 11 13.json";
 import gameBetaData from "./gamedata/Game 2024 08 05 BETA.json";
 import gameSeason0Data from "./gamedata/Game 2024 12 04.json";
 import gameSeason2Data from "./gamedata/Game 2025 04 11 2.json";
@@ -9,6 +9,7 @@ import gameSeason3FFData from "./gamedata/Game 2025 07 24.json";
 import gameSeason3_5Data from "./gamedata/Game 2025 08 08.json";
 import gameSeason4Data from "./gamedata/Game 2025 09 12.json";
 import gameSeason4_5Data from "./gamedata/Game 2025 10 09.json";
+import gameSeason5Data from "./gamedata/Game 2025 11 13.json";
 import limboData from "./gamedata/Game Limbo.json";
 import skinData from "./gamedata/UISkinTable.json";
 
@@ -67,6 +68,10 @@ export const gameDataSources: GameDataSources = {
     data: gameSeason4_5Data,
     displayName: "Season 4.5",
   },
+  season5: {
+    data: gameSeason5Data,
+    displayName: "Season 5",
+  },
   limbo: {
     data: limboData,
     displayName: "Limbo",
@@ -80,6 +85,7 @@ export const gameDataSources: GameDataSources = {
 // Define the desired order for the tabs (newest to oldest)
 export const TAB_ORDER = [
   "default", // Current
+  "season5", // Season 5
   "season4_5", // Season 4.5
   "season4", // Season 4
   "season3_5", // Season 3.5

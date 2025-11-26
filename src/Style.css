@@ -389,6 +389,11 @@ input:checked + .toggle-slider:before {
   bottom: -80%;
 }
 
+.gallery-group.group-5::before {
+  background-image: url("/textures/gallerycards/img_gallerys5_magazine_01.png");
+  bottom: -420%;
+}
+
 .gallery-group.group--1::before {
   background-image: url("/textures/gallerycards/img_gallery_card_vertical_02.png");
   top: -265%;

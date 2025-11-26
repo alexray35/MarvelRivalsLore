@@ -18,14 +18,14 @@ const processHeroData = async (): Promise<HeroInfo[]> => {
   try {
     // Fetch hero basic info
     const heroResponse = await fetch(
-      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/Heroes"
+      "https://sheets.livepolls.app/api/spreadsheets/f9d0fcbd-88b5-4dfe-a857-c30d1619aaf9/Heroes"
     );
     const heroApiData = await heroResponse.json();
     const heroData = heroApiData.data;
 
     // Fetch hero detail info
     const detailResponse = await fetch(
-      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/HeroDetail"
+      "https://sheets.livepolls.app/api/spreadsheets/f9d0fcbd-88b5-4dfe-a857-c30d1619aaf9/HeroDetail"
     );
     const detailApiData = await detailResponse.json();
     const detailData = detailApiData.data;

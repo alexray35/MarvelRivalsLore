@@ -18,7 +18,7 @@ interface TeamUp {
 const processTeamUps = async (): Promise<TeamUp[]> => {
   try {
     const response = await fetch(
-      "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/TeamUps"
+      "https://sheets.livepolls.app/api/spreadsheets/f9d0fcbd-88b5-4dfe-a857-c30d1619aaf9/TeamUps"
     );
 
     const apiData = await response.json();

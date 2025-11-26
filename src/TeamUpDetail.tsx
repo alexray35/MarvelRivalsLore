@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TeamUps } from "./TeamUpList";
 import { HeroInfo } from "./HeroList";
-import { getNestedValue } from "./getNestedValue";
 import gameDataSources, { type GameData } from "./GameData";
 import JsonValue from "./JsonValue";
 import GalleryHero from "./GalleryHero";
@@ -77,7 +76,7 @@ const TeamUpDetail: React.FC<TeamUpDetailProps> = ({
           </div>
           <div className="subsection-text-container">
             <h2 className="subsection-title">
-              {getNestedValue(dataSource, displayVersion.name)}
+              <JsonValue path={displayVersion.name} gameData={dataSource} />
             </h2>
             <div className="teamuptext">
               <p className="long-text">

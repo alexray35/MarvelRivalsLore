@@ -62,7 +62,7 @@ const processKeys = async (csvPath: string): Promise<StoryInfo[]> => {
 
 const processStories = async (): Promise<StoryInfo[]> => {
   return await processKeys(
-    "https://sheets.livepolls.app/api/spreadsheets/024e4a09-8df3-4026-be4e-b9b151bd1640/Stories"
+    "https://sheets.livepolls.app/api/spreadsheets/f9d0fcbd-88b5-4dfe-a857-c30d1619aaf9/Stories"
   );
 };
 

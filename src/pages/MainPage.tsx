@@ -29,7 +29,7 @@ function MainPage() {
 
   return (
     <div className="page mainpage">
-      <h1 className="mainpagetitle">Season 4: Heart of the Dragon</h1>
+      <h1 className="mainpagetitle">Season 5: Love is a Battlefield</h1>
 
       <h1 className="pagetitle">Stories</h1>
       <div className="mainPageStories">

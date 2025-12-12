@@ -147,7 +147,6 @@ const GalleryStory: React.FC<GalleryStoryProps> = ({
                 }}
               >
                 <JsonValue path={title} gameData={gameDataSources.default} />
-                {isHighlighted && <span className="highlight-badge">NEW</span>}
               </div>
             </div>
           );

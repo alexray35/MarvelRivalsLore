@@ -44,12 +44,13 @@ const SkinDetail: React.FC<SkinDetailProps> = ({
               )}
               {collectable.skinStory && (
                 <span>
+                  <br></br>
                   {" — "}
                   <Link
                     to={`/story/${collectable.skinStory}`}
                     className="long-text skin-story"
                   >
-                    Read More
+                    Read Story
                   </Link>
                 </span>
               )}

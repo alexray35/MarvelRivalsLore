@@ -32,11 +32,11 @@ const GalleryMap: React.FC<GalleryMapProps> = ({ onMapSelect }) => {
                 <img
                   className="map-thumbnail"
                   src={`/textures/map_gallery/${map.galleryImage}`} // Fixed path with /
-                  alt={map.name}
+                  alt={map.name || map.group}
                   loading="lazy"
                 />
                 <div className="image-caption">
-                  <span>{map.name}</span>
+                  <span>{map.name || map.group}</span>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@ const GalleryMap: React.FC<GalleryMapProps> = ({ onMapSelect }) => {
   return (
     <div className="gallery-map">
       {renderGallery(MapInfoRegular, false)}
-      <h2 className="pagetitle">Arcade</h2>
+      <h2 className="pagetitle">Other</h2>
       {renderGallery(MapInfoArcade, true)}
     </div>
   );

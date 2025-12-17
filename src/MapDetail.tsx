@@ -68,7 +68,7 @@ const MapDetail: React.FC<MapDetailProps> = ({
   return (
     <div className="mapinfo-page">
       <h1 className="pagetitle">
-        {map.group}: {map.name}
+        {map.name ? `${map.group}: ${map.name}` : map.group}
       </h1>
 
       {/* Loading tips section */}
@@ -99,17 +99,21 @@ const MapDetail: React.FC<MapDetailProps> = ({
         <div className="map-mainimage">
           <img
             src={`/textures/map_background/${displayImage}`} // Fixed path with /
-            alt={map.name}
+            alt={map.name || map.group}
             className="map-image"
           />
         </div>
-        <section className="map-loading">
-          <section className="long-text">
-            {map.loadingTips.map((tip, index) => (
-              <p key={index}>{getNestedValue(gameDataSources.default, tip)}</p>
-            ))}
+        {map.loadingTips && map.loadingTips.length > 0 && (
+          <section className="map-loading">
+            <section className="long-text">
+              {map.loadingTips.map((tip, index) => (
+                <p key={index}>
+                  {getNestedValue(gameDataSources.default, tip)}
+                </p>
+              ))}
+            </section>
           </section>
-        </section>
+        )}
       </section>
 
       <section className="map-video-section">

@@ -97,6 +97,7 @@
   letter-spacing: 2px;
   font-family: MRFont_Heavy;
   text-align: center;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
 }
 
 .gallery-activity .subpagetitle {

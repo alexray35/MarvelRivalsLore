@@ -433,7 +433,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
   },
   {
     group: "Grand Garden",
-    name: "Grand Garden",
+    name: "",
     domNames: [],
     galleryImage: "img_mapselect_grandgarden.png",
     backgroundImage: "img_map_grandgarden.png",
@@ -449,16 +449,29 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     outrovideos: [],
     linkID: "",
   },
+  {
+    group: "Times Square",
+    name: "",
+    domNames: [],
+    galleryImage: "timessquare.png",
+    backgroundImage: "timessquare.png",
+    domImages: [],
+    loadingTips: [],
+    loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
+    introvideos: [],
+    outrovideos: [],
+    linkID: "",
+  },
 ];
 
 const MapInfoWithLinkIDs = MapInfoRegularOrdered.map((map) => ({
   ...map,
-  linkID: map.name.replace(/\s+/g, ""), // Remove all spaces
+  linkID: (map.name || map.group).replace(/\s+/g, ""), // Use map.name or fallback to map.group
 }));
 
 const MapArcadeInfoWithLinkIDs = MapInfoArcadeOrdered.map((map) => ({
   ...map,
-  linkID: map.name.replace(/\s+/g, ""), // Remove all spaces
+  linkID: (map.name || map.group).replace(/\s+/g, ""), // Use map.name or fallback to map.group
 }));
 
 const MapInfoRegular = [...MapInfoWithLinkIDs].reverse();

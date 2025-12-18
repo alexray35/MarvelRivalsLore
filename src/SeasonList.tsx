@@ -4,6 +4,7 @@ interface SeasonInfo {
   number: string;
   name: string;
   image: string;
+  year: string;
 }
 
 const processKeys = async (): Promise<{
@@ -26,8 +27,9 @@ const processKeys = async (): Promise<{
       const number = row["Season"].trim();
       const name = row["Name"]?.trim() || "";
       const image = row["Image"]?.trim() || "323";
+      const year = row["Year"]?.trim();
 
-      const seasonItem = { number, name, image };
+      const seasonItem = { number, name, image, year };
 
       // Check if the season number is positive or negative
       if (parseInt(number) >= 0) {

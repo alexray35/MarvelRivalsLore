@@ -224,6 +224,10 @@ input:checked + .toggle-slider:before {
   border-bottom: 1px solid #fbdc2c;
 }
 
+.year-tab {
+  border-bottom: 0px solid #ff00b3;
+}
+
 .gallery-magazine .tab-selector-container {
   margin-top: 10px;
   display: block;
@@ -245,6 +249,9 @@ input:checked + .toggle-slider:before {
   background-color: #fbdc2c;
   color: #000;
   font-weight: bold;
+}
+.year-selector {
+  font-size: 30px;
 }
 
 /* Story Gallery */
@@ -392,7 +399,7 @@ input:checked + .toggle-slider:before {
 
 .gallery-group.group-5::before {
   background-image: url("/textures/gallerycards/img_gallerys5_magazine_01.png");
-  bottom: -420%;
+  bottom: -320%;
 }
 
 .gallery-group.group--1::before {
@@ -425,6 +432,10 @@ input:checked + .toggle-slider:before {
 }
 .gallery-group.group--7::before {
   background-image: url("/textures/gallerycards/img_gallery_card_tercentenary1.png");
+  bottom: -20%;
+}
+.gallery-group.group--8::before {
+  background-image: url("/textures/gallerycards/img_gallery_card_25winter.png");
   bottom: -20%;
 }
 
@@ -1007,7 +1018,7 @@ nav a.active {
   position: relative;
   z-index: 2;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   padding: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -1027,42 +1038,29 @@ nav a.active {
 .map-content p {
   margin: 10px 0;
 }
-.map-video {
-  grid-column: 2;
-  top: 20px;
-  height: fit-content;
-  margin: 20px;
-  margin-bottom: 0px;
-  text-align: left;
-  flex-grow: 1;
-  margin-top: 0;
-
-  border-bottom: 2px solid #ffffff65;
-}
 
 .map-video .h3 {
   margin-bottom: 20px !important;
 }
 
 .video-gallery-container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
   background-color: rgba(0, 0, 0, 0.415);
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
-  margin-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .video-item {
-  width: 500px;
-  height: auto;
-  padding: 15px;
+  width: 100%;
+  height: 200px;
 }
 
-.video-player {
+.youtube-embed-container {
   width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .video-caption {
@@ -1071,6 +1069,7 @@ nav a.active {
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
+  padding-bottom: 10px;
 }
 
 .header-content {

@@ -9,9 +9,7 @@ interface MapInfo {
   domImages: string[];
   loadingTips: string[];
 
-  loadingvideos: { video: string; caption: string }[];
-  introvideos: { video: string; caption: string }[];
-  outrovideos: { video: string; caption: string }[];
+  videos: { video: string; caption: string }[];
 }
 
 const MapInfoRegularOrdered: MapInfo[] = [
@@ -23,12 +21,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
     backgroundImage: "img_map_yggdrasil.png",
     domImages: [],
     loadingTips: ["Loading_Asgard_1", "Loading_Asgard_2", "Loading_Asgard_3"],
-    loadingvideos: [{ video: "Loading_Asgard.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "Loading_Asgard.mp4", caption: "" },
       { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
       { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -46,12 +42,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "img_map_archive.png",
     ],
     loadingTips: ["Loading_Asgard_1", "Loading_Asgard_2", "Loading_Asgard_3"],
-    loadingvideos: [{ video: "Loading_Asgard.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "Loading_Asgard.mp4", caption: "" },
       { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
       { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -65,11 +59,9 @@ const MapInfoRegularOrdered: MapInfo[] = [
     backgroundImage: "img_map_tokyowebworld_metropolis.png",
     domImages: [],
     loadingTips: ["Loading_Tokyo_1", "Loading_Tokyo_2", "Loading_Tokyo_3"],
-    loadingvideos: [{ video: "Loading_Tokyo.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "Loading_Tokyo.mp4", caption: "" },
       { video: "TokyoEntrance_BackGround.mp4", caption: "Attack & Defend" },
-    ],
-    outrovideos: [
       { video: "TokyoH01_Attack_Video.mp4", caption: "Attack" },
       { video: "TokyoH01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -83,9 +75,9 @@ const MapInfoRegularOrdered: MapInfo[] = [
     backgroundImage: "img_map_tokyowebworld_spiderisland.png",
     domImages: [],
     loadingTips: ["Loading_Tokyo_1", "Loading_Tokyo_2", "Loading_Tokyo_3"],
-    loadingvideos: [{ video: "Loading_Tokyo.mp4", caption: "" }],
-    introvideos: [{ video: "TojyoE01_Video.mp4", caption: "" }],
-    outrovideos: [
+    videos: [
+      { video: "Loading_Tokyo.mp4", caption: "" },
+      { video: "TojyoE01_Video.mp4", caption: "" },
       { video: "TokyoE01_Attack_Video.mp4", caption: "Attack" },
       { video: "TokyoE01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -111,9 +103,9 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_Wakanda_2",
       "Loading_Wakanda_3",
     ],
-    loadingvideos: [{ video: "Wakanda_Loading_Science.mp4", caption: "" }],
-    introvideos: [{ video: "Wakanda_Defence_Video.mp4", caption: "" }],
-    outrovideos: [
+    videos: [
+      { video: "Wakanda_Loading_Science.mp4", caption: "" },
+      { video: "Wakanda_Defence_Video.mp4", caption: "" },
       { video: "WakandaC01_Attack_Video.mp4", caption: "Attack" },
       { video: "WakandaC01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -131,12 +123,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_Wakanda_2",
       "Loading_Wakanda_3",
     ],
-    loadingvideos: [{ video: "Wakanda_Loading_Science.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "Wakanda_Loading_Science.mp4", caption: "" },
       { video: "Wakanda_Attack_Video.mp4", caption: "Attack" },
       { video: "Wakanda_Defence_Video.mp4", caption: "" },
-    ],
-    outrovideos: [
       { video: "WakandaH01_Attack_Video.mp4", caption: "Attack" },
       { video: "WakandaH01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -154,12 +144,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_Klyntar_2",
       "Loading_Klyntar_3",
     ],
-    loadingvideos: [{ video: "KlyntarH01_Loading.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "KlyntarH01_Loading.mp4", caption: "" },
       { video: "KlyntarH01_Attack.mp4", caption: "Attack" },
       { video: "KlyntarH01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
       { video: "KlyntarH01_Attack_Video.mp4", caption: "Attack" },
       { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -177,14 +165,31 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "img_map_hydrabase_altar.png",
     ],
     loadingTips: ["Loading_Hydra_1", "Loading_Hydra_2", "Loading_Hydra_3"],
-    loadingvideos: [{ video: "HydraMC01_Loading_Video.mp4", caption: "" }],
-    introvideos: [
-      { video: "HydraA01_Attack_Video.mp4", caption: "Attack" },
-      { video: "HydraA01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
-      { video: "HydraMC01_Attack_Video.mp4", caption: "Attack" },
-      { video: "HydraMC01_Defence_Video.mp4", caption: "Defend" },
+    videos: [
+      {
+        video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
+        caption: "Map Reveal",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Loading Screen",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Intro Attack",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Intro Defence",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Outro Attack",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Outro Defence",
+      },
     ],
     linkID: "",
   },
@@ -200,12 +205,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1201_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1201_LoadingVideoSubtitles_#2_Text",
     ],
-    loadingvideos: [{ video: "NewYorkE01_Loading_Video.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "NewYorkE01_Loading_Video.mp4", caption: "" },
       { video: "NewYorkE01_Attack_Video.mp4", caption: "Attack" },
       { video: "NewYorkE01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
       { video: "NewYorkE01_Attack_Video.mp4", caption: "Attack" },
       { video: "NewYorkE01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -223,12 +226,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#2_Text",
     ],
-    loadingvideos: [{ video: "NewYorkH01_Loading_Video.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "NewYorkH01_Loading_Video.mp4", caption: "" },
       { video: "NewYorkH01_Attack_Video.mp4", caption: "Attack" },
       { video: "NewYorkH01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
       { video: "NewYorkH01_Attack_Video.mp4", caption: "Attack" },
       { video: "NewYorkH01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -246,11 +247,9 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "img_map_krakoa_grove.png",
     ],
     loadingTips: ["Loading_Arakko_1", "Loading_Arakko_2", "Loading_Arakko_3"],
-    loadingvideos: [{ video: "KrakoaMC01_Loading_Video.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "KrakoaMC01_Loading_Video.mp4", caption: "" },
       { video: "KrakoaMC01_LevelEntrance_Video.mp4", caption: "Attack" },
-    ],
-    outrovideos: [
       { video: "KrakoaMC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KrakoaMC01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -268,12 +267,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#2_Text",
     ],
-    loadingvideos: [{ video: "ArakkoE01_Loading_Video.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "ArakkoE01_Loading_Video.mp4", caption: "" },
       { video: "ArakkoE01_Attack_Video.mp4", caption: "Attack" },
       { video: "ArakkoE01_Defence_Video.mp4", caption: "Defend" },
-    ],
-    outrovideos: [
       { video: "ArakkoE01_Attack_Video.mp4", caption: "Attack" },
       { video: "ArakkoE01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -298,12 +295,10 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_KlyntarC_5",
       "Loading_KlyntarC_6",
     ],
-    loadingvideos: [{ video: "KlyntarMC01_Loading_Video.mp4", caption: "" }],
-    introvideos: [
+    videos: [
+      { video: "KlyntarMC01_Loading_Video.mp4", caption: "" },
       { video: "KlyntarMC01_Attack.mp4", caption: "Attack" },
       { video: "KlyntarMC01_Defence.mp4", caption: "Defense" },
-    ],
-    outrovideos: [
       { video: "KlyntarMC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KlyntarMC01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -321,9 +316,8 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_KunlunH01_2",
       "Loading_KunlunH01_3",
     ],
-    loadingvideos: [{ video: "KlyntarEC01_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [
+    videos: [
+      { video: "KlyntarEC01_Loading_Video.mp4", caption: "" },
       { video: "KlyntarEC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KlyntarEC01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -333,6 +327,27 @@ const MapInfoRegularOrdered: MapInfo[] = [
 
 const MapInfoArcadeOrdered: MapInfo[] = [
   {
+    group: "Practice",
+    name: "Practice Range",
+    domNames: [],
+    galleryImage: "img_mapselect_practicerance.png",
+    backgroundImage: "img_map_practicerance.png",
+    domImages: [],
+    loadingTips: [
+      "121_Train_ST.TXT_Loading1",
+      "121_Train_ST.TXT_Loading2",
+      "121_Train_ST.TXT_Loading3",
+      "121_Train_ST.TXT_Loading4",
+      "121_Train_ST.TXT_Loading5",
+      "121_Train_ST.TXT_Loading6",
+    ],
+    videos: [
+      { video: "Loading_Tokyo.mp4", caption: "" },
+      { video: "TojyoE01_Video.mp4", caption: "Attack & Defend" },
+    ],
+    linkID: "",
+  },
+  {
     group: "Tokyo 2099",
     name: "Ninomaru",
     domNames: [],
@@ -340,9 +355,10 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     backgroundImage: "img_map_tokyowebworld_spiderisland.png",
     domImages: [],
     loadingTips: ["Loading_Tokyo_1", "Loading_Tokyo_2", "Loading_Tokyo_3"],
-    loadingvideos: [{ video: "Loading_Tokyo.mp4", caption: "" }],
-    introvideos: [{ video: "TojyoE01_Video.mp4", caption: "Attack & Defend" }],
-    outrovideos: [],
+    videos: [
+      { video: "Loading_Tokyo.mp4", caption: "" },
+      { video: "TojyoE01_Video.mp4", caption: "Attack & Defend" },
+    ],
     linkID: "",
   },
   {
@@ -357,26 +373,22 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "Loading_SanctumSanctorum_2",
       "Loading_SanctumSanctorum_3",
     ],
-    loadingvideos: [{ video: "NewYorkM01_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [],
+    videos: [{ video: "NewYorkM01_Loading_Video.mp4", caption: "" }],
     linkID: "",
   },
   {
     group: "Intergalactic Empire of Wakanda",
     name: "World Arena",
     domNames: [],
-    galleryImage: "img_mapselect_practicerance.png",
-    backgroundImage: "img_mapselect_practicerance.png",
+    galleryImage: "worldarena.png",
+    backgroundImage: "worldarena.png",
     domImages: [],
     loadingTips: [
       "MarvelIPWholeProcessTable_1289_LoadingVideoSubtitles_#0_Text",
       "MarvelIPWholeProcessTable_1289_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1289_LoadingVideoSubtitles_#2_Text",
     ],
-    loadingvideos: [{ video: "Springfestival_Loading.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [],
+    videos: [{ video: "Springfestival_Loading.mp4", caption: "" }],
     linkID: "",
   },
   {
@@ -389,9 +401,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     loadingTips: [
       "MarvelIPWholeProcessTable_1314_LoadingVideoSubtitles_#0_Text",
     ],
-    loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [],
+    videos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
     linkID: "",
   },
   {
@@ -406,9 +416,8 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#2_Text",
     ],
-    loadingvideos: [{ video: "KlyntarEC01_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [
+    videos: [
+      { video: "KlyntarEC01_Loading_Video.mp4", caption: "" },
       { video: "KlyntarEC01_Attack_Video.mp4", caption: "Attack" },
       { video: "KlyntarEC01_Defence_Video.mp4", caption: "Defend" },
     ],
@@ -426,9 +435,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#2_Text",
     ],
-    loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [],
+    videos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
     linkID: "",
   },
   {
@@ -444,9 +451,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "Loading_Garden_3",
       "Loading_Garden_4",
     ],
-    loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [],
+    videos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
     linkID: "",
   },
   {
@@ -457,9 +462,40 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     backgroundImage: "timessquare.png",
     domImages: [],
     loadingTips: [],
-    loadingvideos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
-    introvideos: [],
-    outrovideos: [],
+    videos: [
+      {
+        video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
+        caption: "Map Reveal",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Loading Screen",
+      },
+    ],
+    linkID: "",
+  },
+  {
+    group: "Jeffland",
+    name: "",
+    domNames: [],
+    galleryImage: "img_mapselect_jeffland.png",
+    backgroundImage: "img_map_jeffland.png",
+    domImages: [],
+    loadingTips: [
+      "Loading_JeffLand_1",
+      "Loading_JeffLand_2",
+      "Loading_JeffLand_3",
+    ],
+    videos: [
+      {
+        video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
+        caption: "Map Reveal",
+      },
+      {
+        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
+        caption: "Loading Screen",
+      },
+    ],
     linkID: "",
   },
 ];

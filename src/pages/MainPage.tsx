@@ -29,7 +29,7 @@ function MainPage() {
 
   return (
     <div className="page mainpage">
-      <h1 className="mainpagetitle">Season 5: Love is a Battlefield</h1>
+      <h1 className="mainpagetitle">Season 6: Night at the Museum</h1>
 
       <h1 className="pagetitle">Stories</h1>
       <div className="mainPageStories">
@@ -45,13 +45,6 @@ function MainPage() {
         showOnlyLastSeason={true}
         onMagazineSelect={handleMagazineSelect}
       />
-      <h1 className="pagetitle">Events</h1>
-      <div className="mainPageActivities">
-        <GalleryActivity
-          showOnlyLatestSeason={true}
-          onActivitySelect={handleActivitySelect}
-        />
-      </div>
       <div className="mainpagebackground"></div>
     </div>
   );

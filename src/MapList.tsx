@@ -8,8 +8,8 @@ interface MapInfo {
   backgroundImage: string;
   domImages: string[];
   loadingTips: string[];
-
-  videos: { video: string; caption: string }[];
+  videos: { title: string; video: string; loreTitle: string }[];
+  images: string[];
 }
 
 const MapInfoRegularOrdered: MapInfo[] = [
@@ -21,12 +21,48 @@ const MapInfoRegularOrdered: MapInfo[] = [
     backgroundImage: "img_map_yggdrasil.png",
     domImages: [],
     loadingTips: ["Loading_Asgard_1", "Loading_Asgard_2", "Loading_Asgard_3"],
+    images: [],
     videos: [
-      { video: "Loading_Asgard.mp4", caption: "" },
-      { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
-      { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=8nYwiVjhBWQ",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=KlmqEDwNcWA",
+        loreTitle: "UIGalleryFootageTable_5002_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Attack",
+        video: "https://www.youtube.com/watch?v=8jo-eFQA1rA",
+        loreTitle: "UIGalleryFootageTable_5002_EntryVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Defence",
+        video: "https://www.youtube.com/watch?v=snHEvtvxKaQ",
+        loreTitle: "UIGalleryFootageTable_5002_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=bMMsSDG4Bk8",
+        loreTitle: "UIGalleryFootageTable_5002_ExitVideos_#2_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=dFTqiBFamGk",
+        loreTitle: "UIGalleryFootageTable_5002_ExitVideos_#3_VideoName",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=AfqmJfdgukQ",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=7O_ATYmTSjg",
+        loreTitle: "",
+      },
     ],
     linkID: "",
   },
@@ -42,12 +78,33 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "img_map_archive.png",
     ],
     loadingTips: ["Loading_Asgard_1", "Loading_Asgard_2", "Loading_Asgard_3"],
+    images: [],
     videos: [
-      { video: "Loading_Asgard.mp4", caption: "" },
-      { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
-      { video: "AsgardE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=8nYwiVjhBWQ",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=KlmqEDwNcWA",
+        loreTitle: "UIGalleryFootageTable_5002_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro Cinematic",
+        video: "https://www.youtube.com/watch?v=b4q75Tb0GYk",
+        loreTitle: "UIGalleryFootageTable_5002_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro Cinematic",
+        video: "https://www.youtube.com/watch?v=OTVqdOnTWZA",
+        loreTitle: "UIGalleryFootageTable_5002_ExitVideos_#1_VideoName",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=RH_V1TWFIP8",
+        loreTitle: "",
+      },
     ],
     linkID: "",
   },
@@ -59,11 +116,53 @@ const MapInfoRegularOrdered: MapInfo[] = [
     backgroundImage: "img_map_tokyowebworld_metropolis.png",
     domImages: [],
     loadingTips: ["Loading_Tokyo_1", "Loading_Tokyo_2", "Loading_Tokyo_3"],
+    images: [],
     videos: [
-      { video: "Loading_Tokyo.mp4", caption: "" },
-      { video: "TokyoEntrance_BackGround.mp4", caption: "Attack & Defend" },
-      { video: "TokyoH01_Attack_Video.mp4", caption: "Attack" },
-      { video: "TokyoH01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=8NUtV1CkyKs",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=RWs4tubqHlM",
+        loreTitle: "UIGalleryFootageTable_5003_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro Cinematic",
+        video: "https://www.youtube.com/watch?v=d7I4BFW8UtQ",
+        loreTitle: "UIGalleryFootageTable_5003_EntryVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=lCm1XAWwIEc",
+        loreTitle: "UIGalleryFootageTable_5003_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=Hvmex1onx-8",
+        loreTitle: "UIGalleryFootageTable_5003_ExitVideos_#1_VideoName",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=CyL8gYgIrI8",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=OPpf4Hqb7_8",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=jirNbLzqgcM",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=3n5Z93uSwJY",
+        loreTitle: "",
+      },
     ],
     linkID: "",
   },
@@ -75,11 +174,38 @@ const MapInfoRegularOrdered: MapInfo[] = [
     backgroundImage: "img_map_tokyowebworld_spiderisland.png",
     domImages: [],
     loadingTips: ["Loading_Tokyo_1", "Loading_Tokyo_2", "Loading_Tokyo_3"],
+    images: [],
     videos: [
-      { video: "Loading_Tokyo.mp4", caption: "" },
-      { video: "TojyoE01_Video.mp4", caption: "" },
-      { video: "TokyoE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "TokyoE01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=jqnZzywDfTs",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=RWs4tubqHlM",
+        loreTitle: "UIGalleryFootageTable_5003_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro Cinematic",
+        video: "https://www.youtube.com/watch?v=hQKsIjv8LUI",
+        loreTitle: "UIGalleryFootageTable_5003_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=iChoPWI5dIg",
+        loreTitle: "UIGalleryFootageTable_5003_ExitVideos_#2_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=zQ7ZJwdnRSs",
+        loreTitle: "UIGalleryFootageTable_5003_ExitVideos_#3_VideoName",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=AO3n2DQwLZk",
+        loreTitle: "",
+      },
     ],
     linkID: "",
   },
@@ -103,11 +229,43 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_Wakanda_2",
       "Loading_Wakanda_3",
     ],
+    images: [],
     videos: [
-      { video: "Wakanda_Loading_Science.mp4", caption: "" },
-      { video: "Wakanda_Defence_Video.mp4", caption: "" },
-      { video: "WakandaC01_Attack_Video.mp4", caption: "Attack" },
-      { video: "WakandaC01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=dz_778SYulo",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=zMgHNFNGN6w",
+        loreTitle: "UIGalleryFootageTable_5004_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro Cinematic",
+        video: "https://www.youtube.com/watch?v=nEfvNICkzMI",
+        loreTitle: "UIGalleryFootageTable_5004_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Outro Cinematic",
+        video: "https://www.youtube.com/watch?v=TtAlRAY6amI",
+        loreTitle: "UIGalleryFootageTable_5004_ExitVideos_#2_VideoName",
+      },
+      {
+        title: "Outro Cinematic",
+        video: "https://www.youtube.com/watch?v=YTjhd2GDelc",
+        loreTitle: "UIGalleryFootageTable_5004_ExitVideos_#3_VideoName",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=SQk-9mktnq8",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=TCfjVyk1axU",
+        loreTitle: "",
+      },
     ],
     linkID: "",
   },
@@ -123,12 +281,38 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_Wakanda_2",
       "Loading_Wakanda_3",
     ],
+    images: [],
     videos: [
-      { video: "Wakanda_Loading_Science.mp4", caption: "" },
-      { video: "Wakanda_Attack_Video.mp4", caption: "Attack" },
-      { video: "Wakanda_Defence_Video.mp4", caption: "" },
-      { video: "WakandaH01_Attack_Video.mp4", caption: "Attack" },
-      { video: "WakandaH01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=dz_778SYulo",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=zMgHNFNGN6w",
+        loreTitle: "UIGalleryFootageTable_5004_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Attack",
+        video: "https://www.youtube.com/watch?v=BRTBzdmE0CA",
+        loreTitle: "UIGalleryFootageTable_5004_EntryVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Defence",
+        video: "https://www.youtube.com/watch?v=nEfvNICkzMI",
+        loreTitle: "UIGalleryFootageTable_5004_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=2kqhTxJ1lVI",
+        loreTitle: "UIGalleryFootageTable_5004_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=GPYOORlz2BU",
+        loreTitle: "UIGalleryFootageTable_5004_ExitVideos_#1_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -143,13 +327,41 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_Klyntar_1",
       "Loading_Klyntar_2",
       "Loading_Klyntar_3",
+      "Loading_Klyntar_4",
+      "Loading_Klyntar_5",
     ],
+    images: [],
     videos: [
-      { video: "KlyntarH01_Loading.mp4", caption: "" },
-      { video: "KlyntarH01_Attack.mp4", caption: "Attack" },
-      { video: "KlyntarH01_Defence_Video.mp4", caption: "Defend" },
-      { video: "KlyntarH01_Attack_Video.mp4", caption: "Attack" },
-      { video: "AsgardE01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=zEaFAj8h0ow",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=ftZNoiNZMxg",
+        loreTitle: "UIGalleryFootageTable_5005_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Attack",
+        video: "https://www.youtube.com/watch?v=8t8L4_P6i2s",
+        loreTitle: "UIGalleryFootageTable_5005_EntryVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Defence",
+        video: "https://www.youtube.com/watch?v=dGSykQsF26g",
+        loreTitle: "UIGalleryFootageTable_5005_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=abEk38F70_g",
+        loreTitle: "UIGalleryFootageTable_5005_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=QHaJLg25DfI",
+        loreTitle: "UIGalleryFootageTable_5005_ExitVideos_#1_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -164,31 +376,54 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "img_map_hydrabase_arsenal.png",
       "img_map_hydrabase_altar.png",
     ],
-    loadingTips: ["Loading_Hydra_1", "Loading_Hydra_2", "Loading_Hydra_3"],
+    loadingTips: [
+      "Loading_Hydra_1",
+      "Loading_Hydra_2",
+      "Loading_Hydra_3",
+      "Loading_Hydra_4",
+      "Loading_Hydra_5",
+    ],
+    images: [],
     videos: [
       {
-        video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
-        caption: "Map Reveal",
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=vSQ3D9-dWbA",
+        loreTitle: "",
       },
       {
-        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Loading Screen",
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=NFZSV8yj3aM",
+        loreTitle: "UIGalleryFootageTable_5001_LoadingVideos_#0_VideoName",
       },
       {
-        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Intro Attack",
+        title: "Intro Cinematic",
+        video: "https://www.youtube.com/watch?v=Iu6gKajeXkY",
+        loreTitle: "UIGalleryFootageTable_5001_EntryVideos_#0_VideoName",
       },
       {
-        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Intro Defence",
+        title: "Outro Cinematic",
+        video: "https://www.youtube.com/watch?v=ROmhnA7zx0E",
+        loreTitle: "UIGalleryFootageTable_5001_ExitVideos_#1_VideoName",
       },
       {
-        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Outro Attack",
+        title: "Outro Cinematic",
+        video: "https://www.youtube.com/watch?v=GMS1nAgtylE",
+        loreTitle: "UIGalleryFootageTable_5001_ExitVideos_#0_VideoName",
       },
       {
-        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Outro Defence",
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=lPV0PGuuo2Q",
+        loreTitle: "",
+      },
+      {
+        title: "Intro - Unused",
+        video: "https://www.youtube.com/watch?v=VlMaMEJVoyw",
+        loreTitle: "",
+      },
+      {
+        title: "Outro - Unused",
+        video: "https://www.youtube.com/watch?v=y3PkhlPb71U",
+        loreTitle: "",
       },
     ],
     linkID: "",
@@ -205,12 +440,38 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1201_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1201_LoadingVideoSubtitles_#2_Text",
     ],
+    images: [],
     videos: [
-      { video: "NewYorkE01_Loading_Video.mp4", caption: "" },
-      { video: "NewYorkE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "NewYorkE01_Defence_Video.mp4", caption: "Defend" },
-      { video: "NewYorkE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "NewYorkE01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=DmtMVOcHr-8",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=a3GnNST3H-Y",
+        loreTitle: "UIGalleryFootageTable_5006_LoadingVideos_#1_VideoName",
+      },
+      {
+        title: "Intro - Attack",
+        video: "https://www.youtube.com/watch?v=CFyiUzCt6Mk",
+        loreTitle: "UIGalleryFootageTable_5006_EntryVideos_#0_VideoName",
+      },
+      {
+        title: "Intro - Defence",
+        video: "https://www.youtube.com/watch?v=FL1eiXFEjqY",
+        loreTitle: "UIGalleryFootageTable_5006_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=klsqOja27vk",
+        loreTitle: "UIGalleryFootageTable_5006_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=Pc55qZugaWw",
+        loreTitle: "UIGalleryFootageTable_5006_ExitVideos_#1_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -226,12 +487,38 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#2_Text",
     ],
+    images: [],
     videos: [
-      { video: "NewYorkH01_Loading_Video.mp4", caption: "" },
-      { video: "NewYorkH01_Attack_Video.mp4", caption: "Attack" },
-      { video: "NewYorkH01_Defence_Video.mp4", caption: "Defend" },
-      { video: "NewYorkH01_Attack_Video.mp4", caption: "Attack" },
-      { video: "NewYorkH01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=fs_pMBXSr9Y",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=TiWi1OOY8V8",
+        loreTitle: "UIGalleryFootageTable_5006_LoadingVideos_#2_VideoName",
+      },
+      {
+        title: "Intro - Attack",
+        video: "https://www.youtube.com/watch?v=QO9ZxVTOUuk",
+        loreTitle: "UIGalleryFootageTable_5006_EntryVideos_#2_VideoName",
+      },
+      {
+        title: "Intro - Defence",
+        video: "https://www.youtube.com/watch?v=uZp6DYEj-OQ",
+        loreTitle: "UIGalleryFootageTable_5006_EntryVideos_#3_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=w4bS88Sdwfc",
+        loreTitle: "UIGalleryFootageTable_5006_ExitVideos_#3_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=o6vhi1wdOVA",
+        loreTitle: "UIGalleryFootageTable_5006_ExitVideos_#4_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -247,11 +534,33 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "img_map_krakoa_grove.png",
     ],
     loadingTips: ["Loading_Arakko_1", "Loading_Arakko_2", "Loading_Arakko_3"],
+    images: [],
     videos: [
-      { video: "KrakoaMC01_Loading_Video.mp4", caption: "" },
-      { video: "KrakoaMC01_LevelEntrance_Video.mp4", caption: "Attack" },
-      { video: "KrakoaMC01_Attack_Video.mp4", caption: "Attack" },
-      { video: "KrakoaMC01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=xIo0RxLYkQU",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=Vk9w_nKHhc4",
+        loreTitle: "UIGalleryFootageTable_5008_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Intro",
+        video: "https://www.youtube.com/watch?v=5wLZx5l62-4",
+        loreTitle: "UIGalleryFootageTable_5008_EntryVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=ByXmbvy2bjo",
+        loreTitle: "UIGalleryFootageTable_5008_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=e7NAfkF4ErM",
+        loreTitle: "UIGalleryFootageTable_5008_ExitVideos_#1_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -262,17 +571,39 @@ const MapInfoRegularOrdered: MapInfo[] = [
     galleryImage: "img_mapselect_hellfiregala_arakko.png",
     backgroundImage: "img_map_hellfiregala_arakko.png",
     domImages: [],
-    loadingTips: [
-      "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#0_Text",
-      "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#1_Text",
-      "MarvelIPWholeProcessTable_1217_LoadingVideoSubtitles_#2_Text",
-    ],
+    loadingTips: ["Loading_Arakko_1", "Loading_Arakko_2", "Loading_Arakko_3"],
+    images: [],
     videos: [
-      { video: "ArakkoE01_Loading_Video.mp4", caption: "" },
-      { video: "ArakkoE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "ArakkoE01_Defence_Video.mp4", caption: "Defend" },
-      { video: "ArakkoE01_Attack_Video.mp4", caption: "Attack" },
-      { video: "ArakkoE01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=_DCOXD7X7yA",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=WcNPnZKbrr4",
+        loreTitle: "UIGalleryFootageTable_5008_LoadingVideos_#1_VideoName",
+      },
+      {
+        title: "Intro - Attack",
+        video: "https://www.youtube.com/watch?v=BT8n5vg_f88",
+        loreTitle: "UIGalleryFootageTable_5008_EntryVideos_#1_VideoName",
+      },
+      {
+        title: "Intro - Defence",
+        video: "https://www.youtube.com/watch?v=OSezFQ0Bm9s",
+        loreTitle: "UIGalleryFootageTable_5008_EntryVideos_#2_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=mm6lp1XZyBs",
+        loreTitle: "UIGalleryFootageTable_5008_ExitVideos_#2_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=uwmt50bQfTs",
+        loreTitle: "UIGalleryFootageTable_5008_ExitVideos_#3_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -295,12 +626,28 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_KlyntarC_5",
       "Loading_KlyntarC_6",
     ],
+    images: [],
     videos: [
-      { video: "KlyntarMC01_Loading_Video.mp4", caption: "" },
-      { video: "KlyntarMC01_Attack.mp4", caption: "Attack" },
-      { video: "KlyntarMC01_Defence.mp4", caption: "Defense" },
-      { video: "KlyntarMC01_Attack_Video.mp4", caption: "Attack" },
-      { video: "KlyntarMC01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=CUvBdR0HUqw",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=O2kXhL7wDJM",
+        loreTitle: "UIGalleryFootageTable_5005_LoadingVideos_#1_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=URPXl5C-28U",
+        loreTitle: "UIGalleryFootageTable_5005_ExitVideos_#2_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=s72kNGrB6qs",
+        loreTitle: "UIGalleryFootageTable_5005_ExitVideos_#3_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -316,10 +663,61 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "Loading_KunlunH01_2",
       "Loading_KunlunH01_3",
     ],
+    images: [],
     videos: [
-      { video: "KlyntarEC01_Loading_Video.mp4", caption: "" },
-      { video: "KlyntarEC01_Attack_Video.mp4", caption: "Attack" },
-      { video: "KlyntarEC01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=WkTmJp0dcUA",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=EQwwID8OO3E",
+        loreTitle: "UIGalleryFootageTable_5007_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=jxwjOoyEnBs",
+        loreTitle: "UIGalleryFootageTable_5007_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=VAcEC9xJaeU",
+        loreTitle: "UIGalleryFootageTable_5007_ExitVideos_#1_VideoName",
+      },
+    ],
+    linkID: "",
+  },
+  {
+    group: "",
+    name: "Museum of Contemplation",
+    domNames: [],
+    galleryImage: "img_mapselect_grandgarden.png",
+    backgroundImage: "img_map_grandgarden.png",
+    domImages: [],
+    loadingTips: ["Loading_Museum_1", "Loading_Museum_2", "Loading_Museum_3"],
+    images: ["2767030_20251221155325_1.png"],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=-9NKTTnOsLc",
+        loreTitle: "",
+      },
+      {
+        title: "Mode Reveal",
+        video: "https://www.youtube.com/watch?v=ZcSk1EQYW8k",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=FNztRS6Dipk",
+        loreTitle: "UIGalleryFootageTable_5015_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=D2lPcLn2nUw",
+        loreTitle: "UIGalleryFootageTable_5015_ExitVideos_#0_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -327,7 +725,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
 
 const MapInfoArcadeOrdered: MapInfo[] = [
   {
-    group: "Practice",
+    group: "",
     name: "Practice Range",
     domNames: [],
     galleryImage: "img_mapselect_practicerance.png",
@@ -341,9 +739,18 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "121_Train_ST.TXT_Loading5",
       "121_Train_ST.TXT_Loading6",
     ],
+    images: [],
     videos: [
-      { video: "Loading_Tokyo.mp4", caption: "" },
-      { video: "TojyoE01_Video.mp4", caption: "Attack & Defend" },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=zMgHNFNGN6w",
+        loreTitle: "UIGalleryFootageTable_5004_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Loading Screen - Unused",
+        video: "https://www.youtube.com/watch?v=Wf1GxB_1E-s",
+        loreTitle: "",
+      },
     ],
     linkID: "",
   },
@@ -355,9 +762,13 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     backgroundImage: "img_map_tokyowebworld_spiderisland.png",
     domImages: [],
     loadingTips: ["Loading_Tokyo_1", "Loading_Tokyo_2", "Loading_Tokyo_3"],
+    images: [],
     videos: [
-      { video: "Loading_Tokyo.mp4", caption: "" },
-      { video: "TojyoE01_Video.mp4", caption: "Attack & Defend" },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=RWs4tubqHlM",
+        loreTitle: "UIGalleryFootageTable_5003_LoadingVideos_#0_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -373,7 +784,24 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "Loading_SanctumSanctorum_2",
       "Loading_SanctumSanctorum_3",
     ],
-    videos: [{ video: "NewYorkM01_Loading_Video.mp4", caption: "" }],
+    images: [],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=pVlerpIo3Pk",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=EXRY-TOkhkE",
+        loreTitle: "UIGalleryFootageTable_5006_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=UYYhN-htSjs",
+        loreTitle: "UIGalleryFootageTable_5006_ExitVideos_#2_VideoName",
+      },
+    ],
     linkID: "",
   },
   {
@@ -388,7 +816,19 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1289_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1289_LoadingVideoSubtitles_#2_Text",
     ],
-    videos: [{ video: "Springfestival_Loading.mp4", caption: "" }],
+    images: [],
+    videos: [
+      {
+        title: "Mode Reveal",
+        video: "https://www.youtube.com/watch?v=r1ogvqoq09I",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=3UfKmsHrdC0",
+        loreTitle: "",
+      },
+    ],
     linkID: "",
   },
   {
@@ -401,7 +841,19 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     loadingTips: [
       "MarvelIPWholeProcessTable_1314_LoadingVideoSubtitles_#0_Text",
     ],
-    videos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
+    images: [],
+    videos: [
+      {
+        title: "Mode Reveal",
+        video: "https://www.youtube.com/watch?v=gVIUnElubKk",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=9JfMoM9cpH8",
+        loreTitle: "",
+      },
+    ],
     linkID: "",
   },
   {
@@ -412,14 +864,37 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     backgroundImage: "img_map_klyntar_abyssthrone.png",
     domImages: [],
     loadingTips: [
-      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#0_Text",
-      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#1_Text",
-      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#2_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubloreTitles_#0_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubloreTitles_#1_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubloreTitles_#2_Text",
     ],
+    images: [],
     videos: [
-      { video: "KlyntarEC01_Loading_Video.mp4", caption: "" },
-      { video: "KlyntarEC01_Attack_Video.mp4", caption: "Attack" },
-      { video: "KlyntarEC01_Defence_Video.mp4", caption: "Defend" },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=P44x3oxvhFY",
+        loreTitle: "",
+      },
+      {
+        title: "Mode Reveal",
+        video: "https://www.youtube.com/watch?v=pGfp8UJDpdg",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=FD_WK8LQIqk",
+        loreTitle: "UIGalleryFootageTable_5005_LoadingVideos_#2_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=YNgS_Y7zRaw",
+        loreTitle: "UIGalleryFootageTable_5005_ExitVideos_#4_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=o2Y9TsCuDts",
+        loreTitle: "UIGalleryFootageTable_5005_ExitVideos_#5_VideoName",
+      },
     ],
     linkID: "",
   },
@@ -435,12 +910,24 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#1_Text",
       "MarvelIPWholeProcessTable_1403_LoadingVideoSubtitles_#2_Text",
     ],
-    videos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
+    images: [],
+    videos: [
+      {
+        title: "Mode Trailer",
+        video: "https://www.youtube.com/watch?v=grjC63MftfI",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=xeuK-9_xQZM",
+        loreTitle: "",
+      },
+    ],
     linkID: "",
   },
   {
-    group: "Grand Garden",
-    name: "",
+    group: "",
+    name: "Grand Garden",
     domNames: [],
     galleryImage: "img_mapselect_grandgarden.png",
     backgroundImage: "img_map_grandgarden.png",
@@ -451,7 +938,29 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "Loading_Garden_3",
       "Loading_Garden_4",
     ],
-    videos: [{ video: "HellfireGala_Loading_Video.mp4", caption: "" }],
+    images: ["2767030_20251221155325_1.png"],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=-9NKTTnOsLc",
+        loreTitle: "",
+      },
+      {
+        title: "Mode Reveal",
+        video: "https://www.youtube.com/watch?v=ZcSk1EQYW8k",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=FNztRS6Dipk",
+        loreTitle: "UIGalleryFootageTable_5015_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=D2lPcLn2nUw",
+        loreTitle: "UIGalleryFootageTable_5015_ExitVideos_#0_VideoName",
+      },
+    ],
     linkID: "",
   },
   {
@@ -462,14 +971,17 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     backgroundImage: "timessquare.png",
     domImages: [],
     loadingTips: [],
+    images: [],
     videos: [
       {
+        title: "Map Reveal",
         video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
-        caption: "Map Reveal",
+        loreTitle: "",
       },
       {
+        title: "Loading Screen",
         video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Loading Screen",
+        loreTitle: "",
       },
     ],
     linkID: "",
@@ -486,14 +998,22 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "Loading_JeffLand_2",
       "Loading_JeffLand_3",
     ],
+    images: [],
     videos: [
       {
+        loreTitle: "",
         video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
-        caption: "Map Reveal",
+        title: "Map Reveal",
       },
       {
-        video: "https://www.youtube.com/watch?v=eBL9UDwmrOs",
-        caption: "Loading Screen",
+        loreTitle: "",
+        video: "https://www.youtube.com/watch?v=2DEpKcigA30",
+        title: "Mode Reveal",
+      },
+      {
+        loreTitle: "",
+        video: "https://www.youtube.com/watch?v=CrBRsoUSzx4",
+        title: "Loading Screen",
       },
     ],
     linkID: "",
@@ -502,12 +1022,12 @@ const MapInfoArcadeOrdered: MapInfo[] = [
 
 const MapInfoWithLinkIDs = MapInfoRegularOrdered.map((map) => ({
   ...map,
-  linkID: (map.name || map.group).replace(/\s+/g, ""), // Use map.name or fallback to map.group
+  linkID: (map.group + map.name).replace(/\s+/g, ""), // Combine group + name
 }));
 
 const MapArcadeInfoWithLinkIDs = MapInfoArcadeOrdered.map((map) => ({
   ...map,
-  linkID: (map.name || map.group).replace(/\s+/g, ""), // Use map.name or fallback to map.group
+  linkID: (map.group + map.name).replace(/\s+/g, ""), // Combine group + name
 }));
 
 const MapInfoRegular = [...MapInfoWithLinkIDs].reverse();

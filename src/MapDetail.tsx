@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { MapInfoRegular, MapInfoArcade } from "./MapList";
 import { getNestedValue } from "./getNestedValue";
 import gameDataSources from "./GameData";
+import ImageGallery from "./ImageGallery";
 
 interface MapDetailProps {
   linkID?: string;
@@ -75,8 +76,9 @@ const MapDetail: React.FC<MapDetailProps> = ({
 
           return (
             <div key={index} className="video-item youtube-video">
-              {videoItem.caption && (
-                <p className="video-caption">{videoItem.caption}</p>
+              {/* Video Title - only show if it exists */}
+              {videoItem.title && videoItem.title.trim() && (
+                <p className="video-caption">{videoItem.title}</p>
               )}
               <div className="youtube-embed-container">
                 <iframe
@@ -88,6 +90,14 @@ const MapDetail: React.FC<MapDetailProps> = ({
                   className="youtube-iframe"
                 ></iframe>
               </div>
+              {/* Video Caption - only show if it exists */}
+              {videoItem.loreTitle && videoItem.loreTitle.trim() && (
+                <p className="video-caption video-small-caption">
+                  "
+                  {getNestedValue(gameDataSources.default, videoItem.loreTitle)}
+                  "
+                </p>
+              )}
             </div>
           );
         })}
@@ -110,7 +120,7 @@ const MapDetail: React.FC<MapDetailProps> = ({
   return (
     <div className="mapinfo-page">
       <h1 className="pagetitle">
-        {map.name ? `${map.group}: ${map.name}` : map.group}
+        {map.group ? `${map.group}: ${map.name}` : map.name}
       </h1>
 
       {/* Map image and loading tips section */}
@@ -156,14 +166,25 @@ const MapDetail: React.FC<MapDetailProps> = ({
             </section>
           </section>
         )}
-      </section>
 
-      {/* YouTube videos section */}
-      {map.videos && map.videos.length > 0 && (
-        <section className="map-video-section">
-          {renderYouTubeGallery()}
-        </section>
-      )}
+        {/* YouTube videos section */}
+        {map.videos && map.videos.length > 0 && (
+          <section className="map-video-section">
+            {renderYouTubeGallery()}
+          </section>
+        )}
+
+        {/* Image Gallery section */}
+        {map.images && map.images.length > 0 && (
+          <section className="map-image-gallery-section">
+            <ImageGallery
+              images={map.images.map(
+                (img) => `/textures/map_screenshots/${map.linkID}/${img}`
+              )}
+            />
+          </section>
+        )}
+      </section>
     </div>
   );
 };

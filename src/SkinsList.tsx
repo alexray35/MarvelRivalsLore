@@ -51,7 +51,17 @@ const skinStories: { skinID: string; storyID: string }[] = [
   { skinID: "1045502", storyID: "season3-3" },
   { skinID: "1052502", storyID: "season3-3" },
   { skinID: "1054300", storyID: "Phoenix1" },
-  { skinID: "1034502", storyID: "IronMan3" },
+  { skinID: "1050301", storyID: "special71" },
+  { skinID: "1031308", storyID: "special71" },
+  { skinID: "1048302", storyID: "special71" },
+  { skinID: "1035302", storyID: "special71" },
+  { skinID: "1042303", storyID: "special81" },
+  { skinID: "1041502", storyID: "special81" },
+  { skinID: "1032304", storyID: "special81" },
+  { skinID: "1043301", storyID: "special81" },
+  { skinID: "1042302", storyID: "special61" },
+  { skinID: "1047302", storyID: "special61" },
+  { skinID: "1045300", storyID: "special61" },
 ];
 
 const extractSkinTheme = (fullSkinId: string): string => {

@@ -341,38 +341,30 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
         </>
       )}
 
-      {[...Object.entries(seasonGroups)]
-        .sort(([a], [b]) =>
-          activeTab === "serials"
-            ? parseInt(b) - parseInt(a)
-            : parseInt(a) - parseInt(b)
-        )
-        .map(([seasonStr, group]) => {
-          const season = parseInt(seasonStr);
-          return (
-            <React.Fragment key={`season-${season}`}>
-              {!showOnlyLastSeason && (
-                <h1 className="subpagetitle">
-                  {activeTab === "serials"
-                    ? `Season ${season}: ${getSeasonName(season)}`
-                    : getSeasonName(season)}
-                </h1>
-              )}
-              <div className={`gallery-group group-${season}`}>
-                <div className="gallery-cover">
-                  <img
-                    src={getSeasonImage(season)}
-                    alt={`Season ${season} cover`}
-                    loading="lazy"
-                  />
-                </div>
-                <div className="magazine-grid">
-                  {renderGroup(group, season)}
-                </div>
+      {[...Object.entries(seasonGroups)].map(([seasonStr, group]) => {
+        const season = parseInt(seasonStr);
+        return (
+          <React.Fragment key={`season-${season}`}>
+            {!showOnlyLastSeason && (
+              <h1 className="subpagetitle">
+                {activeTab === "serials"
+                  ? `Season ${season}: ${getSeasonName(season)}`
+                  : getSeasonName(season)}
+              </h1>
+            )}
+            <div className={`gallery-group group-${season}`}>
+              <div className="gallery-cover">
+                <img
+                  src={getSeasonImage(season)}
+                  alt={`Season ${season} cover`}
+                  loading="lazy"
+                />
               </div>
-            </React.Fragment>
-          );
-        })}
+              <div className="magazine-grid">{renderGroup(group, season)}</div>
+            </div>
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 };

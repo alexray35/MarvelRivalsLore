@@ -59,6 +59,7 @@ const processHeroData = async (): Promise<HeroInfo[]> => {
           id === "1011"
             ? "/textures/hero_prestigerender/img_prestige_10110013_hero.png"
             : `/textures/hero_prestigerender/img_prestige_${id}0010_hero.png`;
+        //: `https://psylocke.gg/_next/image?url=%2Fapi%2Fgame%2Ftexture%3Fpath%3DMarvel%252FContent%252FMarvel%252FUI%252FTextures%252FHeroGallery_V3%252FHeroDetail%252FPrestige%252FHeroPrestige%252Fimg_prestige_${id}0010_hero.img_prestige_10460010_hero&w=1024&q=75`;
 
         const heroSignature = `/textures/hero_signature/img_story_herosign_${id}_sign.png`;
         const heroLogo = `/textures/hero_logo/img_herologo_${id}_logo.png`;

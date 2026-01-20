@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import GalleryStory from "../GalleryStory";
 import { useEffect } from "react";
 import GalleryMagazine from "../GalleryMagazine";
-import GalleryActivity from "../GalleryActivity";
+//import GalleryActivity from "../GalleryActivity";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -22,10 +22,10 @@ function MainPage() {
       },
     });
   };
-  const handleActivitySelect = (linkID: string) => {
-    // Changed to accept linkID
-    navigate(`/activity/${linkID}`); // Use URL parameter
-  };
+  //const handleActivitySelect = (linkID: string) => {
+  //// Changed to accept linkID
+  //  navigate(`/activity/${linkID}`); // Use URL parameter
+  //};
 
   return (
     <div className="page mainpage">

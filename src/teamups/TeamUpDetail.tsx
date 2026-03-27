@@ -69,7 +69,7 @@ const TeamUpDetail: React.FC<TeamUpDetailProps> = ({
     <div className="teamup-detail">
       <div className="tabspacing">
         <div className="tab-selector-container">
-          {sortedVersions.map((version, index) => (
+          {sortedVersions.map((_, index) => (
             <span
               key={index}
               className={`tab-selector ${

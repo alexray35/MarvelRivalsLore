@@ -5,7 +5,6 @@ import {
   magazineSerials,
   magazineSpecials,
   getSeasonInfo,
-  getAllSeasons,
   getSerialsSeasons,
   getSpecialsSeasons,
 } from "./MagazineList";
@@ -23,13 +22,6 @@ interface MagazineItem {
   imageName: string;
   overrideName: string;
   linkID: string;
-}
-
-interface SeasonInfo {
-  number: string;
-  name: string;
-  year: string;
-  image: string;
 }
 
 interface YearData {
@@ -56,7 +48,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
 
   // Get the last season ID from SeasonsList
   const lastSeasonId = SeasonInfoList[SeasonInfoList.length - 1]?.id;
-  const lastSeasonNumber = lastSeasonId ? parseInt(lastSeasonId) : null;
+  // const lastSeasonNumber = lastSeasonId ? parseInt(lastSeasonId) : null;
 
   // Parse URL parameters on mount
   useEffect(() => {

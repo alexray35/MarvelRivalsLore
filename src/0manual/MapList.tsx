@@ -726,7 +726,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
     group: "",
     name: "Lower Manhattan",
     domNames: [],
-    galleryImage: "",
+    galleryImage: "soon.png",
     backgroundImage: "img_map_newyork_manhattan.png",
     domImages: [],
     loadingTips: [

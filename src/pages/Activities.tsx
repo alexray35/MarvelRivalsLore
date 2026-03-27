@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import GalleryActivity from "../GalleryActivity";
+import GalleryActivity from "../activity/GalleryActivity";
 import { useEffect } from "react";
 
 function ActivitiesPage() {

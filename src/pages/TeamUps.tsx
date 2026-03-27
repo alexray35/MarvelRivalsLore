@@ -1,13 +1,13 @@
 // TeamUps.tsx
 import { useState } from "react";
-import GalleryTeamUp from "../GalleryTeamUp";
-import TeamUpDetail from "../TeamUpDetail";
-import { TeamUps } from "../TeamUpList";
+import GalleryTeamUp from "../teamups/GalleryTeamUp";
+import TeamUpDetail from "../teamups/TeamUpDetail";
+import { TeamUpInfoList } from "../0manual/TeamUpFullList";
 
 function TeamUpsPage() {
   // Set first team up as default if available
   const [selectedTeamUpRef, setSelectedTeamUpRef] = useState<string>(
-    TeamUps.length > 0 ? TeamUps[0].ref : ""
+    TeamUpInfoList.length > 0 ? TeamUpInfoList[0].name : ""
   );
 
   const handleTeamUpSelect = (ref: string) => {

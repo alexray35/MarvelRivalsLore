@@ -1,6 +1,6 @@
 // Magazines.tsx
 import { useNavigate } from "react-router-dom";
-import GalleryMagazine from "../GalleryMagazine";
+import GalleryMagazine from "../magazine/GalleryMagazine";
 import { useEffect } from "react";
 
 function MagazinesPage() {
@@ -9,7 +9,7 @@ function MagazinesPage() {
   const handleMagazineSelect = (linkID: string, overrideName: string) => {
     navigate(`/story/${linkID}`, {
       state: {
-        titleOverride: overrideName, // Still pass titleOverride via state
+        titleOverride: overrideName,
       },
     });
   };

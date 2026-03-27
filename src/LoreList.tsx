@@ -1,15 +1,12 @@
 // LoreList.tsx
-import { StoryInfo } from "./StoryList";
+import { StoryInfo } from "./stories/StoryList";
 import {
-  serials as magazineSerials,
-  specials as magazineSpecials,
-} from "./MagazineList";
+  magazineSerials,
+  magazineSpecials,
+  getSeasonInfo,
+} from "./magazine/MagazineList";
 import { getNestedValue } from "./getNestedValue";
-import gameDataSources from "./GameData";
-import {
-  serials as seasonSerials,
-  specials as seasonSpecials,
-} from "./SeasonList";
+import gameDataSources from "./0manual/GameData";
 
 interface LoreItem {
   title: string;
@@ -22,11 +19,8 @@ interface LoreItem {
 }
 
 const getSeasonName = (seasonNumber: number): string => {
-  // Combine both serial and special seasons for lookup
-  const allSeasons = [...seasonSerials, ...seasonSpecials];
-  const season = allSeasons.find((s) => s.number === seasonNumber.toString());
-  const seasonName = season?.name;
-  return seasonName ? seasonName : "Season Title";
+  const seasonInfo = getSeasonInfo(seasonNumber.toString());
+  return seasonInfo?.name ? seasonInfo.name : "Season Title";
 };
 
 const processLoreData = async (): Promise<LoreItem[]> => {

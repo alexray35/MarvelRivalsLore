@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import GalleryStory from "../GalleryStory";
+import GalleryStory from "../stories/GalleryStory";
 import { useEffect } from "react";
-import GalleryMagazine from "../GalleryMagazine";
+import GalleryMagazine from "../magazine/GalleryMagazine";
+import { SeasonInfoList } from "../0manual/SeasonsList";
 //import GalleryActivity from "../GalleryActivity";
 
 function MainPage() {
@@ -29,7 +30,10 @@ function MainPage() {
 
   return (
     <div className="page mainpage">
-      <h1 className="mainpagetitle">Season 6: Night at the Museum</h1>
+      <h1 className="mainpagetitle">
+        Season {SeasonInfoList[SeasonInfoList.length - 1].id}:{" "}
+        {SeasonInfoList[SeasonInfoList.length - 1].name}
+      </h1>
 
       <h1 className="pagetitle">Stories</h1>
       <div className="mainPageStories">

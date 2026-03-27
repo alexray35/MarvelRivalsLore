@@ -1,6 +1,6 @@
 // Story.tsx
 import { useParams, useLocation } from "react-router-dom";
-import StoryContent from "../StoryContent";
+import StoryContent from "../stories/StoryContent";
 import { useEffect } from "react";
 
 function StoryPage() {

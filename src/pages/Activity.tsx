@@ -1,8 +1,7 @@
 // Activity.tsx
 import { useParams } from "react-router-dom";
-import ActivityDetail from "../ActivityDetail";
+import ActivityDetail from "../activity/ActivityDetail";
 import { useEffect } from "react";
-import "../ActivityPage.css";
 
 function ActivityPage() {
   const { linkID } = useParams(); // Get linkID from URL parameter

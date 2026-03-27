@@ -1,9 +1,8 @@
 // Skins.tsx
 import { useState } from "react";
-import GallerySkins from "../GallerySkins.tsx";
-import SkinDetail from "../SkinDetail.tsx";
-import { SkinsInfo } from "../SkinsList";
-import "../CollectablePage.css";
+import GallerySkins from "../skins/GallerySkins.tsx";
+import SkinDetail from "../skins/SkinDetail.tsx";
+import { SkinsInfo } from "../skins/SkinsList";
 
 function SkinsPage() {
   const [selectedSkinId, setSelectedCollectableId] = useState<string>(

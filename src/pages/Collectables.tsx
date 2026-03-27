@@ -1,12 +1,11 @@
 // Collectables.tsx
 import { useState } from "react";
-import GalleryCollectable from "../GalleryCollectable";
-import CollectableDetail from "../CollectableDetail";
-import { CollectableInfo } from "../CollectableList";
-import GalleryAccessory from "../GalleryAccessory";
-import AccessoryDetail from "../AccessoryDetail";
-import { AccessoryInfo } from "../AccessoryList";
-import "../CollectablePage.css";
+import GalleryCollectable from "../collectables/GalleryCollectable";
+import CollectableDetail from "../collectables/CollectableDetail";
+import { CollectableInfo } from "../collectables/CollectableList";
+import GalleryAccessory from "../collectables/GalleryAccessory";
+import AccessoryDetail from "../collectables/AccessoryDetail";
+import { AccessoryInfo } from "../collectables/AccessoryList";
 
 function CollectablesPage() {
   const [selectedCollectableId, setSelectedCollectableId] = useState<string>(

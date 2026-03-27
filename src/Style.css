@@ -69,6 +69,15 @@
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
 }
 
+.previous-titles {
+  vertical-align: bottom;
+  margin: 0px;
+  color: #ffffff;
+  font-family: Calibri;
+  font-size: 25px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.687));
+}
+
 .mainpage .magazine-grid {
   margin-bottom: 10px;
 }
@@ -416,6 +425,11 @@ input:checked + .toggle-slider:before {
 
 .gallery-group.group-6::before {
   background-image: url("/textures/gallerycards/img_gallerys6_magazine_01.png");
+  bottom: -20%;
+}
+
+.gallery-group.group-7::before {
+  background-image: url("/textures/gallerycards/img_gallerys7_magazine_01.png");
   bottom: -20%;
 }
 
@@ -1105,7 +1119,9 @@ nav a.active {
   text-transform: uppercase;
   font-size: 30px;
   vertical-align: top;
+  margin-top: 10;
 }
+
 .video-small-caption {
   margin: 0px;
   line-height: 5px;
@@ -1348,7 +1364,7 @@ nav a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/textures/gallerycards/img_gallerys6_magazine_01.png");
+  background-image: url("/textures/gallerycards/img_gallerys7_magazine_01.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

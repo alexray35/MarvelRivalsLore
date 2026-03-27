@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import GalleryCinematic from "../GalleryCinematics";
+import GalleryCinematic from "../cinematics/GalleryCinematics";
 
 function CinematicsPage() {
   useEffect(() => {

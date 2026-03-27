@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
-import HeroDetail from "../HeroDetail";
+import HeroDetail from "../heroes/HeroDetail";
 import { useEffect } from "react";
-import "../CharacterPage.css";
 
 function HeroPage() {
   const { linkID } = useParams(); // Get linkID from URL parameter

@@ -1,7 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
-import MapDetail from "../MapDetail";
+import MapDetail from "../maps/MapDetail";
 import { useEffect } from "react";
-import "../MapPage.css";
 
 function MapPage() {
   const { linkID } = useParams(); // Get linkID from URL parameter

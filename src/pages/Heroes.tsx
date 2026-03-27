@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import GalleryHero from "../GalleryHero";
+import GalleryHero from "../heroes/GalleryHero";
 import { useEffect } from "react";
 
 function HeroesPage() {

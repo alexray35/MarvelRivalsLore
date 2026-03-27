@@ -1,5 +1,5 @@
 import React from "react";
-import gameDataSources from "./GameData";
+import gameDataSources from "./0manual/GameData";
 import { getNestedValue } from "./getNestedValue";
 
 interface JsonValueProps {

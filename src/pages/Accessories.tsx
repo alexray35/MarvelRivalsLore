@@ -1,8 +1,8 @@
 // Accessorys.tsx
 import { useState } from "react";
-import GalleryAccessory from "../GalleryAccessory";
-import AccessoryDetail from "../AccessoryDetail";
-import { AccessoryInfo } from "../AccessoryList";
+import GalleryAccessory from "../collectables/GalleryAccessory";
+import AccessoryDetail from "../collectables/AccessoryDetail";
+import { AccessoryInfo } from "../collectables/AccessoryList";
 
 function AccessoriesPage() {
   const [selectedAccessoryId, setSelectedAccessoryId] = useState<string>(

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import GalleryMap from "../GalleryMap";
+import GalleryMap from "../maps/GalleryMap";
 import { useEffect } from "react";
 
 function MapsPage() {

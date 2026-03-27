@@ -1,0 +1,803 @@
+interface SeasonInfo {
+  id: string;
+  name: string;
+  altName: string;
+  year: string;
+  cover: string;
+  gallerycard: { id: string; image: string; altName: string }[];
+  video: { title: string; url: string; type: string }[];
+}
+
+const SeasonInfoList: SeasonInfo[] = [
+  {
+    id: "-999",
+    name: "BETA",
+    altName: "Pre-Release",
+    year: "2024",
+    cover: "img_gallery_magazine_01.png",
+    gallerycard: [],
+    video: [
+      {
+        title: "Rivals’ First Stand",
+        url: "https://www.youtube.com/watch?v=RTnsfVGxdjM",
+        type: "Cinematic",
+      },
+      {
+        title: "Console Announce Trailer",
+        url: "https://www.youtube.com/watch?v=XOrp5HeY6U8",
+        type: "Cinematic",
+      },
+      {
+        title: "No One Rivals Doom",
+        url: "https://www.youtube.com/watch?v=MI3w4oP7uvo",
+        type: "Cinematic",
+      },
+      {
+        title: "Stars Aligned",
+        url: "https://www.youtube.com/watch?v=tiAZrZGkIgY",
+        type: "Cinematic",
+      },
+    ],
+  },
+  {
+    id: "0",
+    name: "Doom's Rise",
+    altName: "",
+    year: "2024",
+    cover: "img_gallery_magazine_01.png",
+    gallerycard: [
+      {
+        id: "01010001",
+        image: "img_gallery_card_vertical_01.png",
+        altName: "",
+      },
+      {
+        id: "01010002",
+        image: "img_gallery_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010003",
+        image: "img_gallery_card_vertical_03.png",
+        altName: "",
+      },
+      {
+        id: "01010004",
+        image: "img_gallery_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010005",
+        image: "img_gallery_card_horizontal_03.png",
+        altName: "",
+      },
+      {
+        id: "01010006",
+        image: "img_gallery_card_horizontal_05.png",
+        altName: "",
+      },
+      {
+        id: "01010007",
+        image: "img_gallery_card_horizontal_04.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Rivals 'Til the End",
+        url: "https://www.youtube.com/watch?v=6QtF-z25nIA",
+        type: "Cinematic",
+      },
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=jyCJbGUsUkc",
+        type: "Cinematic",
+      },
+      {
+        title: "Log In",
+        url: "https://www.youtube.com/watch?v=KTKd327sNLU",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=z99lghRgaIQ",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=791ketRw8XY",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "1",
+    name: "Eternal Night Falls",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_s1.png",
+    gallerycard: [
+      {
+        id: "01010008",
+        image: "img_gallerys1_magazine_01.png",
+        altName: "",
+      },
+      {
+        id: "01010009",
+        image: "img_gallerys1_card_vertical_01.png",
+        altName: "",
+      },
+      {
+        id: "01010010",
+        image: "img_gallerys1_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010011",
+        image: "img_gallerys1_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010012",
+        image: "img_gallerys1_card_horizontal_03.png",
+        altName: "",
+      },
+      {
+        id: "01010013",
+        image: "img_gallerys1_card_horizontal_04.png",
+        altName: "",
+      },
+      {
+        id: "01010014",
+        image: "img_gallerys1_card_horizontal_05.png",
+        altName: "",
+      },
+      {
+        id: "01010015",
+        image: "img_gallerys1_card_horizontal_06.png",
+        altName: "",
+      },
+      {
+        id: "01010016",
+        image: "img_gallerys1_card_horizontal_07.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=zATLJ6Cqt0c",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=4VbdtQKpFaU",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=r7cxk7wrxXk",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=l5Vq4IoeR40",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "2",
+    name: "Hellfire Gala",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_s2.png",
+    gallerycard: [
+      {
+        id: "01010017",
+        image: "img_gallerys2_magazine_01.png",
+        altName: "",
+      },
+      {
+        id: "01010018",
+        image: "img_gallerys2_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010019",
+        image: "img_gallerys2_card_vertical_01.png",
+        altName: "",
+      },
+      {
+        id: "01010020",
+        image: "img_gallerys2_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010021",
+        image: "img_gallerys2_card_horizontal_03.png",
+        altName: "",
+      },
+      {
+        id: "01010022",
+        image: "img_gallerys2_card_horizontal_04.png",
+        altName: "",
+      },
+      {
+        id: "01010023",
+        image: "img_gallerys2_card_horizontal_05.png",
+        altName: "",
+      },
+      {
+        id: "01010024",
+        image: "img_gallerys2_card_horizontal_06.png",
+        altName: "",
+      },
+      {
+        id: "01010025",
+        image: "img_gallerys2_card_vertical_02.png",
+        altName: "",
+      },
+      {
+        id: "01010026",
+        image: "img_gallerys2_card_horizontal_07.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=thyG51IdChc",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=N2tvOsSC9nw",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=HbMT0GPUz3A",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=lJALEDITlsQ",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "3",
+    name: "The Abyss Awakens",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_s3.png",
+    gallerycard: [
+      {
+        id: "01010027",
+        image: "img_gallerys3_magazine_01.png",
+        altName: "Flarkin' Klyntar",
+      },
+      {
+        id: "01010028",
+        image: "img_gallerys3_magazine_02.png",
+        altName: "A Light In the Darkness",
+      },
+      {
+        id: "01010029",
+        image: "img_gallerys3_card_horizontal_01.png",
+        altName: "The Phoenix Reborn?",
+      },
+      {
+        id: "01010030",
+        image: "img_gallerys3_card_horizontal_02.png",
+        altName: "'Till Death Do Us Part",
+      },
+      {
+        id: "01010031",
+        image: "img_gallerys3_card_horizontal_03.png",
+        altName: "A Dire Warning",
+      },
+      {
+        id: "01010032",
+        image: "img_gallerys3_card_horizontal_04.png",
+        altName: "On The Blade's Edge",
+      },
+      {
+        id: "01010033",
+        image: "img_gallerys3_card_horizontal_05.png",
+        altName: "Divine Balance",
+      },
+      {
+        id: "01010034",
+        image: "img_gallerys3_card_horizontal_06.png",
+        altName: "Kings In Black",
+      },
+      {
+        id: "01010035",
+        image: "img_gallerys3_card_horizontal_07.png",
+        altName: "Phoenix Endsong",
+      },
+      {
+        id: "01010036",
+        image: "img_gallerys3_card_horizontal_08.png",
+        altName: "Nowhere Left To Run",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=kIhLPAWKKsg",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=4syfd4zERCs",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=HA-WQUjoeuc",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=dbLLYx6_4qM",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "4",
+    name: "Heart of the Dragon",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_s4.png",
+    gallerycard: [
+      {
+        id: "01010037",
+        image: "img_gallerys4_magazine_01.png",
+        altName: "",
+      },
+      {
+        id: "01010038",
+        image: "img_gallerys4_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010039",
+        image: "img_gallerys4_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010040",
+        image: "img_gallerys4_card_horizontal_03.png",
+        altName: "",
+      },
+      {
+        id: "01010041",
+        image: "img_gallerys4_card_horizontal_04.png",
+        altName: "",
+      },
+      {
+        id: "01010042",
+        image: "img_gallerys4_card_horizontal_05.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=67FVMNGMFXU",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=d0syphCD2DY",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=OcsyzPyflhE",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=Unv4zQIIbNM",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "5",
+    name: "Love is a Battlefield",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_s5.png",
+    gallerycard: [
+      {
+        id: "01010043",
+        image: "img_gallerys5_magazine_01.png",
+        altName: "",
+      },
+      {
+        id: "01010044",
+        image: "img_gallerys5_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010045",
+        image: "img_gallerys5_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010046",
+        image: "img_gallerys5_card_horizontal_03.png",
+        altName: "",
+      },
+      {
+        id: "01010047",
+        image: "img_gallerys5_card_horizontal_04.png",
+        altName: "",
+      },
+      {
+        id: "01010048",
+        image: "img_gallerys5_card_horizontal_05.png",
+        altName: "",
+      },
+      {
+        id: "01010049",
+        image: "img_gallerys5_card_horizontal_06.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=hXOUHb64164",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=uRQOW22dJL8",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=IW8RsO3OKd8",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=3jCssJYfurg",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "6",
+    name: "Night at the Museum",
+    altName: "",
+    year: "2026",
+    cover: "img_gallery_magazine_s6.png",
+    gallerycard: [
+      {
+        id: "01010050",
+        image: "img_gallerys6_magazine_01.png",
+        altName: "",
+      },
+      {
+        id: "01010051",
+        image: "img_gallerys6_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010052",
+        image: "img_gallerys6_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010053",
+        image: "img_gallerys6_card_horizontal_03.png",
+        altName: "",
+      },
+      {
+        id: "01010054",
+        image: "img_gallerys6_card_horizontal_04.png",
+        altName: "",
+      },
+      {
+        id: "01010055",
+        image: "img_gallerys6_card_horizontal_05.png",
+        altName: "",
+      },
+      {
+        id: "01010056",
+        image: "img_gallerys6_card_horizontal_06.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=Aj53c2Uxrtc",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=JUNv6Eii37M",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=x5_erHtZVUM",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=LfTFb4Q-9NQ",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "7",
+    name: "The Hunt is On",
+    altName: "",
+    year: "2026",
+    cover: "img_gallery_magazine_s7.png",
+    gallerycard: [
+      {
+        id: "01010057",
+        image: "img_gallerys7_magazine_01.png",
+        altName: "",
+      },
+      {
+        id: "01010058",
+        image: "img_gallerys7_card_horizontal_01.png",
+        altName: "",
+      },
+      {
+        id: "01010059",
+        image: "img_gallerys7_card_horizontal_02.png",
+        altName: "",
+      },
+      {
+        id: "01010060",
+        image: "img_gallerys7_card_horizontal_03.png",
+        altName: "",
+      },
+      /*
+      {
+        id: "01010061",
+        image: "",
+        altName: "",
+      },
+      {
+        id: "01010062",
+        image: "",
+        altName: "",
+      },
+      */
+      {
+        id: "01010063",
+        image: "img_gallerys7_card_horizontal_06.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=HdG4elTlDv8",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=X0RJcnrlyPk",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=grNVzUTmzJg",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=PEa_N3c7bLc",
+        type: "Homescreen",
+      },
+    ],
+  },
+];
+
+const SeasonSpecialsInfoList: SeasonInfo[] = [
+  {
+    id: "-1",
+    name: "Winter Celebration",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_winter.png",
+    gallerycard: [
+      {
+        id: "01020001",
+        image: "img_gallery_card_vertical_02.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+  {
+    id: "-2",
+    name: "Spring Festival Special",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_spring.png",
+    gallerycard: [
+      {
+        id: "01020002",
+        image: "img_gallery_card_horizontal_06.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+  {
+    id: "-3",
+    name: "Galacta's Cosmic Adventure",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_discovery.png",
+    gallerycard: [
+      {
+        id: "01020003",
+        image: "img_gallerys1_card_horizontal_08.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+  {
+    id: "-4",
+    name: "Hellfire Gala: Special Edition",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_hellfire.png",
+    gallerycard: [
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire1.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire2.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire3.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire4.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire5.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire6.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire7.png",
+        altName: "",
+      },
+      {
+        id: "01020004",
+        image: "img_gallery_magazine_hellfire8.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+  {
+    id: "-5",
+    name: "Summer Special",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_25summer.png",
+    gallerycard: [
+      {
+        id: "01020005",
+        image: "img_gallery_card_25summer01.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+  {
+    id: "-6",
+    name: "Voyage to Astonish",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_25halloween.png",
+    gallerycard: [
+      {
+        id: "01020006",
+        image: "img_gallery_card_25halloween.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+  {
+    id: "-7",
+    name: "All Systems Go",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_tercentenary1.png",
+    gallerycard: [
+      {
+        id: "01020007",
+        image: "img_gallery_card_tercentenary1.png",
+        altName: "",
+      },
+    ],
+    video: [
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=slOzPUdhPzo",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=WUQmzZfaXoY",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=kIecamNx9oE",
+        type: "Homescreen",
+      },
+      {
+        title: "Login (CN)",
+        url: "https://www.youtube.com/watch?v=nPQrqiFONKc",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition (CN)",
+        url: "https://www.youtube.com/watch?v=SkSPCkZLIVE",
+        type: "Homescreen",
+      },
+      {
+        title: "Home (CN)",
+        url: "https://www.youtube.com/watch?v=nC7iAaQ9-QI",
+        type: "Homescreen",
+      },
+    ],
+  },
+  {
+    id: "-8",
+    name: "Unfurgettable Holiday",
+    altName: "",
+    year: "2025",
+    cover: "img_gallery_magazine_25winter.png",
+    gallerycard: [
+      {
+        id: "01020008",
+        image: "img_gallery_card_25winter.png",
+        altName: "",
+      },
+    ],
+    video: [],
+  },
+];
+
+export { SeasonInfoList, SeasonSpecialsInfoList };

@@ -1,6 +1,6 @@
 // Stories.tsx
 import { useNavigate } from "react-router-dom";
-import GalleryStory from "../GalleryStory";
+import GalleryStory from "../stories/GalleryStory";
 import { useEffect } from "react";
 
 function StoriesPage() {

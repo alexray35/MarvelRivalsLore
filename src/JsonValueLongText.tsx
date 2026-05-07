@@ -20,13 +20,18 @@ const JsonValueLongText: React.FC<JsonValueProps> = ({
   // Convert string to array split by newlines, then replace single newlines with double newlines
   const lines = String(value).split("\n");
 
-  // Function to process text and replace <Slide>...</> with italic text
+  // Function to process text and replace <Slide>...</> with italic text and <Bold>...</> with bold text
   const processText = (text: string) => {
-    const parts = text.split(/(<Slide>.*?<\/>)/g);
+    const parts = text.split(/(<Slide>.*?<\/>|<Bold>.*?<\/>)/g);
     return parts.map((part, index) => {
       if (part.startsWith("<Slide>") && part.endsWith("</>")) {
         const content = part.slice(7, -3); // Remove <Slide> and </>
         return <i key={index}>{content}</i>;
+      }
+      if (part.startsWith("<Bold>") && part.endsWith("</>")) {
+        const content = part.slice(6, -3); // Remove <Bold> and </>
+
+        return <strong key={index}>{content}</strong>;
       }
       return <React.Fragment key={index}>{part}</React.Fragment>;
     });

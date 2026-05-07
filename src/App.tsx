@@ -21,6 +21,7 @@ import CollectablesPage from "./pages/Collectables";
 import TeamUpPage from "./pages/TeamUps";
 import SkinsPage from "./pages/Skins";
 import CinematicsPage from "./pages/Cinematics";
+import ImagesPage from "./pages/Images";
 import Footer from "./Footer";
 import LoadingScreen from "./LoadingScreen"; // Import the loading screen
 
@@ -121,18 +122,18 @@ function App() {
               </li>
               <li>
                 <NavLink
-                  to="/cinematics"
+                  to="/images"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  Cinematics
+                  Images
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/about"
+                  to="/cinematics"
                   className={({ isActive }) => (isActive ? "active" : "")}
                 >
-                  About
+                  Cinematics
                 </NavLink>
               </li>
             </ul>
@@ -156,6 +157,7 @@ function App() {
           <Route path="/teamups" element={<TeamUpPage />} />
           <Route path="/collectables" element={<CollectablesPage />} />
           <Route path="/skins" element={<SkinsPage />} />
+          <Route path="/images" element={<ImagesPage />} />
           <Route path="/cinematics" element={<CinematicsPage />} />
           <Route path="/" element={<Navigate to="/main" replace />} />
         </Routes>

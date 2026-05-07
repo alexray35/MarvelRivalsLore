@@ -831,8 +831,8 @@ const HeroFullInfoList: HeroFullInfo[] = [
       },
       {
         title: "HeroUIAssetBPTable_10360000_HeroGallerylnfo_Story_#1_Title",
-        content: "",
-        season: "",
+        content: "UIHeroStoryTable_10360_Story_#1_Content",
+        season: "7",
         image: "",
       },
       {
@@ -1720,6 +1720,41 @@ const HeroFullInfoList: HeroFullInfo[] = [
       },
       {
         title: "UIHeroStoryTable_10600_Story_#2_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+    ],
+    linkID: "",
+  },
+  // Black Cat
+  {
+    id: "1061",
+    displayName: "Black Cat",
+    heroName: "UIHeroTable_10610_HeroBasic_TName",
+    realName: "UIHeroTable_10610_HeroBasic_RealName",
+    portrait: "",
+    render: "",
+    logo: "",
+    color: "a994e4",
+    description: "UIHeroTable_10610_HeroBasic_Desc",
+    biography: "UIHeroStoryTable_10611_Biography",
+    season: "7",
+    story: [
+      {
+        title: "UIHeroStoryTable_10610_Story_#0_Title",
+        content: "UIHeroStoryTable_10610_Story_#0_Content",
+        season: "7",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10610_Story_#1_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10610_Story_#2_Title",
         content: "",
         season: "",
         image: "",

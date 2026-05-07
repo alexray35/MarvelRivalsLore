@@ -12,7 +12,7 @@ import { getNestedValue } from "../getNestedValue";
 import gameDataSources from "../0manual/GameData";
 
 interface ActivityDetailProps {
-  linkID?: string; // Changed from name/season to linkID
+  linkID?: string;
 }
 
 const ActivityDetail: React.FC<ActivityDetailProps> = ({
@@ -23,9 +23,8 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
     number | null
   >(null);
 
-  const activityLinkID = propLinkID || paramLinkID || "season0activity1"; // Default fallback
+  const activityLinkID = propLinkID || paramLinkID || "season0activity1";
 
-  // Combine all activity lists into one array for easier searching
   const allActivities = [
     ...ActivityInfo_SeasonBETA,
     ...ActivityInfo_Season0,
@@ -35,7 +34,6 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
     ...ActivityInfo_Season4,
   ];
 
-  // Find activity by linkID
   const activity = allActivities.find((a) => a.linkID === activityLinkID);
 
   if (!activity) {
@@ -43,7 +41,15 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
     return null;
   }
 
-  // Determine if it's a beta season activity
+  // Determine which data source to use based on versionOverride
+  const getDataSource = (versionOverride?: string) => {
+    if (versionOverride && gameDataSources[versionOverride]) {
+      return gameDataSources[versionOverride];
+    }
+    return gameDataSources.default;
+  };
+
+  const dataSource = getDataSource(activity.versionOverride);
   const isBetaSeason = ActivityInfo_SeasonBETA.includes(activity);
 
   const handleSectionClick = (index: number | null) => {
@@ -60,7 +66,7 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
       <h2 className="subpagetitle">
         {isBetaSeason
           ? activity.name
-          : getNestedValue(gameDataSources.default, activity.name)}
+          : getNestedValue(dataSource.data, activity.name)}
       </h2>
       <div>
         {hasMultipleSections && (
@@ -75,10 +81,7 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
               >
                 {isBetaSeason
                   ? section.sectionTitle
-                  : getNestedValue(
-                      gameDataSources.default,
-                      section.sectionTitle
-                    )}
+                  : getNestedValue(dataSource.data, section.sectionTitle)}
               </span>
             ))}
           </div>
@@ -88,54 +91,62 @@ const ActivityDetail: React.FC<ActivityDetailProps> = ({
       <section className="activity-content">
         {displaySection && (
           <div className="activity-section">
-            {displaySection.subsections.map((subsection, index) => (
-              <div key={index} className="subsection-container">
-                <div className="subsection-content">
-                  <div className="subsection-image-container">
-                    <img
-                      src={`/textures/activities/${subsection.subsectionImage}`}
-                      alt={
-                        isBetaSeason
+            {displaySection.subsections.map((subsection, index) => {
+              // Determine if this specific subsection needs a different data source
+              // For beta subsections, we might need to use beta data, otherwise use the activity's versionOverride
+              const subsectionDataSource = isBetaSeason
+                ? gameDataSources.beta
+                : dataSource;
+
+              return (
+                <div key={index} className="subsection-container">
+                  <div className="subsection-content">
+                    <div className="subsection-image-container">
+                      <img
+                        src={`/textures/activities/${subsection.subsectionImage}`}
+                        alt={
+                          isBetaSeason
+                            ? subsection.subsectionTitle
+                            : getNestedValue(
+                                subsectionDataSource.data,
+                                subsection.subsectionTitle
+                              )
+                        }
+                        className="subsection-image"
+                      />
+                    </div>
+                    <div className="subsection-text-container">
+                      <h4 className="subsection-title">
+                        {isBetaSeason
                           ? subsection.subsectionTitle
                           : getNestedValue(
-                              gameDataSources.default,
+                              subsectionDataSource.data,
                               subsection.subsectionTitle
-                            )
-                      }
-                      className="subsection-image"
-                    />
-                  </div>
-                  <div className="subsection-text-container">
-                    <h4 className="subsection-title">
-                      {isBetaSeason
-                        ? subsection.subsectionTitle
-                        : getNestedValue(
-                            gameDataSources.default,
-                            subsection.subsectionTitle
-                          )}
-                    </h4>
-                    {subsection.subsectionSubTitle && (
-                      <h5 className="subsection-title">
-                        {isBetaSeason
-                          ? subsection.subsectionSubTitle
-                          : getNestedValue(
-                              gameDataSources.default,
-                              subsection.subsectionSubTitle
                             )}
-                      </h5>
-                    )}
-                    <p className="long-text">
-                      {getNestedValue(
-                        isBetaSeason
-                          ? gameDataSources.beta
-                          : gameDataSources.default,
-                        subsection.subsectionText
+                      </h4>
+                      {subsection.subsectionSubTitle && (
+                        <h5 className="subsection-title">
+                          {isBetaSeason
+                            ? subsection.subsectionSubTitle
+                            : getNestedValue(
+                                subsectionDataSource.data,
+                                subsection.subsectionSubTitle
+                              )}
+                        </h5>
                       )}
-                    </p>
+                      <p className="long-text">
+                        {getNestedValue(
+                          isBetaSeason
+                            ? gameDataSources.beta.data
+                            : subsectionDataSource.data,
+                          subsection.subsectionText
+                        )}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </section>

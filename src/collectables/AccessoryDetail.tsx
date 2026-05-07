@@ -3,6 +3,7 @@ import React, { useState, useMemo } from "react";
 import { AccessoryInfo } from "./AccessoryList";
 import { gameDataSources, TAB_ORDER } from "../0manual/GameData";
 import { getNestedValue } from "../getNestedValue";
+import { HeroFullInfoList } from "../0manual/HeroFullList";
 
 interface AccessoryDetailProps {
   id?: string;
@@ -109,6 +110,10 @@ const AccessoryDetail: React.FC<AccessoryDetailProps> = ({
   // Set the active tab data
   const activeTabData = filteredTabs[selectedVersionIndex] || filteredTabs[0];
 
+  const heroInfo = HeroFullInfoList.find(
+    (hero) => hero.id === collectable.accessoryHeroID
+  );
+
   return (
     <div className="collectable-detail">
       <div className="subsection-container">
@@ -147,6 +152,13 @@ const AccessoryDetail: React.FC<AccessoryDetailProps> = ({
                   collectable.accessoryName
                 )}
               </h2>
+              <p className="long-text accessory-source">
+                {"[ This accessory belongs to"}{" "}
+                <a href={`/hero/${heroInfo?.linkID}`} className="hero-link">
+                  {heroInfo?.displayName}
+                </a>
+                {" ]"}
+              </p>
               <p className="long-text">
                 {getNestedValue(
                   activeTabData.gameData,

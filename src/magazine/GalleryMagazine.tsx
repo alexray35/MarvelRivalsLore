@@ -8,7 +8,7 @@ import {
   getSerialsSeasons,
   getSpecialsSeasons,
 } from "./MagazineList";
-import { SeasonInfoList } from "../0manual/SeasonsList";
+import { SeasonInfoList, SeasonSpecialsInfoList } from "../0manual/SeasonsList";
 import JsonValue from "../JsonValue";
 
 interface GalleryMagazineProps {
@@ -30,6 +30,12 @@ interface YearData {
   hasSpecials: boolean;
 }
 
+interface GalleryGroup {
+  seasonNumber: number;
+  gallerycardIndex: number;
+  items: MagazineItem[];
+}
+
 const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
   onMagazineSelect,
   showOnlyLastSeason = false,
@@ -39,9 +45,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
 
   const [activeYear, setActiveYear] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"serials" | "specials">("serials");
-  const [seasonGroups, setSeasonGroups] = useState<
-    Record<number, MagazineItem[]>
-  >({});
+  const [galleryGroups, setGalleryGroups] = useState<GalleryGroup[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [availableYears, setAvailableYears] = useState<YearData[]>([]);
@@ -100,28 +104,35 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
 
       // Check which years have magazine serials and specials
       magazineSerials.forEach((item) => {
-        const seasonInfo = getSeasonInfo(item.season);
-        if (seasonInfo?.year) {
-          const yearData = yearMap.get(seasonInfo.year) || {
-            year: seasonInfo.year,
-            hasSerials: false,
-            hasSpecials: false,
-          };
-          yearData.hasSerials = true;
-          yearMap.set(seasonInfo.year, yearData);
+        const seasonInfos = getSeasonInfo(item.season);
+        if (seasonInfos && seasonInfos.length > 0) {
+          // Use the first season info's year (all infos for the same season should have the same year)
+          const seasonInfo = seasonInfos[0];
+          if (seasonInfo?.year) {
+            const yearData = yearMap.get(seasonInfo.year) || {
+              year: seasonInfo.year,
+              hasSerials: false,
+              hasSpecials: false,
+            };
+            yearData.hasSerials = true;
+            yearMap.set(seasonInfo.year, yearData);
+          }
         }
       });
 
       magazineSpecials.forEach((item) => {
-        const seasonInfo = getSeasonInfo(item.season);
-        if (seasonInfo?.year) {
-          const yearData = yearMap.get(seasonInfo.year) || {
-            year: seasonInfo.year,
-            hasSerials: false,
-            hasSpecials: false,
-          };
-          yearData.hasSpecials = true;
-          yearMap.set(seasonInfo.year, yearData);
+        const seasonInfos = getSeasonInfo(item.season);
+        if (seasonInfos && seasonInfos.length > 0) {
+          const seasonInfo = seasonInfos[0];
+          if (seasonInfo?.year) {
+            const yearData = yearMap.get(seasonInfo.year) || {
+              year: seasonInfo.year,
+              hasSerials: false,
+              hasSpecials: false,
+            };
+            yearData.hasSpecials = true;
+            yearMap.set(seasonInfo.year, yearData);
+          }
         }
       });
 
@@ -184,40 +195,184 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
     if (!activeYear) return;
 
     try {
-      const groups: Record<number, MagazineItem[]> = {};
+      const groups: GalleryGroup[] = [];
       let hasData = false;
 
       // Load data based on active tab
       const items =
         activeTab === "serials" ? magazineSerials : magazineSpecials;
 
-      // Get seasons for the active year
-      const seasonsForYear = (
+      // Get all season infos for the active tab and year
+      const seasonInfosForYear = (
         activeTab === "serials" ? getSerialsSeasons() : getSpecialsSeasons()
-      )
-        .filter((season) => season.year === activeYear)
-        .map((season) => season.number);
+      ).filter((season) => season.year === activeYear);
 
-      // Filter items by season and year
-      const filteredItems = items.filter((item) => {
-        // First filter by showOnlyLastSeason if applicable
-        if (showOnlyLastSeason && activeTab === "serials") {
-          // Check if the item's season matches the last season from SeasonsList
-          return item.season === lastSeasonId;
-        }
-        // Then filter by active year
-        return seasonsForYear.includes(item.season);
-      });
+      // Group items by season and gallerycard index
+      // We need to track which gallerycard each magazine item belongs to
+      // Since magazine items don't have gallerycard index, we need to infer it from the order
 
-      // Group items by season
-      filteredItems.forEach((item) => {
-        const seasonNum = parseInt(item.season);
-        if (!groups[seasonNum]) {
-          groups[seasonNum] = [];
+      // First, get all magazine items for the active year
+      const allItemsForYear = items.filter((item) =>
+        seasonInfosForYear.some((season) => season.number === item.season)
+      );
+
+      if (showOnlyLastSeason && activeTab === "serials") {
+        // Filter to only last season
+        const filteredItems = allItemsForYear.filter(
+          (item) => item.season === lastSeasonId
+        );
+        if (filteredItems.length > 0) {
+          // Group by season and gallerycard
+          const itemsBySeason: Map<string, MagazineItem[]> = new Map();
+          filteredItems.forEach((item) => {
+            if (!itemsBySeason.has(item.season)) {
+              itemsBySeason.set(item.season, []);
+            }
+            itemsBySeason.get(item.season)!.push(item);
+          });
+
+          // For each season, group items by gallerycard
+          itemsBySeason.forEach((seasonItems, seasonId) => {
+            const seasonNum = parseInt(seasonId);
+            const seasonInfosForId = seasonInfosForYear.filter(
+              (s) => s.number === seasonId
+            );
+
+            // Group items by gallerycard based on the items array
+            // We need to know which items belong to which gallerycard
+            // Since magazine items don't have gallerycard index, we need to match them with the gallerycard's items
+            seasonInfosForId.forEach((seasonInfo, gallerycardIndex) => {
+              // Get the gallerycard's items from SeasonInfoList or SeasonSpecialsInfoList
+              let gallerycardItems: {
+                id: string;
+                image: string;
+                altName: string;
+              }[] = [];
+
+              if (activeTab === "serials") {
+                const seasonData = SeasonInfoList.find(
+                  (s) => s.id === seasonId
+                );
+                if (
+                  seasonData &&
+                  seasonData.gallerycard &&
+                  seasonData.gallerycard[gallerycardIndex]
+                ) {
+                  gallerycardItems =
+                    seasonData.gallerycard[gallerycardIndex].items;
+                }
+              } else {
+                const specialData = SeasonSpecialsInfoList.find(
+                  (s) => s.id === seasonId
+                );
+                if (
+                  specialData &&
+                  specialData.gallerycard &&
+                  specialData.gallerycard[gallerycardIndex]
+                ) {
+                  gallerycardItems =
+                    specialData.gallerycard[gallerycardIndex].items;
+                }
+              }
+
+              // Match magazine items to this gallerycard
+              const matchedItems = seasonItems.filter((item) =>
+                gallerycardItems.some((gcItem) => gcItem.id === item.id)
+              );
+
+              if (matchedItems.length > 0) {
+                groups.push({
+                  seasonNumber: seasonNum,
+                  gallerycardIndex: gallerycardIndex,
+                  items: matchedItems,
+                });
+                hasData = true;
+              }
+            });
+          });
         }
-        groups[seasonNum].push(item);
-        hasData = true;
-      });
+      } else {
+        // Normal filtering by year
+        const itemsBySeasonAndGallerycard: Map<
+          string,
+          Map<number, MagazineItem[]>
+        > = new Map();
+
+        // For each season in the current year, process its gallerycards
+        for (const seasonInfo of seasonInfosForYear) {
+          const seasonId = seasonInfo.number;
+          const seasonNum = parseInt(seasonId);
+
+          // Get the gallerycard items from the source data
+          let gallerycards: {
+            cover: string;
+            title: string;
+            numberSufix?: string;
+            items: { id: string; image: string; altName: string }[];
+          }[] = [];
+
+          if (activeTab === "serials") {
+            const seasonData = SeasonInfoList.find((s) => s.id === seasonId);
+            if (seasonData && seasonData.gallerycard) {
+              gallerycards = seasonData.gallerycard;
+            }
+          } else {
+            const specialData = SeasonSpecialsInfoList.find(
+              (s) => s.id === seasonId
+            );
+            if (specialData && specialData.gallerycard) {
+              gallerycards = specialData.gallerycard;
+            }
+          }
+
+          // For each gallerycard, collect the magazine items
+          gallerycards.forEach((gallerycard, gallerycardIndex) => {
+            const gallerycardItemIds = gallerycard.items.map((item) => item.id);
+            const matchedItems = allItemsForYear.filter(
+              (item) =>
+                item.season === seasonId && gallerycardItemIds.includes(item.id)
+            );
+
+            if (matchedItems.length > 0) {
+              if (!itemsBySeasonAndGallerycard.has(seasonId)) {
+                itemsBySeasonAndGallerycard.set(seasonId, new Map());
+              }
+              itemsBySeasonAndGallerycard
+                .get(seasonId)!
+                .set(gallerycardIndex, matchedItems);
+              hasData = true;
+            }
+          });
+        }
+
+        // Convert to groups array
+        for (const [seasonId, gallerycardMap] of itemsBySeasonAndGallerycard) {
+          const seasonNum = parseInt(seasonId);
+          for (const [gallerycardIndex, items] of gallerycardMap) {
+            groups.push({
+              seasonNumber: seasonNum,
+              gallerycardIndex,
+              items,
+            });
+          }
+        }
+
+        // Sort groups by season number and then by gallerycard index
+        groups.sort((a, b) => {
+          const aIsSpecial = a.seasonNumber < 0;
+          const bIsSpecial = b.seasonNumber < 0;
+
+          if (aIsSpecial && bIsSpecial) {
+            // Specials: higher number (closer to 0) first? No — you want -8 before -1
+            // So sort descending (more negative first)
+            return b.seasonNumber - a.seasonNumber;
+          }
+          if (a.seasonNumber !== b.seasonNumber) {
+            return a.seasonNumber - b.seasonNumber;
+          }
+          return a.gallerycardIndex - b.gallerycardIndex;
+        });
+      }
 
       if (!hasData) {
         throw new Error(
@@ -225,7 +380,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
         );
       }
 
-      setSeasonGroups(groups);
+      setGalleryGroups(groups);
       setIsLoading(false);
     } catch (err) {
       setError(
@@ -235,17 +390,60 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
     }
   }, [activeTab, activeYear, showOnlyLastSeason, lastSeasonId]);
 
-  const getSeasonImage = (seasonNumber: number): string => {
-    const seasonInfo = getSeasonInfo(seasonNumber.toString());
-    const imageName = seasonInfo?.image;
+  const getSeasonImage = (
+    seasonNumber: number,
+    gallerycardIndex: number
+  ): string => {
+    const seasonInfos = getSeasonInfo(seasonNumber.toString());
+    if (!seasonInfos || seasonInfos.length === 0) {
+      return "/textures/gallerycovers/default_magazine_cover.png";
+    }
+
+    // Get the specific gallerycard info
+    const seasonInfo = seasonInfos[gallerycardIndex];
+    if (!seasonInfo) {
+      return "/textures/gallerycovers/default_magazine_cover.png";
+    }
+
+    const imageName = seasonInfo.image;
     return imageName
       ? `/textures/gallerycovers/${imageName}`
       : "/textures/gallerycovers/default_magazine_cover.png";
   };
 
-  const getSeasonName = (seasonNumber: number): string => {
-    const seasonInfo = getSeasonInfo(seasonNumber.toString());
-    return seasonInfo?.name ? seasonInfo.name : "Season Name Missing";
+  const getSeasonName = (
+    seasonNumber: number,
+    gallerycardIndex: number
+  ): string => {
+    const seasonInfos = getSeasonInfo(seasonNumber.toString());
+    if (!seasonInfos || seasonInfos.length === 0) {
+      return "Season Name Missing";
+    }
+
+    // Get the specific gallerycard info
+    const seasonInfo = seasonInfos[gallerycardIndex];
+    if (!seasonInfo) {
+      return "Season Name Missing";
+    }
+
+    return seasonInfo.name ? seasonInfo.name : "Season Name Missing";
+  };
+
+  const getSeasonNumberSuffix = (
+    seasonNumber: number,
+    gallerycardIndex: number
+  ): string => {
+    const seasonInfos = getSeasonInfo(seasonNumber.toString());
+    if (!seasonInfos || seasonInfos.length === 0) {
+      return "";
+    }
+
+    const seasonInfo = seasonInfos[gallerycardIndex];
+    if (!seasonInfo) {
+      return "";
+    }
+
+    return seasonInfo.numberSufix || "";
   };
 
   const handleYearSelect = (year: string) => {
@@ -286,11 +484,11 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
     }
   };
 
-  const renderGroup = (group: MagazineItem[], season: number) => {
-    return group.map((item, index) => {
+  const renderGroup = (group: GalleryGroup) => {
+    return group.items.map((item, index) => {
       return (
         <div
-          key={`${season}-${index}`}
+          key={`${group.seasonNumber}-${group.gallerycardIndex}-${index}`}
           className="magazine-item"
           onClick={() => onMagazineSelect?.(item.linkID, item.overrideName)}
           style={{ cursor: onMagazineSelect ? "pointer" : "default" }}
@@ -323,7 +521,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
     return <div>Error: {error}</div>;
   }
 
-  if (Object.keys(seasonGroups).length === 0) {
+  if (galleryGroups.length === 0) {
     return <div>No magazine images found for {activeYear}.</div>;
   }
 
@@ -379,29 +577,44 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
         </>
       )}
 
-      {[...Object.entries(seasonGroups)].map(([seasonStr, group]) => {
-        const season = parseInt(seasonStr);
+      {galleryGroups.map((group, groupIndex) => {
+        const numberSuffix = getSeasonNumberSuffix(
+          group.seasonNumber,
+          group.gallerycardIndex
+        );
         // Only show season title if not in "only last season" mode
         const shouldShowTitle = !showOnlyLastSeason;
 
         return (
-          <React.Fragment key={`season-${season}`}>
+          <React.Fragment
+            key={`season-${group.seasonNumber}-${group.gallerycardIndex}`}
+          >
             {shouldShowTitle && (
               <h1 className="subpagetitle">
                 {activeTab === "serials"
-                  ? `Season ${season}: ${getSeasonName(season)}`
-                  : getSeasonName(season)}
+                  ? `Season ${
+                      group.seasonNumber
+                    }${numberSuffix}: ${getSeasonName(
+                      group.seasonNumber,
+                      group.gallerycardIndex
+                    )}`
+                  : getSeasonName(group.seasonNumber, group.gallerycardIndex)}
               </h1>
             )}
-            <div className={`gallery-group group-${season}`}>
+            <div
+              className={`gallery-group group-${group.seasonNumber}-${group.gallerycardIndex}`}
+            >
               <div className="gallery-cover">
                 <img
-                  src={getSeasonImage(season)}
-                  alt={`Season ${season} cover`}
+                  src={getSeasonImage(
+                    group.seasonNumber,
+                    group.gallerycardIndex
+                  )}
+                  alt={`Season ${group.seasonNumber}${numberSuffix} cover`}
                   loading="lazy"
                 />
               </div>
-              <div className="magazine-grid">{renderGroup(group, season)}</div>
+              <div className="magazine-grid">{renderGroup(group)}</div>
             </div>
           </React.Fragment>
         );

@@ -22,7 +22,9 @@ const JsonValue: React.FC<JsonValueProps> = ({
 
   // Function to process text and replace tags with formatted text
   const processText = (text: string) => {
-    const parts = text.split(/(<Slide>.*?<\/>|<GalleryStory>.*?<\/>)/g);
+    const parts = text.split(
+      /(<Slide>.*?<\/>|<GalleryStory>.*?<\/>|<Bold>.*?<\/>)/g
+    );
     return parts.map((part, index) => {
       if (part.startsWith("<Slide>") && part.endsWith("</>")) {
         const content = part.slice(7, -3); // Remove <Slide> and </>
@@ -31,6 +33,10 @@ const JsonValue: React.FC<JsonValueProps> = ({
       if (part.startsWith("<GalleryStory>") && part.endsWith("</>")) {
         const content = part.slice(14, -3); // Remove <GalleryStory> and </>
         return <i key={index}>{content}</i>;
+      }
+      if (part.startsWith("<Bold>") && part.endsWith("</>")) {
+        const content = part.slice(6, -3); // Remove <Bold> and </>
+        return <strong key={index}>{content}</strong>;
       }
       return <React.Fragment key={index}>{part}</React.Fragment>;
     });

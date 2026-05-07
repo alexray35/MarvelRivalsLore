@@ -96,6 +96,26 @@ const skinStories: { skinID: string; storyID: string }[] = [
   // Marauders season6-4
   { skinID: "1035303", storyID: "season6-4" },
   { skinID: "1057300", storyID: "season6-4" },
+  { skinID: "1014301", storyID: "season6-4" },
+  { skinID: "1048303", storyID: "season6-4" },
+  { skinID: "1053502", storyID: "season6-4" },
+  { skinID: "1034301", storyID: "season6-4" },
+  // ESU season7
+  { skinID: "1036510", storyID: "season7-3" },
+  { skinID: "1050305", storyID: "season7-3" },
+  { skinID: "1040302", storyID: "season7-3" },
+  { skinID: "1022302", storyID: "season7-3" },
+  { skinID: "1024306", storyID: "season7-3" },
+  { skinID: "1048309", storyID: "season7-3" },
+  { skinID: "1032306", storyID: "season7-3" },
+  { skinID: "1052303", storyID: "season7-3" },
+  { skinID: "1018304", storyID: "season7-3" },
+  { skinID: "1031312", storyID: "season7-3" },
+  { skinID: "1060500", storyID: "season7-3" },
+  { skinID: "1023307", storyID: "season7-3" },
+  { skinID: "1057800", storyID: "season7-3" },
+  // Phoenix
+  { skinID: "1054501", storyID: "season7-7" },
 ];
 
 const extractSkinTheme = (fullSkinId: string): string => {

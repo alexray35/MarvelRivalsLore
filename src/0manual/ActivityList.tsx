@@ -16,6 +16,7 @@ interface ActivityInfo {
   image: string;
   sections: ActivitySection[];
   linkID: string; // Add linkID field
+  versionOverride?: string;
 }
 
 const ActivityInfo_SeasonBETA: ActivityInfo[] = [
@@ -553,6 +554,7 @@ const ActivityInfo_Season4: ActivityInfo[] = [
     linkID: "season4_event2",
     name: "MarvelActivityTable_130_Name",
     image: "img_136activityitem_hover.png",
+    versionOverride: "season5",
     sections: [
       {
         sectionTitle: "",

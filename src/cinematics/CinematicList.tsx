@@ -15,15 +15,12 @@ interface SeasonGroup {
   sortPriority?: number; // Optional custom sort priority
 }
 
-// Import the seasons data
-import { SeasonInfoList, SeasonSpecialsInfoList } from "../0manual/SeasonsList";
-
-// Define custom order for specials
-// Map special season IDs to their desired position (relative to normal seasons)
-const specialOrderMap: { [key: string]: number } = {
-  "-7": 5.5,
-  "-999": -0.5,
-};
+// Import the seasons data and special order map
+import {
+  SeasonInfoList,
+  SeasonSpecialsInfoList,
+  specialOrderMap,
+} from "../0manual/SeasonsList";
 
 const processKeys = async (): Promise<{
   seasonGroups: SeasonGroup[];

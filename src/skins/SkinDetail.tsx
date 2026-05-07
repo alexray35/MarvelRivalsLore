@@ -35,7 +35,9 @@ const SkinDetail: React.FC<SkinDetailProps> = ({
               {getNestedValue(gameDataSources.default, collectable.skinName)}
             </h2>
             <p className="long-text skin-source">
+              {"[ "}
               {getNestedValue(gameDataSources.default, collectable.skinSource)}
+              {" ]"}
             </p>
             <p className="long-text">
               {getNestedValue(

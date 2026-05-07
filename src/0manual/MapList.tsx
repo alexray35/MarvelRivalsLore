@@ -726,7 +726,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
     group: "",
     name: "Lower Manhattan",
     domNames: [],
-    galleryImage: "soon.png",
+    galleryImage: "img_mapselect_newyork_manhattan.png",
     backgroundImage: "img_map_newyork_manhattan.png",
     domImages: [],
     loadingTips: [
@@ -738,6 +738,11 @@ const MapInfoRegularOrdered: MapInfo[] = [
       {
         title: "Map Reveal",
         video: "",
+        loreTitle: "",
+      },
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=ChBE64P3Ams",
         loreTitle: "",
       },
       {
@@ -754,6 +759,36 @@ const MapInfoRegularOrdered: MapInfo[] = [
         title: "Outro - Defence",
         video: "https://www.youtube.com/watch?v=Xtd3DhINlAc",
         loreTitle: "UIGalleryFootageTable_5017_ExitVideos_#1_VideoName",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=HEpqAtUJvzo",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=Fwr5gFlUYiQ",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=0a518DCXLUM",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=chYEYYxED5w",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=PXbyr30wDFI",
+        loreTitle: "",
+      },
+      {
+        title: "Screen",
+        video: "https://www.youtube.com/watch?v=z_fNwdhjI40",
+        loreTitle: "",
       },
     ],
     images: [],
@@ -976,7 +1011,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       "Loading_Garden_3",
       "Loading_Garden_4",
     ],
-    images: ["2767030_20251221155325_1.png"],
+    images: [],
     videos: [
       {
         title: "Map Reveal",
@@ -1025,8 +1060,8 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     linkID: "",
   },
   {
-    group: "Jeffland",
-    name: "",
+    group: "",
+    name: "Jeffland",
     domNames: [],
     galleryImage: "img_mapselect_jeffland.png",
     backgroundImage: "img_map_jeffland.png",
@@ -1042,6 +1077,38 @@ const MapInfoArcadeOrdered: MapInfo[] = [
         loreTitle: "",
         video: "https://www.youtube.com/watch?v=WIpkjohfu3E",
         title: "Map Reveal",
+      },
+      {
+        loreTitle: "",
+        video: "https://www.youtube.com/watch?v=2DEpKcigA30",
+        title: "Mode Reveal",
+      },
+      {
+        loreTitle: "",
+        video: "https://www.youtube.com/watch?v=CrBRsoUSzx4",
+        title: "Loading Screen",
+      },
+    ],
+    linkID: "",
+  },
+  {
+    group: "Blood Hunt",
+    name: "Blood-Night New York",
+    domNames: [],
+    galleryImage: "soon.png",
+    backgroundImage: "img_map_jeffland.png",
+    domImages: [],
+    loadingTips: [
+      "MarvelIPWholeProcessTable_1422_LoadingVideoSubtitles_#0_Text",
+      "MarvelIPWholeProcessTable_1422_LoadingVideoSubtitles_#1_Text",
+      "MarvelIPWholeProcessTable_1422_LoadingVideoSubtitles_#2_Text",
+    ],
+    images: [],
+    videos: [
+      {
+        loreTitle: "",
+        video: "https://www.youtube.com/watch?v=Zd8xPgLCQkw",
+        title: "Mode Trailer",
       },
       {
         loreTitle: "",

@@ -879,6 +879,20 @@ const TeamUpInfoList: TeamUpInfo[] = [
       },
     ],
   },
+  {
+    name: "Lucky Loan",
+    version: [
+      {
+        id: "100065",
+        name: "MarvelBondGroupTable_100065_GroupName",
+        description: "MarvelBondGroupTable_100065_BondGroupDesc",
+        season: "season7_5",
+        anchor: "Black Cat",
+        follower: ["Captain America", "White Fox"],
+        image: "",
+      },
+    ],
+  },
 ];
 
 TeamUpInfoList.forEach((teamup) => {

@@ -394,80 +394,88 @@ input:checked + .toggle-slider:before {
   z-index: 0;
 }
 
-.gallery-group.group-0::before {
+.gallery-group.group-0-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_vertical_01.png");
   bottom: -95%;
 }
 
-.gallery-group.group-1::before {
+.gallery-group.group-1-0::before {
   background-image: url("/textures/gallerycards/img_gallerys1_magazine_01.png");
   bottom: -110%;
 }
 
-.gallery-group.group-2::before {
+.gallery-group.group-2-0::before {
   background-image: url("/textures/gallerycards/img_gallerys2_magazine_01.png");
   bottom: -140%;
 }
 
-.gallery-group.group-3::before {
+.gallery-group.group-3-0::before {
   background-image: url("/textures/gallerycards/img_gallerys3_magazine_01.png");
   bottom: -50%;
 }
-.gallery-group.group-4::before {
+.gallery-group.group-4-0::before {
   background-image: url("/textures/gallerycards/img_gallerys4_magazine_01.png");
   bottom: -80%;
 }
 
-.gallery-group.group-5::before {
+.gallery-group.group-5-0::before {
   background-image: url("/textures/gallerycards/img_gallerys5_magazine_01.png");
   bottom: -320%;
 }
 
-.gallery-group.group-6::before {
+.gallery-group.group-6-0::before {
   background-image: url("/textures/gallerycards/img_gallerys6_magazine_01.png");
   bottom: -20%;
 }
 
-.gallery-group.group-7::before {
+.gallery-group.group-7-0::before {
   background-image: url("/textures/gallerycards/img_gallerys7_magazine_01.png");
   bottom: -20%;
 }
+.gallery-group.group-7-1::before {
+  background-image: url("/textures/gallerycards/img_gallerypve_card_horizontal_04.png");
+  bottom: -90%;
+}
 
-.gallery-group.group--1::before {
+.gallery-group.group--1-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_vertical_02.png");
   top: -265%;
 }
 
-.gallery-group.group--2::before {
+.gallery-group.group--2-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_vertical_04.png");
   bottom: 0%;
 }
 
-.gallery-group.group--3::before {
+.gallery-group.group--3-0::before {
   background-image: url("/textures/gallerycards/img_gallerys1_card_horizontal_08.png");
   bottom: -100%;
 }
 
-.gallery-group.group--4::before {
+.gallery-group.group--4-0::before {
   background-image: url("/textures/gallerycards/img_gallery_magazine_hellfire1.png");
   bottom: -30%;
 }
 
-.gallery-group.group--5::before {
+.gallery-group.group--5-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_25summer01.png");
   bottom: -90%;
 }
-.gallery-group.group--6::before {
+.gallery-group.group--6-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_25halloween.png");
   bottom: -90%;
 }
-.gallery-group.group--7::before {
+.gallery-group.group--7-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_tercentenary1.png");
   bottom: -20%;
 }
-.gallery-group.group--8::before {
+.gallery-group.group--8-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_25winter.png");
   bottom: -20%;
+}
+.gallery-group.group--10-0::before {
+  background-image: url("/textures/gallerycards/img_gallerymcu_magazine_01.png");
+  bottom: -160%;
 }
 
 .gallery-cover,
@@ -1086,14 +1094,23 @@ nav a.active {
   margin-bottom: 10px;
 }
 
+.image-gallery-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px;
+  background-color: rgba(0, 0, 0, 0.415);
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .image-gallery-item {
   width: 100%;
   height: 150px;
   margin-bottom: 20px;
-}
-
-.image-gallery-img {
-  height: 100%;
 }
 
 .cinematics-gallery-container {
@@ -1103,7 +1120,6 @@ nav a.active {
 
 .video-item {
   width: 100%;
-  height: 230px;
   margin-bottom: 20px;
 }
 
@@ -1119,7 +1135,7 @@ nav a.active {
   text-transform: uppercase;
   font-size: 30px;
   vertical-align: top;
-  margin-top: 10;
+  margin: 0;
 }
 
 .video-small-caption {
@@ -1469,9 +1485,25 @@ nav a.active {
 }
 
 .skin-source {
-  font-style: italic;
+  /*font-style: italic;*/
   opacity: 0.6;
   font-size: 20px;
+}
+.accessory-source {
+  /*font-style: italic;*/
+  opacity: 0.6;
+  font-size: 20px;
+}
+
+a {
+  font-weight: 500;
+  color: #fbdc2c;
+  text-decoration: inherit;
+  text-transform: uppercase;
+}
+a:hover {
+  color: #fbdc2c;
+  opacity: 1;
 }
 
 /* LoadingScreen.css */
@@ -1544,4 +1576,11 @@ nav a.active {
 
 .skin-story:hover {
   color: #fbdc2c;
+}
+
+.gallery-image {
+  max-width: 100%;
+  max-height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

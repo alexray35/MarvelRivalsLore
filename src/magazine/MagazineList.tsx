@@ -15,6 +15,7 @@ interface SeasonInfo {
   name: string;
   year: string;
   image: string;
+  numberSufix?: string;
 }
 
 interface MagazineGroups {
@@ -25,27 +26,45 @@ interface MagazineGroups {
   };
 }
 
-// Store season information for lookups
-const seasonInfoMap: Map<string, SeasonInfo> = new Map();
+// Store season information for lookups - now can have multiple entries per season
+const seasonInfoMap: Map<string, SeasonInfo[]> = new Map();
+
+// Helper function to add season info
+const addSeasonInfo = (seasonId: string, seasonInfo: SeasonInfo) => {
+  if (!seasonInfoMap.has(seasonId)) {
+    seasonInfoMap.set(seasonId, []);
+  }
+  seasonInfoMap.get(seasonId)!.push(seasonInfo);
+};
 
 // Populate season info from SeasonInfoList
 SeasonInfoList.forEach((season) => {
-  seasonInfoMap.set(season.id, {
-    number: season.id,
-    name: season.name,
-    year: season.year,
-    image: season.cover,
-  });
+  if (season.gallerycard && season.gallerycard.length > 0) {
+    season.gallerycard.forEach((gallerycard) => {
+      addSeasonInfo(season.id, {
+        number: season.id,
+        name: gallerycard.title,
+        year: season.year,
+        image: gallerycard.cover,
+        numberSufix: gallerycard.numberSufix,
+      });
+    });
+  }
 });
 
 // Populate season info from SeasonSpecialsInfoList
 SeasonSpecialsInfoList.forEach((special) => {
-  seasonInfoMap.set(special.id, {
-    number: special.id,
-    name: special.name,
-    year: special.year,
-    image: special.cover,
-  });
+  if (special.gallerycard && special.gallerycard.length > 0) {
+    special.gallerycard.forEach((gallerycard) => {
+      addSeasonInfo(special.id, {
+        number: special.id,
+        name: gallerycard.title,
+        year: special.year,
+        image: gallerycard.cover,
+        numberSufix: gallerycard.numberSufix,
+      });
+    });
+  }
 });
 
 const processMagazineData = (): {
@@ -126,7 +145,9 @@ const processMagazineData = (): {
   SeasonInfoList.forEach((season) => {
     const seasonNum = parseInt(season.id);
     if (season.gallerycard && season.gallerycard.length > 0) {
-      processSeasonGallerycards(season.id, seasonNum, season.gallerycard);
+      season.gallerycard.forEach((gallerycard) => {
+        processSeasonGallerycards(season.id, seasonNum, gallerycard.items);
+      });
     }
   });
 
@@ -134,7 +155,9 @@ const processMagazineData = (): {
   SeasonSpecialsInfoList.forEach((special) => {
     const seasonNum = parseInt(special.id);
     if (special.gallerycard && special.gallerycard.length > 0) {
-      processSeasonGallerycards(special.id, seasonNum, special.gallerycard);
+      special.gallerycard.forEach((gallerycard) => {
+        processSeasonGallerycards(special.id, seasonNum, gallerycard.items);
+      });
     }
   });
 
@@ -167,35 +190,55 @@ export const magazineMaxSpecialSeason = maxSpecialSeason;
 export const magazineSerials = serials;
 export const magazineSpecials = specials;
 
-// Export season info maps for lookups
-export const getSeasonInfo = (seasonNumber: string): SeasonInfo | undefined => {
+// Export season info maps for lookups - returns array of SeasonInfo for a season number
+export const getSeasonInfo = (
+  seasonNumber: string
+): SeasonInfo[] | undefined => {
   return seasonInfoMap.get(seasonNumber);
 };
 
-// Export all seasons for year grouping
+// Export all seasons for year grouping - flattens all SeasonInfo entries
 export const getAllSeasons = (): SeasonInfo[] => {
-  return Array.from(seasonInfoMap.values());
+  const allSeasons: SeasonInfo[] = [];
+  seasonInfoMap.forEach((seasonInfos) => {
+    allSeasons.push(...seasonInfos);
+  });
+  return allSeasons;
 };
 
 // Export serials and specials seasons separately for type checking
 export const getSerialsSeasons = (): SeasonInfo[] => {
-  return SeasonInfoList.filter((season) => season.gallerycard?.length > 0).map(
-    (season) => ({
-      number: season.id,
-      name: season.name,
-      year: season.year,
-      image: season.cover,
-    })
-  );
+  const serialsSeasons: SeasonInfo[] = [];
+  SeasonInfoList.forEach((season) => {
+    if (season.gallerycard && season.gallerycard.length > 0) {
+      season.gallerycard.forEach((gallerycard) => {
+        serialsSeasons.push({
+          number: season.id,
+          name: gallerycard.title,
+          year: season.year,
+          image: gallerycard.cover,
+          numberSufix: gallerycard.numberSufix,
+        });
+      });
+    }
+  });
+  return serialsSeasons;
 };
 
 export const getSpecialsSeasons = (): SeasonInfo[] => {
-  return SeasonSpecialsInfoList.filter(
-    (special) => special.gallerycard?.length > 0
-  ).map((special) => ({
-    number: special.id,
-    name: special.name,
-    year: special.year,
-    image: special.cover,
-  }));
+  const specialsSeasons: SeasonInfo[] = [];
+  SeasonSpecialsInfoList.forEach((special) => {
+    if (special.gallerycard && special.gallerycard.length > 0) {
+      special.gallerycard.forEach((gallerycard) => {
+        specialsSeasons.push({
+          number: special.id,
+          name: gallerycard.title,
+          year: special.year,
+          image: gallerycard.cover,
+          numberSufix: gallerycard.numberSufix,
+        });
+      });
+    }
+  });
+  return specialsSeasons;
 };

@@ -6,6 +6,7 @@ import { seasonGroups } from "./CinematicList";
 interface YearData {
   year: string;
   hasCinematics: boolean;
+  seasons: SeasonGroup[];
 }
 
 interface SeasonGroup {
@@ -18,6 +19,7 @@ interface SeasonGroup {
     url: string;
     type?: string;
   }>;
+  sortPriority?: number;
 }
 
 const GalleryCinematic: React.FC = () => {
@@ -25,42 +27,53 @@ const GalleryCinematic: React.FC = () => {
   const location = useLocation();
 
   const [activeYear, setActiveYear] = useState<string | null>(null);
+  const [activeSeasonId, setActiveSeasonId] = useState<string | null>(null);
   const [availableYears, setAvailableYears] = useState<YearData[]>([]);
-  const [filteredSeasonGroups, setFilteredSeasonGroups] = useState<
-    SeasonGroup[]
-  >([]);
+  const [currentSeasonGroup, setCurrentSeasonGroup] =
+    useState<SeasonGroup | null>(null);
 
-  // Parse URL parameter on mount and when URL changes
+  // Parse URL parameters on mount and when URL changes
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const yearParam = params.get("year");
+    const seasonParam = params.get("season");
 
     if (yearParam) {
       setActiveYear(yearParam);
     }
+    if (seasonParam) {
+      setActiveSeasonId(seasonParam);
+    }
   }, [location.search]);
 
-  // Update URL when year changes
-  const updateUrl = (year: string) => {
+  // Update URL when year or season changes
+  const updateUrl = (year: string, seasonId?: string) => {
     const params = new URLSearchParams();
     params.set("year", year);
+    if (seasonId) {
+      params.set("season", seasonId);
+    }
     navigate(`${location.pathname}?${params.toString()}`, { replace: true });
   };
 
-  // Process available years from season groups
+  // Process available years and their seasons from season groups
   useEffect(() => {
     try {
-      // Group seasons by year
+      // Group seasons by year, preserving the original order from seasonGroups
       const yearMap = new Map<string, YearData>();
 
+      // Use the already-sorted seasonGroups array (which already has the special order applied)
       seasonGroups.forEach((group) => {
         const year = group.seasonYear;
         if (year) {
           const yearData = yearMap.get(year) || {
             year: year,
             hasCinematics: false,
+            seasons: [],
           };
-          yearData.hasCinematics = true;
+          yearData.seasons.push(group);
+          yearData.hasCinematics =
+            yearData.hasCinematics || group.cinematics.length > 0;
           yearMap.set(year, yearData);
         }
       });
@@ -70,35 +83,112 @@ const GalleryCinematic: React.FC = () => {
         (a, b) => parseInt(b.year) - parseInt(a.year)
       );
 
+      // Sort seasons within each year using the same order logic as CinematicList
+      years.forEach((yearData) => {
+        yearData.seasons.sort((a, b) => {
+          const aId = parseInt(a.seasonId);
+          const bId = parseInt(b.seasonId);
+
+          // If both have sort priorities, use them
+          if (a.sortPriority !== undefined && b.sortPriority !== undefined) {
+            return a.sortPriority - b.sortPriority;
+          }
+
+          // If only a has sort priority, compare with b's ID
+          if (a.sortPriority !== undefined) {
+            return a.sortPriority - bId;
+          }
+
+          // If only b has sort priority, compare a's ID with b's priority
+          if (b.sortPriority !== undefined) {
+            return aId - b.sortPriority;
+          }
+
+          // Both are normal seasons, sort by ID
+          return aId - bId;
+        });
+      });
+
       setAvailableYears(years);
 
-      // Set initial active year from URL or default to most recent year
+      // Set initial active year and season from URL or defaults
       if (years.length > 0 && !activeYear) {
         const params = new URLSearchParams(location.search);
         const yearParam = params.get("year");
+        const seasonParam = params.get("season");
 
         // Check if the year from URL exists and has cinematics
         if (yearParam && years.some((y) => y.year === yearParam)) {
           const yearData = years.find((y) => y.year === yearParam);
           if (yearData && yearData.hasCinematics) {
             setActiveYear(yearParam);
+
+            // If season is specified in URL, try to use it
+            if (
+              seasonParam &&
+              yearData.seasons.some((s) => s.seasonId === seasonParam)
+            ) {
+              setActiveSeasonId(seasonParam);
+            } else if (yearData.seasons.length > 0) {
+              // Default to LAST season with cinematics in this year (will become leftmost tab when reversed)
+              const seasonsWithCinematics = yearData.seasons.filter(
+                (s) => s.cinematics.length > 0
+              );
+              const defaultSeason =
+                seasonsWithCinematics.length > 0
+                  ? seasonsWithCinematics[seasonsWithCinematics.length - 1] // Get the last one
+                  : yearData.seasons[yearData.seasons.length - 1]; // Get the last season if none have cinematics
+
+              if (defaultSeason) {
+                setActiveSeasonId(defaultSeason.seasonId);
+                updateUrl(yearParam, defaultSeason.seasonId);
+              }
+            }
           } else {
             // If year exists but has no cinematics, fall back to default
-            const defaultYear = years.find((y) => y.hasCinematics)?.year;
+            const defaultYear = years.find((y) => y.hasCinematics);
             if (defaultYear) {
-              setActiveYear(defaultYear);
-              updateUrl(defaultYear);
+              setActiveYear(defaultYear.year);
+              const seasonsWithCinematics = defaultYear.seasons.filter(
+                (s) => s.cinematics.length > 0
+              );
+              const defaultSeason =
+                seasonsWithCinematics.length > 0
+                  ? seasonsWithCinematics[seasonsWithCinematics.length - 1]
+                  : defaultYear.seasons[defaultYear.seasons.length - 1];
+              if (defaultSeason) {
+                setActiveSeasonId(defaultSeason.seasonId);
+                updateUrl(defaultYear.year, defaultSeason.seasonId);
+              }
             }
           }
         } else {
-          // No year in URL, use default
-          const defaultYear = years.find((y) => y.hasCinematics)?.year;
+          // No year in URL, use default (first year with cinematics)
+          const defaultYear = years.find((y) => y.hasCinematics);
           if (defaultYear) {
-            setActiveYear(defaultYear);
-            updateUrl(defaultYear);
+            setActiveYear(defaultYear.year);
+            const seasonsWithCinematics = defaultYear.seasons.filter(
+              (s) => s.cinematics.length > 0
+            );
+            const defaultSeason =
+              seasonsWithCinematics.length > 0
+                ? seasonsWithCinematics[seasonsWithCinematics.length - 1]
+                : defaultYear.seasons[defaultYear.seasons.length - 1];
+            if (defaultSeason) {
+              setActiveSeasonId(defaultSeason.seasonId);
+              updateUrl(defaultYear.year, defaultSeason.seasonId);
+            }
           } else if (years.length > 0) {
             setActiveYear(years[0].year);
-            updateUrl(years[0].year);
+            if (years[0].seasons.length > 0) {
+              setActiveSeasonId(
+                years[0].seasons[years[0].seasons.length - 1].seasonId
+              );
+              updateUrl(
+                years[0].year,
+                years[0].seasons[years[0].seasons.length - 1].seasonId
+              );
+            }
           }
         }
       }
@@ -107,25 +197,28 @@ const GalleryCinematic: React.FC = () => {
     }
   }, []); // Run once on mount
 
-  // Filter season groups by active year
+  // Update current season group when active year or active season changes
   useEffect(() => {
-    if (!activeYear) {
-      setFilteredSeasonGroups([]);
+    if (!activeYear || !activeSeasonId) {
+      setCurrentSeasonGroup(null);
       return;
     }
 
     try {
-      // Filter season groups that belong to the active year
-      const filtered = seasonGroups.filter(
-        (group) => group.seasonYear === activeYear
-      );
-
-      setFilteredSeasonGroups(filtered);
+      const yearData = availableYears.find((y) => y.year === activeYear);
+      if (yearData) {
+        const seasonGroup = yearData.seasons.find(
+          (s) => s.seasonId === activeSeasonId
+        );
+        setCurrentSeasonGroup(seasonGroup || null);
+      } else {
+        setCurrentSeasonGroup(null);
+      }
     } catch (err) {
-      console.error("Error filtering season groups by year:", err);
-      setFilteredSeasonGroups([]);
+      console.error("Error finding season group:", err);
+      setCurrentSeasonGroup(null);
     }
-  }, [activeYear]);
+  }, [activeYear, activeSeasonId, availableYears]);
 
   // Handle year selection
   const handleYearSelect = (year: string) => {
@@ -133,10 +226,39 @@ const GalleryCinematic: React.FC = () => {
     if (!yearData || !yearData.hasCinematics) return;
 
     setActiveYear(year);
-    updateUrl(year);
+
+    // When year changes, select the LAST season with cinematics in that year (will become leftmost tab when reversed)
+    const seasonsWithCinematics = yearData.seasons.filter(
+      (s) => s.cinematics.length > 0
+    );
+    const defaultSeason =
+      seasonsWithCinematics.length > 0
+        ? seasonsWithCinematics[seasonsWithCinematics.length - 1]
+        : yearData.seasons[yearData.seasons.length - 1];
+
+    if (defaultSeason) {
+      setActiveSeasonId(defaultSeason.seasonId);
+      updateUrl(year, defaultSeason.seasonId);
+    } else {
+      updateUrl(year);
+    }
   };
 
-  // Extract YouTube video ID from URL (same logic as MapDetail)
+  // Handle season selection
+  const handleSeasonSelect = (seasonId: string) => {
+    if (!activeYear) return;
+
+    const yearData = availableYears.find((y) => y.year === activeYear);
+    if (yearData) {
+      const seasonGroup = yearData.seasons.find((s) => s.seasonId === seasonId);
+      if (seasonGroup && seasonGroup.cinematics.length > 0) {
+        setActiveSeasonId(seasonId);
+        updateUrl(activeYear, seasonId);
+      }
+    }
+  };
+
+  // Extract YouTube video ID from URL
   const extractYouTubeId = (url: string): string | null => {
     const patterns = [
       /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
@@ -179,7 +301,6 @@ const GalleryCinematic: React.FC = () => {
         key={`${videoItem.url}-${videoItem.name}`}
         className="video-item youtube-video"
       >
-        {/* Title on top like MapDetail */}
         {videoItem.name && <p className="video-caption">{videoItem.name}</p>}
         <div className="youtube-embed-container">
           <iframe
@@ -199,7 +320,6 @@ const GalleryCinematic: React.FC = () => {
   const getSeasonDisplayName = (seasonGroup: SeasonGroup): string => {
     const seasonNumber = parseInt(seasonGroup.seasonId);
 
-    // Use altName if available, otherwise use seasonName
     const seasonName = seasonGroup.seasonAltName || seasonGroup.seasonName;
 
     if (!isNaN(seasonNumber) && seasonNumber > 0) {
@@ -207,14 +327,22 @@ const GalleryCinematic: React.FC = () => {
     } else if (seasonNumber === 0) {
       return seasonName;
     } else {
-      // Special seasons (negative numbers)
       return seasonName;
     }
   };
 
+  // Get current year's seasons for the season tabs (preserving the order, but reversed)
+  const getCurrentYearSeasons = (): SeasonGroup[] => {
+    const yearData = availableYears.find((y) => y.year === activeYear);
+    if (!yearData) return [];
+
+    // Return seasons in reverse order
+    return [...yearData.seasons].reverse();
+  };
+
   return (
     <div className="gallery-cinematic">
-      {/* Year tab selector - identical to GalleryMagazine */}
+      {/* Year tab selector */}
       {availableYears.length > 0 && (
         <div className="tab-selector-container year-tab">
           {availableYears.map((yearData) => (
@@ -231,25 +359,65 @@ const GalleryCinematic: React.FC = () => {
         </div>
       )}
 
-      {filteredSeasonGroups.length === 0 ? (
+      {/* Season tab selector - appears under the year selector when a year is selected */}
+      {activeYear && getCurrentYearSeasons().length > 0 && (
+        <div className="tab-selector-container season-tab">
+          {getCurrentYearSeasons().map((season) => {
+            const hasCinematics = season.cinematics.length > 0;
+            const seasonNumber = parseInt(season.seasonId);
+
+            // Determine display name for the tab
+            let displayName = "";
+            if (!isNaN(seasonNumber) && seasonNumber > 0) {
+              displayName = `Season ${season.seasonId}`;
+            } else if (seasonNumber === -999) {
+              // Special case for events/compilations
+              displayName = season.seasonAltName || season.seasonName;
+            } else {
+              displayName = season.seasonAltName || season.seasonName;
+            }
+
+            return (
+              <span
+                key={season.seasonId}
+                className={`tab-selector season-selector ${
+                  activeSeasonId === season.seasonId ? "active" : ""
+                } ${!hasCinematics ? "disabled" : ""}`}
+                onClick={() =>
+                  hasCinematics && handleSeasonSelect(season.seasonId)
+                }
+              >
+                {displayName}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Cinematics content */}
+      {!currentSeasonGroup || currentSeasonGroup.cinematics.length === 0 ? (
         <div className="no-cinematics-message">
-          {activeYear
+          {activeYear && activeSeasonId
+            ? `No cinematics found for ${activeYear} ${
+                currentSeasonGroup
+                  ? getSeasonDisplayName(currentSeasonGroup)
+                  : ""
+              }`
+            : activeYear
             ? `No cinematics found for ${activeYear}`
             : "Loading cinematics..."}
         </div>
       ) : (
-        filteredSeasonGroups.map((seasonGroup) => (
-          <div key={seasonGroup.seasonId}>
-            <h1 className="subpagetitle">
-              {getSeasonDisplayName(seasonGroup)}
-            </h1>
-            <div className="video-gallery-container cinematics-gallery-container">
-              {seasonGroup.cinematics.map((cinematic) =>
-                renderYouTubeVideo(cinematic)
-              )}
-            </div>
+        <div>
+          <h1 className="subpagetitle">
+            {getSeasonDisplayName(currentSeasonGroup)}
+          </h1>
+          <div className="video-gallery-container cinematics-gallery-container">
+            {currentSeasonGroup.cinematics.map((cinematic) =>
+              renderYouTubeVideo(cinematic)
+            )}
           </div>
-        ))
+        </div>
       )}
     </div>
   );

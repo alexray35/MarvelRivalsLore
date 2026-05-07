@@ -19,8 +19,13 @@ interface LoreItem {
 }
 
 const getSeasonName = (seasonNumber: number): string => {
-  const seasonInfo = getSeasonInfo(seasonNumber.toString());
-  return seasonInfo?.name ? seasonInfo.name : "Season Title";
+  const seasonInfoArray = getSeasonInfo(seasonNumber.toString());
+  // Get the first season info entry if available, otherwise return default
+  return seasonInfoArray &&
+    seasonInfoArray.length > 0 &&
+    seasonInfoArray[0].name
+    ? seasonInfoArray[0].name
+    : "Season Title";
 };
 
 const processLoreData = async (): Promise<LoreItem[]> => {

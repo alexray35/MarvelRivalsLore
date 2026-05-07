@@ -241,7 +241,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
             // Group items by gallerycard based on the items array
             // We need to know which items belong to which gallerycard
             // Since magazine items don't have gallerycard index, we need to match them with the gallerycard's items
-            seasonInfosForId.forEach((seasonInfo, gallerycardIndex) => {
+            seasonInfosForId.forEach((_, gallerycardIndex) => {
               // Get the gallerycard's items from SeasonInfoList or SeasonSpecialsInfoList
               let gallerycardItems: {
                 id: string;
@@ -299,9 +299,9 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
         > = new Map();
 
         // For each season in the current year, process its gallerycards
+        // For each season in the current year, process its gallerycards
         for (const seasonInfo of seasonInfosForYear) {
           const seasonId = seasonInfo.number;
-          const seasonNum = parseInt(seasonId);
 
           // Get the gallerycard items from the source data
           let gallerycards: {
@@ -577,7 +577,7 @@ const GalleryMagazine: React.FC<GalleryMagazineProps> = ({
         </>
       )}
 
-      {galleryGroups.map((group, groupIndex) => {
+      {galleryGroups.map((group) => {
         const numberSuffix = getSeasonNumberSuffix(
           group.seasonNumber,
           group.gallerycardIndex

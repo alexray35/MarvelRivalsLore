@@ -792,6 +792,76 @@ const SeasonInfoList: SeasonInfo[] = [
       },
     ],
   },
+  {
+    id: "8",
+    name: "Sins of Alchemax",
+    altName: "",
+    year: "2026",
+    gallerycard: [
+      {
+        cover: "img_gallery_magazine_s8.png",
+        title: "Sins of Alchemax",
+        items: [
+          {
+            id: "01010064",
+            image: "img_gallerys8_magazine_01.png",
+            altName: "",
+          },
+          {
+            id: "01010065",
+            image: "img_gallerys8_card_horizontal_01.png",
+            altName: "",
+          },
+          {
+            id: "01010066",
+            image: "img_gallerys8_card_horizontal_02.png",
+            altName: "",
+          },
+          {
+            id: "01010067",
+            image: "img_gallerys8_card_horizontal_03.png",
+            altName: "",
+          },
+        ],
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=F4B0Jpr4Rw4",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=7vV5OFOL4XA",
+        type: "Homescreen",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=MpjTABuuFjo",
+        type: "Homescreen",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=s35tm2guI6U",
+        type: "Homescreen",
+      },
+    ],
+    image: [
+      {
+        title: "Lore 1",
+        path: "S8 Lore 1.jpg",
+      },
+      {
+        title: "Lore 2",
+        path: "S8 Lore 2.jpg",
+      },
+      {
+        title: "Lore 3",
+        path: "S8 Lore 3.jpg",
+      },
+    ],
+  },
 ];
 
 const SeasonSpecialsInfoList: SeasonInfo[] = [

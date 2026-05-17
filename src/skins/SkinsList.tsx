@@ -116,6 +116,14 @@ const skinStories: { skinID: string; storyID: string }[] = [
   { skinID: "1057800", storyID: "season7-3" },
   // Phoenix
   { skinID: "1054501", storyID: "season7-7" },
+  // Alchemax
+  { skinID: "1062500", storyID: "DevilDinosaur1" },
+  { skinID: "1043303", storyID: "season8-3" },
+  { skinID: "1058500", storyID: "season8-3" },
+  //{ skinID: "rogue", storyID: "season8-3" },
+  //{ skinID: "magik", storyID: "season8-3" },
+  //{ skinID: "psylock", storyID: "season8-3" },
+  //{ skinID: "wolverine", storyID: "season8-3" },
 ];
 
 const extractSkinTheme = (fullSkinId: string): string => {

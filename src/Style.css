@@ -436,6 +436,10 @@ input:checked + .toggle-slider:before {
   background-image: url("/textures/gallerycards/img_gallerypve_card_horizontal_04.png");
   bottom: -90%;
 }
+.gallery-group.group-8-0::before {
+  background-image: url("/textures/gallerycards/img_gallerys8_magazine_01.png");
+  bottom: -90%;
+}
 
 .gallery-group.group--1-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_vertical_02.png");

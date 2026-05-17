@@ -721,7 +721,6 @@ const MapInfoRegularOrdered: MapInfo[] = [
     ],
     linkID: "",
   },
-
   {
     group: "",
     name: "Lower Manhattan",
@@ -789,6 +788,44 @@ const MapInfoRegularOrdered: MapInfo[] = [
         title: "Screen",
         video: "https://www.youtube.com/watch?v=z_fNwdhjI40",
         loreTitle: "",
+      },
+    ],
+    images: [],
+    linkID: "",
+  },
+
+  {
+    group: "",
+    name: "Alchemax Headquarters",
+    domNames: [],
+    galleryImage: "soon.png",
+    backgroundImage: "soon.png",
+    domImages: [],
+    loadingTips: [
+      "Loading_NuevaYorkM01_1",
+      "Loading_NuevaYorkM01_2",
+      "Loading_NuevaYorkM01_3",
+    ],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "",
+        loreTitle: "",
+      },
+      {
+        title: "Map Reveal",
+        video: "",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=hfFN9b8n6dk",
+        loreTitle: "UIGalleryFootageTable_5018_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=aZ4Ush3li14",
+        loreTitle: "UIGalleryFootageTable_5018_ExitVideos_#0_VideoName",
       },
     ],
     images: [],
@@ -1095,8 +1132,8 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     group: "Blood Hunt",
     name: "Blood-Night New York",
     domNames: [],
-    galleryImage: "soon.png",
-    backgroundImage: "img_map_jeffland.png",
+    galleryImage: "img_mapselect_midtown.png",
+    backgroundImage: "img_map_midtown.png",
     domImages: [],
     loadingTips: [
       "MarvelIPWholeProcessTable_1422_LoadingVideoSubtitles_#0_Text",
@@ -1112,13 +1149,18 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       },
       {
         loreTitle: "",
-        video: "https://www.youtube.com/watch?v=2DEpKcigA30",
-        title: "Mode Reveal",
+        video: "https://www.youtube.com/watch?v=Gbj8IqDztGc",
+        title: "Loading Screen",
       },
       {
         loreTitle: "",
-        video: "https://www.youtube.com/watch?v=CrBRsoUSzx4",
-        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=hkIYAU_ngWU",
+        title: "Outro (Dracula)",
+      },
+      {
+        loreTitle: "",
+        video: "https://www.youtube.com/watch?v=lHM34YYcdyE",
+        title: "Outro (Kingpin)",
       },
     ],
     linkID: "",

@@ -50,6 +50,12 @@ const extractIdsFromGameData = (): AccessoryInfo[] => {
           "03810480001",
           "03810500001",
           "03810530001",
+          "03810560001",
+          "03810330001",
+          "03810620001",
+          "03810240001",
+          "03810450001",
+          "03810510001",
         ];
         var imagePath = specialIds.includes(id)
           ? `/textures/accessory/item_pendant_${id}.png`
@@ -58,6 +64,10 @@ const extractIdsFromGameData = (): AccessoryInfo[] => {
         if (id == "03810250001") {
           imagePath = `/textures/accessory/item_pandant_038102500001.png`;
         }
+        if (id == "03810140003") {
+          imagePath = `/textures/accessory/item_pendant_03810140001.png`;
+        }
+
         if (id == "03810360001") {
           imagePath = `/textures/accessory/item_pendant_03810410001.png`;
         }

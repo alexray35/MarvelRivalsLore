@@ -1762,6 +1762,40 @@ const HeroFullInfoList: HeroFullInfo[] = [
     ],
     linkID: "",
   },
+  {
+    id: "1062",
+    displayName: "Devil Dinosaur",
+    heroName: "UIHeroTable_10620_HeroBasic_TName",
+    realName: "UIHeroTable_10620_HeroBasic_RealName",
+    portrait: "",
+    render: "",
+    logo: "",
+    color: "e6696b",
+    description: "UIHeroTable_10620_HeroBasic_Desc",
+    biography: "UIHeroStoryTable_10620_Biography",
+    season: "8",
+    story: [
+      {
+        title: "UIHeroStoryTable_10620_Story_#0_Title",
+        content: "UIHeroStoryTable_10620_Story_#0_Content",
+        season: "8",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10620_Story_#1_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10620_Story_#2_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+    ],
+    linkID: "",
+  },
 ];
 
 HeroFullInfoList.forEach((hero) => {

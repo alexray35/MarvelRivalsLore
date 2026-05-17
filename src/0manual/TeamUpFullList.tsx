@@ -893,6 +893,20 @@ const TeamUpInfoList: TeamUpInfo[] = [
       },
     ],
   },
+  {
+    name: "Primal Punishment",
+    version: [
+      {
+        id: "100067",
+        name: "MarvelBondGroupTable_100067_GroupName",
+        description: "MarvelBondGroupTable_100067_BondGroupDesc",
+        season: "season8",
+        anchor: "Devil Dinosaur",
+        follower: ["The Punisher"],
+        image: "",
+      },
+    ],
+  },
 ];
 
 TeamUpInfoList.forEach((teamup) => {

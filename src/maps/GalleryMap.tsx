@@ -49,7 +49,7 @@ const GalleryMap: React.FC<GalleryMapProps> = ({ onMapSelect }) => {
   return (
     <div className="gallery-map">
       {renderGallery(MapInfoRegular, false)}
-      <h2 className="pagetitle">Other</h2>
+      <h2 className="pagetitle">Arcade & Other</h2>
       {renderGallery(MapInfoArcade, true)}
     </div>
   );

@@ -793,43 +793,21 @@ const MapInfoRegularOrdered: MapInfo[] = [
     images: [],
     linkID: "",
   },
-
   {
+    linkID: "",
     group: "",
-    name: "Alchemax Headquarters",
+    name: "Thebes",
     domNames: [],
     galleryImage: "soon.png",
-    backgroundImage: "soon.png",
+    backgroundImage: "img_map_egypt_thebes.png",
     domImages: [],
     loadingTips: [
-      "Loading_NuevaYorkM01_1",
-      "Loading_NuevaYorkM01_2",
-      "Loading_NuevaYorkM01_3",
+      "UIGalleryFootageTable_5019_LoadingVideos_#0_Subtitles_#0_Text",
+      "UIGalleryFootageTable_5019_LoadingVideos_#0_Subtitles_#1_Text",
+      "UIGalleryFootageTable_5019_LoadingVideos_#0_Subtitles_#2_Text",
     ],
-    videos: [
-      {
-        title: "Map Reveal",
-        video: "",
-        loreTitle: "",
-      },
-      {
-        title: "Map Reveal",
-        video: "",
-        loreTitle: "",
-      },
-      {
-        title: "Loading Screen",
-        video: "https://www.youtube.com/watch?v=hfFN9b8n6dk",
-        loreTitle: "UIGalleryFootageTable_5018_LoadingVideos_#0_VideoName",
-      },
-      {
-        title: "Outro",
-        video: "https://www.youtube.com/watch?v=aZ4Ush3li14",
-        loreTitle: "UIGalleryFootageTable_5018_ExitVideos_#0_VideoName",
-      },
-    ],
+    videos: [],
     images: [],
-    linkID: "",
   },
 ];
 
@@ -1163,6 +1141,98 @@ const MapInfoArcadeOrdered: MapInfo[] = [
         title: "Outro (Kingpin)",
       },
     ],
+    linkID: "",
+  },
+  {
+    group: "",
+    name: "Alchemax Headquarters",
+    domNames: [],
+    galleryImage: "img_mapselect_nuevayork_acm.png",
+    backgroundImage: "img_map_nuevayork_acm.png",
+    domImages: [],
+    loadingTips: [
+      "Loading_NuevaYorkM01_1",
+      "Loading_NuevaYorkM01_2",
+      "Loading_NuevaYorkM01_3",
+    ],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=t8gyiobtcL4",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=hfFN9b8n6dk",
+        loreTitle: "UIGalleryFootageTable_5018_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro",
+        video: "https://www.youtube.com/watch?v=aZ4Ush3li14",
+        loreTitle: "UIGalleryFootageTable_5018_ExitVideos_#0_VideoName",
+      },
+    ],
+    images: [],
+    linkID: "",
+  },
+  {
+    group: "K'un-Lun",
+    name: "Shenloong Arena",
+    domNames: [],
+    galleryImage: "img_mapselect_kunlun_shenlongarena.png",
+    backgroundImage: "img_map_kunlun_shenlongarena.png",
+    domImages: [],
+    loadingTips: [
+      "Loading_KunlunEC01_1",
+      "Loading_KunlunEC01_2",
+      "Loading_KunlunEC01_3",
+    ],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=kLeiPx1GiGU",
+        loreTitle: "",
+      },
+      {
+        title: "Game Mode Trailer",
+        video: "https://www.youtube.com/watch?v=QjANeeIoPdU",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=fRow_oMweDY",
+        loreTitle: "UIGalleryFootageTable_5007_LoadingVideos_#1_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=IYwx3AXW5m0",
+        loreTitle: "UIGalleryFootageTable_5007_ExitVideos_#2_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=6JcE0tXonJU",
+        loreTitle: "UIGalleryFootageTable_5007_ExitVideos_#3_VideoName",
+      },
+    ],
+    images: [],
+    linkID: "",
+  },
+  {
+    group: "",
+    name: "Hellfire Bay Beach",
+    domNames: [],
+    galleryImage: "hellfirebaybeach.png",
+    backgroundImage: "hellfirebaybeach.png",
+    domImages: [],
+    loadingTips: [],
+    videos: [
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=B56-W9VX8aM",
+        loreTitle: "",
+      },
+    ],
+    images: [],
     linkID: "",
   },
 ];

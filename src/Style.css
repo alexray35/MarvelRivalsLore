@@ -440,6 +440,10 @@ input:checked + .toggle-slider:before {
   background-image: url("/textures/gallerycards/img_gallerys8_magazine_01.png");
   bottom: -90%;
 }
+.gallery-group.group-9-0::before {
+  background-image: url("/textures/gallerycards/img_gallerys9_magazine_01.png");
+  bottom: 0%;
+}
 
 .gallery-group.group--1-0::before {
   background-image: url("/textures/gallerycards/img_gallery_card_vertical_02.png");
@@ -480,6 +484,10 @@ input:checked + .toggle-slider:before {
 .gallery-group.group--10-0::before {
   background-image: url("/textures/gallerycards/img_gallerymcu_magazine_01.png");
   bottom: -160%;
+}
+.gallery-group.group--11-0::before {
+  background-image: url("/textures/gallerycards/img_gallery_card_26summer02.png");
+  bottom: -20%;
 }
 
 .gallery-cover,
@@ -913,13 +921,14 @@ nav a.active {
 
 .subsection-image-container {
   vertical-align: top;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 200px;
+  max-width: 200px;
   margin: 10px;
   margin-top: 10px;
 }
 
 .subsection-text-container {
+  width: 100%;
   display: table-cell;
   vertical-align: top;
 }
@@ -1384,7 +1393,7 @@ nav a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/textures/gallerycards/img_gallerys8_magazine_01.png");
+  background-image: url("/textures/gallerycards/img_gallerys9_magazine_01.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

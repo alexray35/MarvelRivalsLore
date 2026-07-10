@@ -55,6 +55,7 @@ const skinStories: { skinID: string; storyID: string }[] = [
   { skinID: "1049301", storyID: "season4-4" },
   { skinID: "1015300", storyID: "season4-4" },
   { skinID: "1052302", storyID: "season4-4" },
+  { skinID: "1027304", storyID: "season4-4" },
   // Phoenix
   { skinID: "1053501", storyID: "season3-3" },
   { skinID: "1026302", storyID: "season3-3" },
@@ -114,16 +115,30 @@ const skinStories: { skinID: string; storyID: string }[] = [
   { skinID: "1060500", storyID: "season7-3" },
   { skinID: "1023307", storyID: "season7-3" },
   { skinID: "1057800", storyID: "season7-3" },
-  // Phoenix
+  { skinID: "1020307", storyID: "season7-3" },
+  // Krakoa Council Phoenix
   { skinID: "1054501", storyID: "season7-7" },
   // Alchemax
   { skinID: "1062500", storyID: "DevilDinosaur1" },
   { skinID: "1043303", storyID: "season8-3" },
   { skinID: "1058500", storyID: "season8-3" },
-  //{ skinID: "rogue", storyID: "season8-3" },
-  //{ skinID: "magik", storyID: "season8-3" },
+  { skinID: "1065501", storyID: "season8-3" },
+  { skinID: "1029305", storyID: "season8-3" },
   //{ skinID: "psylock", storyID: "season8-3" },
-  //{ skinID: "wolverine", storyID: "season8-3" },
+  { skinID: "1049302", storyID: "season8-3" },
+  // Avengers
+  { skinID: "1016801", storyID: "special101" },
+  //Summer 2026
+  { skinID: "1025305", storyID: "special111" },
+  { skinID: "1022303", storyID: "special111" },
+  { skinID: "1016504", storyID: "special111" },
+  { skinID: "1036301", storyID: "special111" },
+  { skinID: "1018305", storyID: "special111" },
+  { skinID: "1053302", storyID: "special111" },
+  { skinID: "1055300", storyID: "special111" },
+  { skinID: "1033504", storyID: "special111" },
+  { skinID: "1040303", storyID: "special111" },
+  { skinID: "1060501", storyID: "special111" },
 ];
 
 const extractSkinTheme = (fullSkinId: string): string => {

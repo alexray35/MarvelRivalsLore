@@ -1,4 +1,5 @@
 // ActivityList.tsx
+
 interface ActivitySubsection {
   subsectionTitle: string;
   subsectionSubTitle: string;
@@ -11,11 +12,16 @@ interface ActivitySection {
   subsections: ActivitySubsection[];
 }
 
+interface ActivityEntry {
+  entryTitle: string;
+  sections: ActivitySection[];
+}
+
 interface ActivityInfo {
   name: string;
   image: string;
-  sections: ActivitySection[];
-  linkID: string; // Add linkID field
+  entries: ActivityEntry[]; // Replaced sections with entries
+  linkID: string;
   versionOverride?: string;
 }
 
@@ -24,60 +30,67 @@ const ActivityInfo_SeasonBETA: ActivityInfo[] = [
     linkID: "beta_event1",
     name: "Galacta's Quest",
     image: "beta.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "Galacta's Brunch",
-            subsectionSubTitle: "",
-            subsectionText: "TXT_CAT_Activity_101_Galacta_Brunch",
-            subsectionImage: "Galacta's Brunch.png",
-          },
-          {
-            subsectionTitle: "Galacta's Dinner",
-            subsectionSubTitle: "",
-            subsectionText: "TXT_CAT_Activity_101_Galacta_Dinner",
-            subsectionImage: "Galacta's Dinner.png",
-          },
-          {
-            subsectionTitle: "Galacta's Big Dessert",
-            subsectionSubTitle: "",
-            subsectionText: "TXT_CAT_Activity_101_Galacta_Big_Dessert",
-            subsectionImage: "Galacta's Big Dessert.png",
-          },
-          {
-            subsectionTitle: "Galacta's Snack Time",
-            subsectionSubTitle: "",
-            subsectionText: "TXT_CAT_Activity_108_Galacta_1_Snack_Time_content",
-            subsectionImage: "Galacta's Snack Time.png",
-          },
-          {
-            subsectionTitle: "Galacta's Cosmic Tea",
-            subsectionSubTitle: "",
-            subsectionText: "TXT_CAT_Activity_108_Galacta_2_Cosmic_Tea_content",
-            subsectionImage: "Galacta's Cosmic Tea.png",
-          },
-          {
-            subsectionTitle: "Galacta's Just Desserts",
-            subsectionSubTitle: "",
-            subsectionText:
-              "TXT_CAT_Activity_108_Galacta_3_Just_Desserts_content",
-            subsectionImage: "Galacta's Just Desserts.png",
-          },
-          {
-            subsectionTitle: "Galacta's Sweetest Treat",
-            subsectionSubTitle: "",
-            subsectionText:
-              "TXT_CAT_Activity_108_Galacta_4_Sweetest_Treat_content",
-            subsectionImage: "Galacta's Sweetest Treat.png",
-          },
-          {
-            subsectionTitle: "Galacta's Stellar Seasoning",
-            subsectionSubTitle: "",
-            subsectionText:
-              "TXT_CAT_Activity_108_Galacta_5_Stellar_Seasoning_content",
-            subsectionImage: "Galacta's Stellar Seasoning.png",
+            sectionTitle: "",
+            subsections: [
+              {
+                subsectionTitle: "Galacta's Brunch",
+                subsectionSubTitle: "",
+                subsectionText: "TXT_CAT_Activity_101_Galacta_Brunch",
+                subsectionImage: "Galacta's Brunch.png",
+              },
+              {
+                subsectionTitle: "Galacta's Dinner",
+                subsectionSubTitle: "",
+                subsectionText: "TXT_CAT_Activity_101_Galacta_Dinner",
+                subsectionImage: "Galacta's Dinner.png",
+              },
+              {
+                subsectionTitle: "Galacta's Big Dessert",
+                subsectionSubTitle: "",
+                subsectionText: "TXT_CAT_Activity_101_Galacta_Big_Dessert",
+                subsectionImage: "Galacta's Big Dessert.png",
+              },
+              {
+                subsectionTitle: "Galacta's Snack Time",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "TXT_CAT_Activity_108_Galacta_1_Snack_Time_content",
+                subsectionImage: "Galacta's Snack Time.png",
+              },
+              {
+                subsectionTitle: "Galacta's Cosmic Tea",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "TXT_CAT_Activity_108_Galacta_2_Cosmic_Tea_content",
+                subsectionImage: "Galacta's Cosmic Tea.png",
+              },
+              {
+                subsectionTitle: "Galacta's Just Desserts",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "TXT_CAT_Activity_108_Galacta_3_Just_Desserts_content",
+                subsectionImage: "Galacta's Just Desserts.png",
+              },
+              {
+                subsectionTitle: "Galacta's Sweetest Treat",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "TXT_CAT_Activity_108_Galacta_4_Sweetest_Treat_content",
+                subsectionImage: "Galacta's Sweetest Treat.png",
+              },
+              {
+                subsectionTitle: "Galacta's Stellar Seasoning",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "TXT_CAT_Activity_108_Galacta_5_Stellar_Seasoning_content",
+                subsectionImage: "Galacta's Stellar Seasoning.png",
+              },
+            ],
           },
         ],
       },
@@ -92,39 +105,44 @@ const ActivityInfo_Season1: ActivityInfo[] = [
     linkID: "season1_event1",
     name: "MarvelActivityTable_114_Name",
     image: "img_home_activity_s1seasonstory_normal.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "MarvelActivityTable114_1_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable114_1_Description",
-            subsectionImage: "img_seasonstory_event_card1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable114_2_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable114_2_Description",
-            subsectionImage: "img_seasonstory_event_card3_1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable114_3_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable114_3_Description",
-            subsectionImage: "img_seasonstory_event_card2.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable114_4_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable114_4_Description",
-            subsectionImage: "img_seasonstory_event_card4.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable114_5_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable114_5_Description",
-            subsectionImage: "img_seasonstory_event_card5.png",
+            sectionTitle: "",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable114_1_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable114_1_Description",
+                subsectionImage: "img_seasonstory_event_card1.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable114_2_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable114_2_Description",
+                subsectionImage: "img_seasonstory_event_card3_1.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable114_3_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable114_3_Description",
+                subsectionImage: "img_seasonstory_event_card2.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable114_4_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable114_4_Description",
+                subsectionImage: "img_seasonstory_event_card4.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable114_5_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable114_5_Description",
+                subsectionImage: "img_seasonstory_event_card5.png",
+              },
+            ],
           },
         ],
       },
@@ -134,39 +152,44 @@ const ActivityInfo_Season1: ActivityInfo[] = [
     linkID: "season1_event2",
     name: "MarvelActivityTable_115_Name",
     image: "img_home_activity_s1seasonstory_normal2.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "MarvelActivityTable115_1_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable115_1_Description",
-            subsectionImage: "img_s1seasonstory_main_item11.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable115_2_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable115_2_Description",
-            subsectionImage: "img_s1seasonstory_main_item2.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable115_3_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable115_3_Description",
-            subsectionImage: "img_s1seasonstory_main_item3.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable115_4_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable115_4_Description",
-            subsectionImage: "img_s1seasonstory_main_item4.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable115_5_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable115_5_Description",
-            subsectionImage: "img_s1seasonstory_main_item5_4.png",
+            sectionTitle: "232",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable115_1_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable115_1_Description",
+                subsectionImage: "img_s1seasonstory_main_item11.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable115_2_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable115_2_Description",
+                subsectionImage: "img_s1seasonstory_main_item2.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable115_3_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable115_3_Description",
+                subsectionImage: "img_s1seasonstory_main_item3.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable115_4_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable115_4_Description",
+                subsectionImage: "img_s1seasonstory_main_item4.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable115_5_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable115_5_Description",
+                subsectionImage: "img_s1seasonstory_main_item5_4.png",
+              },
+            ],
           },
         ],
       },
@@ -179,120 +202,149 @@ const ActivityInfo_Season2: ActivityInfo[] = [
     linkID: "season2_event1",
     name: "133_MatchActivity_118_ST.TXT_Activity_Title",
     image: "img_home_activity_s21seasonstory_normal.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "MarvelActivityTable118_1_HeroDetailSubTitle",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "MarvelActivityTable118_1_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_1_HeroDetailContent",
-            subsectionImage: "img_s21seasonstory_herodetails_1053icon.png",
+            sectionTitle: "MarvelActivityTable118_1_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable118_1_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable118_1_HeroDetailContent",
+                subsectionImage: "img_s21seasonstory_herodetails_1053icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_1_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_1_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1053icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_1_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_1_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1053icon2.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_1_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_1_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1053icon3.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "MarvelActivityTable118_1_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_1_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1053icon1.png",
+            sectionTitle: "MarvelActivityTable118_2_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable118_2_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable118_2_HeroDetailContent",
+                subsectionImage: "img_s21seasonstory_herodetails_1049icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_2_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_2_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1049icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_2_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_2_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1049icon3.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_2_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_2_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1049icon2.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "MarvelActivityTable118_1_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_1_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1053icon2.png",
+            sectionTitle: "MarvelActivityTable118_3_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable118_3_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable118_3_HeroDetailContent",
+                subsectionImage: "img_s21seasonstory_herodetails_1026icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_3_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_3_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1026icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_3_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_3_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1026icon3.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_3_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_3_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1026icon2.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "MarvelActivityTable118_1_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_1_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1053icon3.png",
-          },
-        ],
-      },
-      {
-        sectionTitle: "MarvelActivityTable118_2_HeroDetailSubTitle",
-        subsections: [
-          {
-            subsectionTitle: "MarvelActivityTable118_2_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_2_HeroDetailContent",
-            subsectionImage: "img_s21seasonstory_herodetails_1049icon.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_2_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_2_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1049icon1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_2_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_2_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1049icon3.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_2_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_2_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1049icon2.png",
-          },
-        ],
-      },
-      {
-        sectionTitle: "MarvelActivityTable118_3_HeroDetailSubTitle",
-        subsections: [
-          {
-            subsectionTitle: "MarvelActivityTable118_3_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_3_HeroDetailContent",
-            subsectionImage: "img_s21seasonstory_herodetails_1026icon.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_3_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_3_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1026icon1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_3_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_3_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1026icon3.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_3_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_3_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1026icon2.png",
-          },
-        ],
-      },
-      {
-        sectionTitle: "MarvelActivityTable118_4_HeroDetailSubTitle",
-        subsections: [
-          {
-            subsectionTitle: "MarvelActivityTable118_4_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_4_HeroDetailContent",
-            subsectionImage: "img_s21seasonstory_herodetails_1045icon.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_4_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_4_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1045icon1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_4_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_4_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1045icon3.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable118_4_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable118_4_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s21seasonstory_plot_1045icon2.png",
+            sectionTitle: "MarvelActivityTable118_4_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable118_4_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable118_4_HeroDetailContent",
+                subsectionImage: "img_s21seasonstory_herodetails_1045icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_4_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_4_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1045icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_4_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_4_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1045icon3.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable118_4_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable118_4_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s21seasonstory_plot_1045icon2.png",
+              },
+            ],
           },
         ],
       },
@@ -302,121 +354,150 @@ const ActivityInfo_Season2: ActivityInfo[] = [
     linkID: "season2_event2",
     name: "133_MatchActivity_119_ST.TXT_Activity_Title",
     image: "img_home_activity_s22seasonstory_normal.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "MarvelActivityTable119_1_HeroDetailSubTitle",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "MarvelActivityTable119_1_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_1_HeroDetailContent",
-            subsectionImage: "img_s22seasonstory_herodetails_1034icon.png",
+            sectionTitle: "MarvelActivityTable119_1_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable119_1_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable119_1_HeroDetailContent",
+                subsectionImage: "img_s22seasonstory_herodetails_1034icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_1_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_1_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1034icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_1_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_1_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1034icon2.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_1_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_1_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1034icon3.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "MarvelActivityTable119_1_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_1_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1034icon1.png",
+            sectionTitle:
+              "133_MatchActivity_119_ST.MarvelActivityTable119_2_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable119_2_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable119_2_HeroDetailContent",
+                subsectionImage: "img_s22seasonstory_herodetails_1033icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_2_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_2_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1033icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_2_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_2_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1033icon2.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_2_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_2_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1033icon3.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "MarvelActivityTable119_1_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_1_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1034icon2.png",
+            sectionTitle: "MarvelActivityTable119_3_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable119_3_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable119_3_HeroDetailContent",
+                subsectionImage: "img_s22seasonstory_herodetails_1037icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_3_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_3_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1037icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_3_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_3_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1037icon2.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_3_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_3_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1037icon3.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "MarvelActivityTable119_1_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_1_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1034icon3.png",
-          },
-        ],
-      },
-      {
-        sectionTitle:
-          "133_MatchActivity_119_ST.MarvelActivityTable119_2_HeroDetailSubTitle",
-        subsections: [
-          {
-            subsectionTitle: "MarvelActivityTable119_2_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_2_HeroDetailContent",
-            subsectionImage: "img_s22seasonstory_herodetails_1033icon.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_2_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_2_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1033icon1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_2_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_2_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1033icon2.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_2_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_2_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1033icon3.png",
-          },
-        ],
-      },
-      {
-        sectionTitle: "MarvelActivityTable119_3_HeroDetailSubTitle",
-        subsections: [
-          {
-            subsectionTitle: "MarvelActivityTable119_3_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_3_HeroDetailContent",
-            subsectionImage: "img_s22seasonstory_herodetails_1037icon.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_3_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_3_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1037icon1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_3_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_3_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1037icon2.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_3_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_3_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1037icon3.png",
-          },
-        ],
-      },
-      {
-        sectionTitle: "MarvelActivityTable119_4_HeroDetailSubTitle",
-        subsections: [
-          {
-            subsectionTitle: "MarvelActivityTable119_4_HeroDetailSubTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_4_HeroDetailContent",
-            subsectionImage: "img_s22seasonstory_herodetails_1028icon.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_4_LineInfo_#0_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_4_LineInfo_#0_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1028icon1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_4_LineInfo_#1_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_4_LineInfo_#1_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1028icon2.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable119_4_LineInfo_#2_StoryTitle",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable119_4_LineInfo_#2_StoryContext",
-            subsectionImage: "img_s22seasonstory_plot_1028icon3.png",
+            sectionTitle: "MarvelActivityTable119_4_HeroDetailSubTitle",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable119_4_HeroDetailSubTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable119_4_HeroDetailContent",
+                subsectionImage: "img_s22seasonstory_herodetails_1028icon.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_4_LineInfo_#0_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_4_LineInfo_#0_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1028icon1.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_4_LineInfo_#1_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_4_LineInfo_#1_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1028icon2.png",
+              },
+              {
+                subsectionTitle:
+                  "MarvelActivityTable119_4_LineInfo_#2_StoryTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable119_4_LineInfo_#2_StoryContext",
+                subsectionImage: "img_s22seasonstory_plot_1028icon3.png",
+              },
+            ],
           },
         ],
       },
@@ -429,58 +510,63 @@ const ActivityInfo_Season3: ActivityInfo[] = [
     linkID: "season3_event1",
     name: "MarvelActivityTable_129_Name",
     image: "img_home_activity_s31seasonstory_normal.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "MarvelActivityTable129_1_StoryNumber",
-            subsectionSubTitle: "MarvelActivityTable129_1_Title",
-            subsectionText: "MarvelActivityTable129_1_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item1_complete.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable129_2_StoryTitle",
-            subsectionSubTitle: "MarvelActivityTable129_2_StoryNumber",
-            subsectionText: "MarvelActivityTable129_2_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item2_complete.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable129_3_Title",
-            subsectionSubTitle: "MarvelActivityTable129_3_StoryNumber",
-            subsectionText: "MarvelActivityTable129_3_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item3_complete.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable129_4_StoryTitle",
-            subsectionSubTitle: "MarvelActivityTable129_4_StoryNumber",
-            subsectionText: "MarvelActivityTable129_4_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item4_complete.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable129_5_Title",
-            subsectionSubTitle: "MarvelActivityTable129_5_StoryNumber",
-            subsectionText: "MarvelActivityTable129_5_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item5_complete.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable129_6_Title",
-            subsectionSubTitle: "MarvelActivityTable129_6_StoryNumber",
-            subsectionText: "MarvelActivityTable129_6_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item6_complete.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable129_7_Title",
-            subsectionSubTitle: "MarvelActivityTable129_7_StoryNumber",
-            subsectionText: "MarvelActivityTable129_7_StoryContent",
-            subsectionImage:
-              "img_s31seasonstory_eventdetails_item7_complete.png",
+            sectionTitle: "",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable129_1_StoryNumber",
+                subsectionSubTitle: "MarvelActivityTable129_1_Title",
+                subsectionText: "MarvelActivityTable129_1_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item1_complete.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable129_2_StoryTitle",
+                subsectionSubTitle: "MarvelActivityTable129_2_StoryNumber",
+                subsectionText: "MarvelActivityTable129_2_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item2_complete.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable129_3_Title",
+                subsectionSubTitle: "MarvelActivityTable129_3_StoryNumber",
+                subsectionText: "MarvelActivityTable129_3_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item3_complete.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable129_4_StoryTitle",
+                subsectionSubTitle: "MarvelActivityTable129_4_StoryNumber",
+                subsectionText: "MarvelActivityTable129_4_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item4_complete.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable129_5_Title",
+                subsectionSubTitle: "MarvelActivityTable129_5_StoryNumber",
+                subsectionText: "MarvelActivityTable129_5_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item5_complete.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable129_6_Title",
+                subsectionSubTitle: "MarvelActivityTable129_6_StoryNumber",
+                subsectionText: "MarvelActivityTable129_6_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item6_complete.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable129_7_Title",
+                subsectionSubTitle: "MarvelActivityTable129_7_StoryNumber",
+                subsectionText: "MarvelActivityTable129_7_StoryContent",
+                subsectionImage:
+                  "img_s31seasonstory_eventdetails_item7_complete.png",
+              },
+            ],
           },
         ],
       },
@@ -493,58 +579,62 @@ const ActivityInfo_Season4: ActivityInfo[] = [
     linkID: "season4_event1",
     name: "MarvelActivityTable_133_Name",
     image: "img_home_activity_s4seasonstory_normal.png",
-    sections: [
+    entries: [
       {
-        sectionTitle: "",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "MarvelActivityTable133_1_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_1_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event1.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable133_2_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_2_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event2.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable133_3_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_3_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event3.png",
-          },
-
-          {
-            subsectionTitle: "MarvelActivityTable133_4_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_4_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event4.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable133_5_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_5_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event5.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable133_6_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_6_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event6.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable133_7_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_7_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event7.png",
-          },
-          {
-            subsectionTitle: "MarvelActivityTable133_8_Title",
-            subsectionSubTitle: "",
-            subsectionText: "MarvelActivityTable133_8_StoryContent",
-            subsectionImage: "img_s4seasonstory_eventdetails_event8.png",
+            sectionTitle: "",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable133_1_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_1_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event1.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_2_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_2_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event2.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_3_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_3_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event3.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_4_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_4_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event4.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_5_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_5_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event5.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_6_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_6_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event6.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_7_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_7_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event7.png",
+              },
+              {
+                subsectionTitle: "MarvelActivityTable133_8_Title",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable133_8_StoryContent",
+                subsectionImage: "img_s4seasonstory_eventdetails_event8.png",
+              },
+            ],
           },
         ],
       },
@@ -555,45 +645,328 @@ const ActivityInfo_Season4: ActivityInfo[] = [
     name: "MarvelActivityTable_130_Name",
     image: "img_136activityitem_hover.png",
     versionOverride: "season5",
-    sections: [
+    entries: [
       {
-        sectionTitle: "",
-        subsections: [
+        entryTitle: "",
+        sections: [
           {
-            subsectionTitle: "",
-            subsectionSubTitle: "",
-            subsectionText: "TXT_Halloween_OverView_Describe",
-            subsectionImage: "img_newarrival_136halloween_bg02.png",
+            sectionTitle: "",
+            subsections: [
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "TXT_Halloween_OverView_Describe",
+                subsectionImage: "img_newarrival_136halloween_bg02.png",
+              },
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "UI_TEXT_Story_Desc_1014",
+                subsectionImage: "img_selecthero_1014001.png",
+              },
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "UI_TEXT_Story_Desc_1029",
+                subsectionImage: "img_selecthero_1029001.png",
+              },
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "UI_TEXT_Story_Desc_1039",
+                subsectionImage: "img_selecthero_1039001.png",
+              },
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "UI_TEXT_Story_Desc_1044",
+                subsectionImage: "img_selecthero_1044001.png",
+              },
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "UI_TEXT_Story_Desc_1047",
+                subsectionImage: "img_selecthero_1047001.png",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const ActivityInfo_Season9: ActivityInfo[] = [
+  {
+    linkID: "season9_event1",
+    name: "MarvelActivityTable_202_Name",
+    image: "img_activity202_enter_normal.png",
+    entries: [
+      {
+        entryTitle: "MarvelActivityTable202_1_CaseName",
+        sections: [
+          {
+            sectionTitle: "Activity202_GatheringClues",
+            subsections: [
+              //Clue 1
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10490000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_1_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1049001.png",
+              },
+              //Clue 2
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_2_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              //Clue 3
+              {
+                subsectionTitle: "UIHeroTable_10640_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_3_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1064001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10440000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_3_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1044001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10640_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_3_DialogueContentList_#2_ClueContent",
+                subsectionImage: "img_selecthero_1064001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10440000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_3_DialogueContentList_#3_ClueContent",
+                subsectionImage: "img_selecthero_1044001.png",
+              },
+              //Clue 4
+              {
+                subsectionTitle: "UIHeroTable_10550_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_4_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1055001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10260010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_4_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1026001.png",
+              },
+              //Clue 5
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10410000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_5_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1041001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10490000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_5_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1049001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10410000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_5_DialogueContentList_#2_ClueContent",
+                subsectionImage: "img_selecthero_1041001.png",
+              },
+              //Clue 6
+              {
+                subsectionTitle: "UIHeroTable_10550_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_6_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1055001.png",
+              },
+              //Clue 7
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_7_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              //Clue 8
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_8_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "",
-            subsectionSubTitle: "",
-            subsectionText: "UI_TEXT_Story_Desc_1014",
-            subsectionImage: "img_selecthero_1014001.png",
+            sectionTitle: "Activity202_HeadingDeduction",
+            subsections: [
+              {
+                subsectionTitle: "Activity202_CaseDescription",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_1_DeductionContent",
+                subsectionImage: "",
+              },
+            ],
           },
           {
-            subsectionTitle: "",
-            subsectionSubTitle: "",
-            subsectionText: "UI_TEXT_Story_Desc_1029",
-            subsectionImage: "img_selecthero_1029001.png",
+            sectionTitle: "Activity202_ClueGet_CaseTruth",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable202_1_CaseName",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_1_CaseFullText",
+                subsectionImage: "",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        entryTitle: "MarvelActivityTable202_2_CaseName",
+        sections: [
+          {
+            sectionTitle: "Activity202_GatheringClues",
+            subsections: [
+              //Clue 10
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_10_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10480000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_10_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1048001.png",
+              },
+              //Clue 11
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_11_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              //Clue 12
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_12_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_12_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              //Clue 13
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10390010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_13_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1039001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10160010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_13_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1016001.png",
+              },
+              //Clue 14
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_14_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10290010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_14_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1029001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_14_DialogueContentList_#2_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10290010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_14_DialogueContentList_#3_ClueContent",
+                subsectionImage: "img_selecthero_1029001.png",
+              },
+              //Clue 15
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_15_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              //Clue 16
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_16_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+            ],
           },
           {
-            subsectionTitle: "",
-            subsectionSubTitle: "",
-            subsectionText: "UI_TEXT_Story_Desc_1039",
-            subsectionImage: "img_selecthero_1039001.png",
+            sectionTitle: "Activity202_HeadingDeduction",
+            subsections: [
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_2_DeductionContent",
+                subsectionImage: "",
+              },
+            ],
           },
           {
-            subsectionTitle: "",
-            subsectionSubTitle: "",
-            subsectionText: "UI_TEXT_Story_Desc_1044",
-            subsectionImage: "img_selecthero_1044001.png",
-          },
-          {
-            subsectionTitle: "",
-            subsectionSubTitle: "",
-            subsectionText: "UI_TEXT_Story_Desc_1047",
-            subsectionImage: "img_selecthero_1047001.png",
+            sectionTitle: "Activity202_ClueGet_CaseTruth",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable202_2_CaseName",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_2_CaseFullText",
+                subsectionImage: "",
+              },
+            ],
           },
         ],
       },
@@ -607,5 +980,6 @@ export {
   ActivityInfo_Season2,
   ActivityInfo_Season3,
   ActivityInfo_Season4,
+  ActivityInfo_Season9,
   ActivityInfo_SeasonBETA,
 };

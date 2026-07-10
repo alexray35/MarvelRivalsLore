@@ -432,6 +432,21 @@ const SeasonInfoList: SeasonInfo[] = [
             image: "img_gallerys4_card_horizontal_05.png",
             altName: "",
           },
+          {
+            id: "01010069",
+            image: "img_gallerys4_card_horizontal_06.png",
+            altName: "",
+          },
+          {
+            id: "01010070",
+            image: "img_gallerys4_card_horizontal_07.png",
+            altName: "",
+          },
+          {
+            id: "01010071",
+            image: "img_gallerys4_card_horizontal_08.png",
+            altName: "",
+          },
         ],
       },
     ],
@@ -822,6 +837,11 @@ const SeasonInfoList: SeasonInfo[] = [
             image: "img_gallerys8_card_horizontal_03.png",
             altName: "",
           },
+          {
+            id: "01010068",
+            image: "img_gallerys8_card_horizontal_04.png",
+            altName: "",
+          },
         ],
       },
     ],
@@ -859,6 +879,70 @@ const SeasonInfoList: SeasonInfo[] = [
       {
         title: "Lore 3",
         path: "S8 Lore 3.jpg",
+      },
+    ],
+  },
+  {
+    id: "9",
+    name: "The Mystery of Thebes",
+    altName: "",
+    year: "2026",
+    gallerycard: [
+      {
+        cover: "img_gallery_magazine_s9.png",
+        title: "The Mystery of Thebes",
+        items: [
+          {
+            id: "01010072",
+            image: "img_gallerys9_magazine_01.png",
+            altName: "",
+          },
+          {
+            id: "01010073",
+            image: "img_gallerys9_card_horizontal_01.png",
+            altName: "",
+          },
+          {
+            id: "01010074",
+            image: "img_gallerys9_card_horizontal_02.png",
+            altName: "",
+          },
+          {
+            id: "01010075",
+            image: "img_gallerys9_card_horizontal_03.png",
+            altName: "",
+          },
+          {
+            id: "01010076",
+            image: "img_gallerys9_card_horizontal_04.png",
+            altName: "",
+          },
+        ],
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=YusekrZKvwQ",
+        type: "Trailer",
+      },
+    ],
+    image: [
+      {
+        title: "Lore 1",
+        path: "S9 Lore 1.jpg",
+      },
+      {
+        title: "Lore 2",
+        path: "S9 Lore 2.jpg",
+      },
+      {
+        title: "Lore 3",
+        path: "S9 Lore 3.jpg",
+      },
+      {
+        title: "Lore 4",
+        path: "S9 Lore 4.jpg",
       },
     ],
   },
@@ -1112,6 +1196,27 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
           {
             id: "01020015",
             image: "img_gallerymcu_magazine_01.png",
+            altName: "",
+          },
+        ],
+      },
+    ],
+    video: [],
+    image: [],
+  },
+  {
+    id: "-11",
+    name: "Summer Spectacular 2.0",
+    altName: "",
+    year: "2026",
+    gallerycard: [
+      {
+        cover: "img_gallery_magazine_26summer.png",
+        title: "Summer Spectacular 2.0",
+        items: [
+          {
+            id: "01020016",
+            image: "img_gallery_card_26summer02.png",
             altName: "",
           },
         ],

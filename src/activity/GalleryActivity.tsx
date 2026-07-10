@@ -6,6 +6,7 @@ import {
   ActivityInfo_Season2,
   ActivityInfo_Season3,
   ActivityInfo_Season4,
+  ActivityInfo_Season9,
   ActivityInfo_SeasonBETA,
 } from "../0manual/ActivityList";
 import { useNavigate } from "react-router-dom";
@@ -28,6 +29,7 @@ const GalleryActivity: React.FC<GalleryActivityProps> = ({
   };
 
   const seasonData = [
+    { number: 9, activities: ActivityInfo_Season9, isBeta: false },
     { number: 4, activities: ActivityInfo_Season4, isBeta: false },
     { number: 3, activities: ActivityInfo_Season3, isBeta: false },
     { number: 2, activities: ActivityInfo_Season2, isBeta: false },

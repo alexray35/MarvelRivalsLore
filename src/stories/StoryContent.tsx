@@ -122,7 +122,7 @@ const Story: React.FC<StoryProps> = ({
       {/* Previous titles section */}
       {previousTitles.length > 0 && (
         <div className="previous-titles">
-          Other title: {previousTitles.join(", ")}
+          Title in BETA or before story release: {previousTitles.join(", ")}
         </div>
       )}
 

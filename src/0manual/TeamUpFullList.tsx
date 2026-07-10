@@ -654,6 +654,15 @@ const TeamUpInfoList: TeamUpInfo[] = [
         follower: ["Black Widow", "Wolverine"],
         image: "",
       },
+      {
+        id: "100052",
+        name: "100024_TName",
+        description: "MarvelBondGroupTable_100024_BondGroupDesc",
+        season: "season8_5",
+        anchor: "Phoenix",
+        follower: ["Black Widow"],
+        image: "",
+      },
     ],
   },
   {
@@ -903,6 +912,20 @@ const TeamUpInfoList: TeamUpInfo[] = [
         season: "season8",
         anchor: "Devil Dinosaur",
         follower: ["The Punisher"],
+        image: "",
+      },
+    ],
+  },
+  {
+    name: "Blast Slash",
+    version: [
+      {
+        id: "100066",
+        name: "MarvelBondGroupTable_100066_GroupName",
+        description: "MarvelBondGroupTable_100066_BondGroupDesc",
+        season: "season8_5",
+        anchor: "Cyclops",
+        follower: ["Wolverine"],
         image: "",
       },
     ],

@@ -926,6 +926,21 @@ const SeasonInfoList: SeasonInfo[] = [
         url: "https://www.youtube.com/watch?v=YusekrZKvwQ",
         type: "Trailer",
       },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=Muv_OURJHeo",
+        type: "",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=7IaQquQUQmQ",
+        type: "",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=aYU5AH1LVUY",
+        type: "",
+      },
     ],
     image: [
       {

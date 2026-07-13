@@ -806,7 +806,13 @@ const MapInfoRegularOrdered: MapInfo[] = [
       "UIGalleryFootageTable_5019_LoadingVideos_#0_Subtitles_#1_Text",
       "UIGalleryFootageTable_5019_LoadingVideos_#0_Subtitles_#2_Text",
     ],
-    videos: [],
+    videos: [
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=spfIxemiHDs",
+        loreTitle: "UIGalleryFootageTable_5019_LoadingVideos_#0_VideoName",
+      },
+    ],
     images: [],
   },
 ];

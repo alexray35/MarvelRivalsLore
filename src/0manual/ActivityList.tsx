@@ -848,11 +848,11 @@ const ActivityInfo_Season9: ActivityInfo[] = [
             subsections: [
               //Clue 10
               {
-                subsectionTitle: "",
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
                 subsectionSubTitle: "",
                 subsectionText:
                   "MarvelActivityTable202_clue_10_DialogueContentList_#0_ClueContent",
-                subsectionImage: "img_selecthero_empty.png",
+                subsectionImage: "img_selecthero_1053001.png",
               },
               {
                 subsectionTitle: "HeroUIAssetBPTable_10480000_HeroInfo_TName",
@@ -863,26 +863,26 @@ const ActivityInfo_Season9: ActivityInfo[] = [
               },
               //Clue 11
               {
-                subsectionTitle: "",
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
                 subsectionSubTitle: "",
                 subsectionText:
                   "MarvelActivityTable202_clue_11_DialogueContentList_#0_ClueContent",
-                subsectionImage: "img_selecthero_empty.png",
+                subsectionImage: "img_selecthero_1053001.png",
               },
               //Clue 12
               {
-                subsectionTitle: "",
+                subsectionTitle: "HeroUIAssetBPTable_10220000_HeroInfo_TName",
                 subsectionSubTitle: "",
                 subsectionText:
                   "MarvelActivityTable202_clue_12_DialogueContentList_#0_ClueContent",
-                subsectionImage: "img_selecthero_empty.png",
+                subsectionImage: "img_selecthero_1022001.png",
               },
               {
-                subsectionTitle: "",
+                subsectionTitle: "HeroUIAssetBPTable_10400000_HeroInfo_TName",
                 subsectionSubTitle: "",
                 subsectionText:
                   "MarvelActivityTable202_clue_12_DialogueContentList_#1_ClueContent",
-                subsectionImage: "img_selecthero_empty.png",
+                subsectionImage: "img_selecthero_1040001.png",
               },
               //Clue 13
               {

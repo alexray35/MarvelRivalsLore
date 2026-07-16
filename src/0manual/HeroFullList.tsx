@@ -608,19 +608,19 @@ const HeroFullInfoList: HeroFullInfo[] = [
     season: "0",
     story: [
       {
-        title: "UIHeroStoryTable_10400_Story_#0_Title",
-        content: "UIHeroStoryTable_10400_Story_#0_Content",
+        title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#0_Title",
+        content: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#0_Content",
         season: "0",
         image: "",
       },
       {
-        title: "UIHeroStoryTable_10400_Story_#1_Title",
+        title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#1_Title",
         content: "",
         season: "",
         image: "",
       },
       {
-        title: "UIHeroStoryTable_10400_Story_#2_Title",
+        title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#2_Title",
         content: "",
         season: "",
         image: "",
@@ -967,19 +967,19 @@ const HeroFullInfoList: HeroFullInfo[] = [
     season: "1",
     story: [
       {
-        title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#0_Title",
-        content: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#0_Content",
+        title: "UIHeroStoryTable_10400_Story_#0_Title",
+        content: "UIHeroStoryTable_10400_Story_#0_Content",
         season: "1",
         image: "",
       },
       {
-        title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#1_Title",
+        title: "UIHeroStoryTable_10400_Story_#1_Title",
         content: "",
         season: "",
         image: "",
       },
       {
-        title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#2_Title",
+        title: "UIHeroStoryTable_10400_Story_#2_Title",
         content: "",
         season: "",
         image: "",

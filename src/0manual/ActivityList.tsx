@@ -706,6 +706,18 @@ const ActivityInfo_Season9: ActivityInfo[] = [
         entryTitle: "MarvelActivityTable202_1_CaseName",
         sections: [
           {
+            sectionTitle: "UIGalleryTable_01010074_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010074_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_1_PrologueSummary",
+                subsectionImage: "img_activity202_clue_texture1.png",
+              },
+            ],
+          },
+          {
             sectionTitle: "Activity202_GatheringClues",
             subsections: [
               //Clue 1
@@ -844,6 +856,18 @@ const ActivityInfo_Season9: ActivityInfo[] = [
         entryTitle: "MarvelActivityTable202_2_CaseName",
         sections: [
           {
+            sectionTitle: "UIGalleryTable_01010075_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010075_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_2_PrologueSummary",
+                subsectionImage: "img_activity202_clue_texture2.png",
+              },
+            ],
+          },
+          {
             sectionTitle: "Activity202_GatheringClues",
             subsections: [
               //Clue 10
@@ -965,6 +989,220 @@ const ActivityInfo_Season9: ActivityInfo[] = [
                 subsectionSubTitle: "",
                 subsectionText: "MarvelActivityTable202_2_CaseFullText",
                 subsectionImage: "",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        entryTitle: "MarvelActivityTable202_3_CaseName",
+        sections: [
+          {
+            sectionTitle: "UIGalleryTable_01010076_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010076_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_3_PrologueSummary",
+                subsectionImage: "img_activity202_clue_texture3.png",
+              },
+            ],
+          },
+          {
+            sectionTitle: "Activity202_GatheringClues",
+            subsections: [
+              //Clue 18
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName", //Emma Frost
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_18_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10550_HeroBasic_TName", //Daredevil
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_18_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1055001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_18_DialogueContentList_#2_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10550_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_18_DialogueContentList_#3_ClueContent",
+                subsectionImage: "img_selecthero_1055001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_18_DialogueContentList_#4_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10550_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_18_DialogueContentList_#5_ClueContent",
+                subsectionImage: "img_selecthero_1055001.png",
+              },
+              //Clue 19
+              {
+                subsectionTitle: "UIHeroTable_10580_HeroBasic_TName", // Gambit
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_19_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1058001.png",
+              },
+              //Clue 20
+              {
+                subsectionTitle: "UIHeroTable_10550_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_20_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1055001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_20_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10300010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_20_DialogueContentList_#2_ClueContent",
+                subsectionImage: "img_selecthero_1030001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_20_DialogueContentList_#3_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10300010_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_20_DialogueContentList_#4_ClueContent",
+                subsectionImage: "img_selecthero_1030001.png",
+              },
+              //Clue 21
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10400000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_21_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1040001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName", //Emma Frost
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_21_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10400000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_21_DialogueContentList_#2_ClueContent",
+                subsectionImage: "img_selecthero_1040001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName", //Emma Frost
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_21_DialogueContentList_#3_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "HeroUIAssetBPTable_10400000_HeroInfo_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_21_DialogueContentList_#4_ClueContent",
+                subsectionImage: "img_selecthero_1040001.png",
+              },
+              //Clue 22
+              {
+                subsectionTitle: "UIHeroTable_10530_HeroBasic_TName",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_22_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_1053001.png",
+              },
+              {
+                subsectionTitle: "UIHeroTable_10580_HeroBasic_TName", // Gambit
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_22_DialogueContentList_#1_ClueContent",
+                subsectionImage: "img_selecthero_1058001.png",
+              },
+              //Clue 23
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_23_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+              //Clue 24
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "MarvelActivityTable202_clue_24_DialogueContentList_#0_ClueContent",
+                subsectionImage: "img_selecthero_empty.png",
+              },
+            ],
+          },
+          {
+            sectionTitle: "Activity202_HeadingDeduction",
+            subsections: [
+              {
+                subsectionTitle: "",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_3_DeductionContent",
+                subsectionImage: "",
+              },
+            ],
+          },
+          {
+            sectionTitle: "Activity202_ClueGet_CaseTruth",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable202_3_CaseName",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_3_CaseFullText",
+                subsectionImage: "",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        entryTitle: "MarvelActivityTable202_4_CaseName",
+        sections: [
+          {
+            sectionTitle: "Activity202_ClueGet_CaseTruth",
+            subsections: [
+              {
+                subsectionTitle: "MarvelActivityTable202_4_CaseName",
+                subsectionSubTitle: "",
+                subsectionText: "MarvelActivityTable202_4_CaseFullText",
+                subsectionImage: "img_activity202_finalresult_texture.png",
               },
             ],
           },

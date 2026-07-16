@@ -115,6 +115,51 @@ const cases: Case[] = [
       },
     ],
   },
+  {
+    id: "3",
+    blanks: [
+      {
+        id: "C1",
+        text: "MarvelActivityTable202_keyword_43_DisplayText",
+      },
+      {
+        id: "C2",
+        text: "MarvelActivityTable202_keyword_55_DisplayText",
+      },
+      {
+        id: "C3",
+        text: "MarvelActivityTable202_keyword_45_DisplayText",
+      },
+      {
+        id: "C4",
+        text: "MarvelActivityTable202_keyword_46_DisplayText",
+      },
+      {
+        id: "C5",
+        text: "MarvelActivityTable202_keyword_47_DisplayText",
+      },
+      {
+        id: "C6",
+        text: "MarvelActivityTable202_keyword_48_DisplayText",
+      },
+      {
+        id: "C7",
+        text: "MarvelActivityTable202_keyword_52_DisplayText",
+      },
+      {
+        id: "C8",
+        text: "MarvelActivityTable202_keyword_44_DisplayText",
+      },
+      {
+        id: "C9",
+        text: "MarvelActivityTable202_keyword_42_DisplayText",
+      },
+      {
+        id: "C10",
+        text: "MarvelActivityTable202_keyword_54_DisplayText",
+      },
+    ],
+  },
 ];
 
 // Export the helper function to get keyword text

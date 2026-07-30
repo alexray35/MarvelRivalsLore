@@ -789,6 +789,10 @@ nav a.active {
   place-items: center;
 }
 
+.gallery-map .gallery-section {
+  margin-right: 100px;
+}
+
 .gallery-map .gallery-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

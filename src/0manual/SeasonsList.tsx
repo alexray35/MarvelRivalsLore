@@ -1205,7 +1205,7 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
     year: "2026",
     gallerycard: [
       {
-        cover: "img_gallery_magazine_mcu.png",
+        cover: "img_gallery_magazine_mcu2.png",
         title: "Marvel Rivals: Path to Doomsday",
         items: [
           {
@@ -1213,10 +1213,21 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
             image: "img_gallerymcu_magazine_01.png",
             altName: "",
           },
+          {
+            id: "01020017",
+            image: "img_gallerymcu_magazine_02.png",
+            altName: "",
+          },
         ],
       },
     ],
-    video: [],
+    video: [
+      {
+        title: "The Avengers - Loading",
+        url: "https://www.youtube.com/watch?v=H0sabIIMWu4",
+        type: "Login Screen",
+      },
+    ],
     image: [],
   },
   {

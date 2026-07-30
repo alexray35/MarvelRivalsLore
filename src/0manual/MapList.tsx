@@ -798,7 +798,7 @@ const MapInfoRegularOrdered: MapInfo[] = [
     group: "",
     name: "Thebes",
     domNames: [],
-    galleryImage: "soon.png",
+    galleryImage: "img_mapselect_egypt_thebes.png",
     backgroundImage: "img_map_egypt_thebes.png",
     domImages: [],
     loadingTips: [
@@ -808,9 +808,24 @@ const MapInfoRegularOrdered: MapInfo[] = [
     ],
     videos: [
       {
+        title: "Map Reveal",
+        video: "https://www.youtube.com/watch?v=5J2HKbVRH90",
+        loreTitle: "",
+      },
+      {
         title: "Loading Screen",
         video: "https://www.youtube.com/watch?v=spfIxemiHDs",
         loreTitle: "UIGalleryFootageTable_5019_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=3LrHPtWYi3o",
+        loreTitle: "UIGalleryFootageTable_5019_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=ld0e9VMofWQ",
+        loreTitle: "UIGalleryFootageTable_5019_ExitVideos_#1_VideoName",
       },
     ],
     images: [],
@@ -1235,6 +1250,33 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       {
         title: "Loading Screen",
         video: "https://www.youtube.com/watch?v=B56-W9VX8aM",
+        loreTitle: "",
+      },
+    ],
+    images: [],
+    linkID: "",
+  },
+  {
+    group: "",
+    name: "Avengers Tower",
+    domNames: [],
+    galleryImage: "avengerstower.png",
+    backgroundImage: "avengerstower.png",
+    domImages: [],
+    loadingTips: [
+      "MarvelIPWholeProcessTable_1435_LoadingVideoSubtitles_#0_Text",
+      "MarvelIPWholeProcessTable_1435_LoadingVideoSubtitles_#1_Text",
+      "MarvelIPWholeProcessTable_1435_LoadingVideoSubtitles_#2_Text",
+    ],
+    videos: [
+      {
+        title: "Event Trailer",
+        video: "https://www.youtube.com/watch?v=W1z9DUiFi0A",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=B1MGMdlZrbY",
         loreTitle: "",
       },
     ],

@@ -1,5 +1,5 @@
 // GameData.tsx
-import gameData from "../gamedata/Game 2026 07 16.json";
+import gameData from "../gamedata/Game 2026 07 30.json";
 import gameBetaData from "../gamedata/Game 2024 08 05 BETA.json";
 import gameSeason0Data from "../gamedata/Game 2024 12 04.json";
 import gameSeason2Data from "../gamedata/Game 2025 04 11 2.json";

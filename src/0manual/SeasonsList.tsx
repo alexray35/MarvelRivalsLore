@@ -917,6 +917,16 @@ const SeasonInfoList: SeasonInfo[] = [
             image: "img_gallerys9_card_horizontal_04.png",
             altName: "",
           },
+          {
+            id: "01010077",
+            image: "img_gallerys9_card_horizontal_05.png",
+            altName: "",
+          },
+          {
+            id: "01010078",
+            image: "img_gallerys9_card_horizontal_06.png",
+            altName: "",
+          },
         ],
       },
     ],

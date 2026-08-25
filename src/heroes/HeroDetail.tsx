@@ -191,6 +191,7 @@ const HeroDetail: React.FC<HeroDetailProps> = ({
       <section className="character-content">
         <p className="subpagetitle">Stories</p>
         <GalleryStory
+          togglesON={false}
           heroFilter={hero.linkID}
           showingAllStories={true}
           onStorySelect={handleStorySelect}

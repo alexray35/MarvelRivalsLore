@@ -34,15 +34,24 @@ const processLoreData = async (): Promise<LoreItem[]> => {
   // Process all magazine items (both serials and specials)
   const allMagazines = [...magazineSerials, ...magazineSpecials];
 
+  console.log("=== MAGAZINE LORE ITEM TITLES ===");
   allMagazines.forEach((magazine) => {
     const seasonNum = parseInt(magazine.season);
     const isSpecial = seasonNum < 0;
 
+    const title = getNestedValue(
+      gameDataSources.default,
+      `UIGalleryTable_${magazine.id}_CardCaption_CaptionTitle`
+    );
+
+    console.log(
+      `- ${title || "Untitled"} (${
+        isSpecial ? "Special Edition" : "Gallery Story"
+      })`
+    );
+
     loreItems.push({
-      title: getNestedValue(
-        gameDataSources.default,
-        `UIGalleryTable_${magazine.id}_CardCaption_CaptionTitle`
-      ),
+      title: title,
       titlePath: `UIGalleryTable_${magazine.id}_CardCaption_CaptionTitle`,
       contentPath: `UIGalleryTable_${magazine.id}_CardCaption_CaptionContent`,
       imagePath: `/textures/gallerycards/${magazine.imageName}`,
@@ -55,10 +64,14 @@ const processLoreData = async (): Promise<LoreItem[]> => {
   });
 
   // Process Story items (only those with content)
+  console.log("\n=== HERO STORY TITLES ===");
   StoryInfo.forEach((story) => {
     if (story.contentPath) {
+      const title = getNestedValue(gameDataSources.default, story.titlePath);
+      console.log(`- ${title || "Untitled"} (${story.hero})`);
+
       loreItems.push({
-        title: getNestedValue(gameDataSources.default, story.titlePath),
+        title: title,
         titlePath: story.titlePath,
         contentPath: story.contentPath,
         imagePath: `/textures/stories/${story.imageName}`,
@@ -75,5 +88,23 @@ const processLoreData = async (): Promise<LoreItem[]> => {
 const LoreItems = await processLoreData();
 
 // Sort the items alphabetically by title
+LoreItems.sort((a, b) => {
+  const titleA = a.title || "";
+  const titleB = b.title || "";
+  return titleA.localeCompare(titleB);
+});
+
+console.log("\n=== TOTAL ITEMS ===");
+console.log(`Total Lore Items: ${LoreItems.length}`);
+console.log(
+  `- Magazine Items: ${
+    LoreItems.filter((item) => item.type !== "Hero Story").length
+  }`
+);
+console.log(
+  `- Hero Stories: ${
+    LoreItems.filter((item) => item.type === "Hero Story").length
+  }`
+);
 
 export { LoreItems };

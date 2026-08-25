@@ -736,7 +736,7 @@ const SeasonInfoList: SeasonInfo[] = [
           {
             id: "01020009",
             image: "img_gallerypve_magazine_01.png",
-            altName: "King in Exile",
+            altName: "",
           },
           {
             id: "01020010",

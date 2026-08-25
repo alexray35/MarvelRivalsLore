@@ -125,11 +125,13 @@ export const gameDataSources: GameDataSources = {
 // Define the desired order for the tabs (newest to oldest)
 export const TAB_ORDER = [
   "default",
+  "season9_5",
   "season9",
   "season8_5",
   "season8",
   "season7_5",
   "season7",
+  "season6_5",
   "season6",
   "season5_5",
   "season5",

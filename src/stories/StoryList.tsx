@@ -9,6 +9,7 @@ interface StoryInfo {
   hero: string;
   highlight: string;
   linkID: string;
+  season: string;
 }
 
 const processStories = (): StoryInfo[] => {
@@ -33,6 +34,7 @@ const processStories = (): StoryInfo[] => {
       const titlePath = story.title;
       const contentPath = story.content || "";
       const heroLinkID = hero.linkID;
+      const season = story.season;
 
       // Determine highlight based on season match with last season
       let highlight = "";
@@ -74,6 +76,7 @@ const processStories = (): StoryInfo[] => {
         hero: heroLinkID,
         highlight,
         linkID,
+        season,
       });
     });
   });

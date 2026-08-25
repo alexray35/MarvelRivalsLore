@@ -98,7 +98,85 @@ const ActivityInfo_SeasonBETA: ActivityInfo[] = [
   },
 ];
 
-const ActivityInfo_Season0: ActivityInfo[] = [];
+const ActivityInfo_Season0: ActivityInfo[] = [
+  {
+    linkID: "season0_event1",
+    name: "TXT_Activity_110_Timestream_Entanglement",
+    image: "img_home_activity_s0seasonstory_normal.png",
+    entries: [
+      {
+        entryTitle: "",
+        sections: [
+          {
+            sectionTitle: "UIGalleryTable_01010003_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010003_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "UIGalleryTable_01010003_CardCaption_CaptionContent",
+                subsectionImage: "img_gallery_seasonstory_missioncard1.png",
+              },
+            ],
+          },
+          {
+            sectionTitle: "UIGalleryTable_01010004_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010004_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "UIGalleryTable_01010004_CardCaption_CaptionContent",
+                subsectionImage: "img_gallery_seasonstory_missioncard2.png",
+              },
+            ],
+          },
+          {
+            sectionTitle: "UIGalleryTable_01010005_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010005_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "UIGalleryTable_01010005_CardCaption_CaptionContent",
+                subsectionImage: "img_gallery_seasonstory_missioncard3.png",
+              },
+            ],
+          },
+          {
+            sectionTitle: "UIGalleryTable_01010006_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010006_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "UIGalleryTable_01010006_CardCaption_CaptionContent",
+                subsectionImage: "img_gallery_seasonstory_missioncard4.png",
+              },
+            ],
+          },
+          {
+            sectionTitle: "UIGalleryTable_01010007_CardCaption_CaptionTitle",
+            subsections: [
+              {
+                subsectionTitle:
+                  "UIGalleryTable_01010007_CardCaption_CaptionTitle",
+                subsectionSubTitle: "",
+                subsectionText:
+                  "UIGalleryTable_01010007_CardCaption_CaptionContent",
+                subsectionImage: "img_gallery_seasonstory_missioncard5.png",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
 
 const ActivityInfo_Season1: ActivityInfo[] = [
   {

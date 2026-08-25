@@ -26,6 +26,7 @@ const GalleryHero: React.FC<GalleryHeroProps> = ({
         heroName: getNestedValue(gameDataSources.default.data, hero.heroName),
         heroImage: hero.portrait,
         linkID: hero.linkID,
+        heroColor: hero.color,
       };
     })
     .filter((hero): hero is NonNullable<typeof hero> => hero !== null);
@@ -52,12 +53,20 @@ const GalleryHero: React.FC<GalleryHeroProps> = ({
             onClick={() => handleHeroClick(hero.linkID)}
             style={{ cursor: "pointer" }}
           >
-            <img
+            <div
               className="hero-portrait"
-              src={hero.heroImage}
-              alt={hero.heroName}
-              loading="lazy"
-            />
+              style={{
+                cursor: "pointer",
+                background: "#" + hero.heroColor,
+              }}
+            >
+              <img
+                className="hero-icon"
+                src={hero.heroImage}
+                alt={hero.heroName}
+                loading="lazy"
+              />
+            </div>
             <div className="image-caption">{hero.heroName}</div>
           </div>
         ))}

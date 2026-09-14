@@ -3,7 +3,7 @@ import GalleryStory from "../stories/GalleryStory";
 import { useEffect } from "react";
 import GalleryMagazine from "../magazine/GalleryMagazine";
 import { SeasonInfoList } from "../0manual/SeasonsList";
-import GalleryActivity from "../activity/GalleryActivity";
+//import GalleryActivity from "../activity/GalleryActivity";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -23,10 +23,13 @@ function MainPage() {
       },
     });
   };
+
+  /*
   const handleActivitySelect = (linkID: string) => {
     // Changed to accept linkID
     navigate(`/activity/${linkID}`); // Use URL parameter
   };
+  */
 
   return (
     <div className="page mainpage">
@@ -49,6 +52,7 @@ function MainPage() {
         showOnlyLastSeason={true}
         onMagazineSelect={handleMagazineSelect}
       />
+
       <div className="mainpagebackground"></div>
     </div>
   );

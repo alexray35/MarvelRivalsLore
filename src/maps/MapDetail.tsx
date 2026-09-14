@@ -103,9 +103,6 @@ const MapDetail: React.FC<MapDetailProps> = ({
       orderedTabs.push(tab);
     });
 
-    // Compare each version to the previous one to determine if it's different
-    let previousContent: any[] | null = null;
-
     const tabsWithDiff = orderedTabs.map((tab, index) => {
       let isDifferent = false;
 
@@ -118,9 +115,6 @@ const MapDetail: React.FC<MapDetailProps> = ({
         isDifferent =
           JSON.stringify(tab.content) !== JSON.stringify(prevContent);
       }
-
-      // Store the previous content for the next iteration
-      previousContent = tab.content;
 
       return {
         ...tab,

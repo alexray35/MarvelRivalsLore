@@ -1,4 +1,6 @@
 // MapList.tsx
+import youtubeWebsiteStringsData from "./YoutubeWebsiteStrings.json";
+
 interface MapInfo {
   linkID: string;
   group: string;
@@ -8,9 +10,45 @@ interface MapInfo {
   backgroundImage: string;
   domImages: string[];
   loadingTips: string[];
+  websiteDescription?: string;
+  youtubeDescription?: string;
+  youtubeMEDescription?: string;
   videos: { title: string; video: string; loreTitle: string }[];
   images: string[];
 }
+
+const youtubeWebsiteStrings = youtubeWebsiteStringsData as Record<
+  string,
+  string
+>;
+const populateMapDescriptions = (maps: MapInfo[]): MapInfo[] => {
+  return maps.map((map) => {
+    const linkID = map.linkID;
+    const youtubeKey = `yt_${linkID}`;
+    const youtubeMEKey = `ytME_${linkID}`;
+    const websiteKey = `w_${linkID}`;
+
+    return {
+      ...map,
+      // Only save the key if it exists in the JSON and has a non-empty value
+      youtubeDescription:
+        youtubeWebsiteStrings[youtubeKey] &&
+        youtubeWebsiteStrings[youtubeKey].trim() !== ""
+          ? youtubeKey
+          : undefined,
+      youtubeMEDescription:
+        youtubeWebsiteStrings[youtubeMEKey] &&
+        youtubeWebsiteStrings[youtubeMEKey].trim() !== ""
+          ? youtubeMEKey
+          : undefined,
+      websiteDescription:
+        youtubeWebsiteStrings[websiteKey] &&
+        youtubeWebsiteStrings[websiteKey].trim() !== ""
+          ? websiteKey
+          : undefined,
+    };
+  });
+};
 
 const MapInfoRegularOrdered: MapInfo[] = [
   {
@@ -830,6 +868,39 @@ const MapInfoRegularOrdered: MapInfo[] = [
     ],
     images: [],
   },
+  {
+    linkID: "",
+    group: "",
+    name: "God Quarry",
+    domNames: [],
+    galleryImage: "soon.png",
+    backgroundImage: "img_map_godquarry_eternalconfession.png",
+    domImages: [],
+    loadingTips: [],
+    videos: [
+      {
+        title: "Map Reveal",
+        video: "",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=spfIxemiHDs",
+        loreTitle: "UIGalleryFootageTable_5019_LoadingVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Attack",
+        video: "https://www.youtube.com/watch?v=ZQaFYwnQob8",
+        loreTitle: "UIGalleryFootageTable_5024_ExitVideos_#0_VideoName",
+      },
+      {
+        title: "Outro - Defence",
+        video: "https://www.youtube.com/watch?v=aZRjZlJyFiA",
+        loreTitle: "UIGalleryFootageTable_5024_ExitVideos_#1_VideoName",
+      },
+    ],
+    images: [],
+  },
 ];
 
 const MapInfoArcadeOrdered: MapInfo[] = [
@@ -973,9 +1044,9 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     backgroundImage: "img_map_klyntar_abyssthrone.png",
     domImages: [],
     loadingTips: [
-      "MarvelIPWholeProcessTable_1307_LoadingVideoSubloreTitles_#0_Text",
-      "MarvelIPWholeProcessTable_1307_LoadingVideoSubloreTitles_#1_Text",
-      "MarvelIPWholeProcessTable_1307_LoadingVideoSubloreTitles_#2_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#0_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#1_Text",
+      "MarvelIPWholeProcessTable_1307_LoadingVideoSubtitles_#2_Text",
     ],
     images: [],
     videos: [
@@ -1295,7 +1366,13 @@ const MapArcadeInfoWithLinkIDs = MapInfoArcadeOrdered.map((map) => ({
   linkID: (map.group + map.name).replace(/\s+/g, ""), // Combine group + name
 }));
 
-const MapInfoRegular = [...MapInfoWithLinkIDs].reverse();
-const MapInfoArcade = [...MapArcadeInfoWithLinkIDs].reverse();
+const MapInfoRegularWithDescriptions =
+  populateMapDescriptions(MapInfoWithLinkIDs);
+const MapArcadeInfoWithDescriptions = populateMapDescriptions(
+  MapArcadeInfoWithLinkIDs
+);
+
+const MapInfoRegular = [...MapInfoRegularWithDescriptions].reverse();
+const MapInfoArcade = [...MapArcadeInfoWithDescriptions].reverse();
 
 export { MapInfoRegular, MapInfoArcade };

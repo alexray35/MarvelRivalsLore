@@ -154,8 +154,8 @@ const HeroFullInfoList: HeroFullInfo[] = [
       },
       {
         title: "HeroUIAssetBPTable_10160010_HeroGallerylnfo_Story_#2_Title",
-        content: "",
-        season: "",
+        content: "UIHeroStoryTable_10160_Story_#2_Content",
+        season: "10",
         image: "",
       },
     ],
@@ -622,7 +622,7 @@ const HeroFullInfoList: HeroFullInfo[] = [
       {
         title: "HeroUIAssetBPTable_10300010_HeroGallerylnfo_Story_#2_Title",
         content: "HeroUIAssetBPTable_10300010_HeroGalleryInfo_Story_#2_Content",
-        season: "",
+        season: "10",
         image: "",
       },
     ],
@@ -1865,6 +1865,7 @@ const HeroFullInfoList: HeroFullInfo[] = [
     linkID: "",
   },
   {
+    // The Hood
     id: "1066",
     displayName: "The Hood",
     heroName: "UIHeroTable_10660_HeroBasic_TName",
@@ -1891,6 +1892,41 @@ const HeroFullInfoList: HeroFullInfo[] = [
       },
       {
         title: "UIHeroStoryTable_10660_Story_#2_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+    ],
+    linkID: "",
+  },
+  {
+    // Gorr
+    id: "1067",
+    displayName: "Gorr the God Butcher",
+    heroName: "UIHeroTable_10670_HeroBasic_TName",
+    realName: "UIHeroTable_10670_HeroBasic_RealName",
+    portrait: "",
+    render: "",
+    logo: "",
+    color: "8eacb3",
+    description: "UIHeroTable_10670_HeroBasic_Desc",
+    biography: "UIHeroStoryTable_10670_Biography",
+    season: "",
+    story: [
+      {
+        title: "UIHeroStoryTable_10670_Story_#0_Title",
+        content: "UIHeroStoryTable_10670_Story_#0_Content",
+        season: "10",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10670_Story_#1_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10670_Story_#2_Title",
         content: "",
         season: "",
         image: "",

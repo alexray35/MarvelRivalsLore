@@ -1,5 +1,5 @@
 // GameData.tsx
-import gameData from "../gamedata/Game 2026 08 07.json";
+import gameData from "../gamedata/Game 2026 09 11.json";
 import gameBetaData from "../gamedata/Game 2024 08 05 BETA.json";
 import gameSeason0Data from "../gamedata/Game 2024 12 04.json";
 import gameSeason2Data from "../gamedata/Game 2025 04 11 2.json";
@@ -18,6 +18,8 @@ import gameSeason7_5Data from "../gamedata/Game 2026 04 16.json";
 import gameSeason8Data from "../gamedata/Game 2026 05 14.json";
 import gameSeason8_5Data from "../gamedata/Game 2026 06 11.json";
 import gameSeason9Data from "../gamedata/Game 2026 07 10.json";
+import gameSeason9_5Data from "../gamedata/Game 2026 08 07.json";
+import gameSeason10Data from "../gamedata/Game 2026 09 11.json";
 import limboData from "../gamedata/Game Limbo.json";
 import skinData from "../gamedata/UISkinTable.json";
 
@@ -112,6 +114,14 @@ export const gameDataSources: GameDataSources = {
     data: gameSeason9Data,
     displayName: "Season 9",
   },
+  season9_5: {
+    data: gameSeason9_5Data,
+    displayName: "Season 9.5",
+  },
+  season10: {
+    data: gameSeason10Data,
+    displayName: "Season 10",
+  },
   limbo: {
     data: limboData,
     displayName: "Limbo",
@@ -125,6 +135,7 @@ export const gameDataSources: GameDataSources = {
 // Define the desired order for the tabs (newest to oldest)
 export const TAB_ORDER = [
   "default",
+  "seaso10",
   "season9_5",
   "season9",
   "season8_5",

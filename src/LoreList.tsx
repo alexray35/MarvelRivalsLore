@@ -34,7 +34,6 @@ const processLoreData = async (): Promise<LoreItem[]> => {
   // Process all magazine items (both serials and specials)
   const allMagazines = [...magazineSerials, ...magazineSpecials];
 
-  console.log("=== MAGAZINE LORE ITEM TITLES ===");
   allMagazines.forEach((magazine) => {
     const seasonNum = parseInt(magazine.season);
     const isSpecial = seasonNum < 0;
@@ -42,12 +41,6 @@ const processLoreData = async (): Promise<LoreItem[]> => {
     const title = getNestedValue(
       gameDataSources.default,
       `UIGalleryTable_${magazine.id}_CardCaption_CaptionTitle`
-    );
-
-    console.log(
-      `- ${title || "Untitled"} (${
-        isSpecial ? "Special Edition" : "Gallery Story"
-      })`
     );
 
     loreItems.push({
@@ -64,11 +57,9 @@ const processLoreData = async (): Promise<LoreItem[]> => {
   });
 
   // Process Story items (only those with content)
-  console.log("\n=== HERO STORY TITLES ===");
   StoryInfo.forEach((story) => {
     if (story.contentPath) {
       const title = getNestedValue(gameDataSources.default, story.titlePath);
-      console.log(`- ${title || "Untitled"} (${story.hero})`);
 
       loreItems.push({
         title: title,
@@ -93,18 +84,5 @@ LoreItems.sort((a, b) => {
   const titleB = b.title || "";
   return titleA.localeCompare(titleB);
 });
-
-console.log("\n=== TOTAL ITEMS ===");
-console.log(`Total Lore Items: ${LoreItems.length}`);
-console.log(
-  `- Magazine Items: ${
-    LoreItems.filter((item) => item.type !== "Hero Story").length
-  }`
-);
-console.log(
-  `- Hero Stories: ${
-    LoreItems.filter((item) => item.type === "Hero Story").length
-  }`
-);
 
 export { LoreItems };

@@ -971,6 +971,86 @@ const SeasonInfoList: SeasonInfo[] = [
       },
     ],
   },
+  {
+    id: "10",
+    name: "Butcher's Blasphemy",
+    altName: "",
+    year: "2026",
+    gallerycard: [
+      {
+        cover: "img_gallery_magazine_s10.png",
+        title: "Butcher's Blasphemy",
+        items: [
+          {
+            id: "01010079",
+            image: "img_gallerys10_magazine_01.png",
+            altName: "",
+          },
+          {
+            id: "01010080",
+            image: "img_gallerys10_card_horizontal_01.png",
+            altName: "",
+          },
+          {
+            id: "01010081",
+            image: "img_gallerys10_card_horizontal_02.png",
+            altName: "",
+          },
+          {
+            id: "01010082",
+            image: "img_gallerys10_card_horizontal_03.png",
+            altName: "",
+          },
+          {
+            id: "01010083",
+            image: "img_gallerys10_card_horizontal_04.png",
+            altName: "",
+          },
+          {
+            id: "01010084",
+            image: "img_gallerys10_card_horizontal_05.png",
+            altName: "",
+          },
+        ],
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=BtvXnqqPfko",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=ScF4_dxtYDE",
+        type: "",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=NRE8Voixbps",
+        type: "",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=Fg-x6eN3Tww",
+        type: "",
+      },
+    ],
+    image: [
+      {
+        title: "Lore 1",
+        path: "S10 Lore 1.jpg",
+      },
+      {
+        title: "Lore 2",
+        path: "S10 Lore 2.jpg",
+      },
+      {
+        title: "Lore 3",
+        path: "S10 Lore 3.jpg",
+      },
+    ],
+  },
 ];
 
 const SeasonSpecialsInfoList: SeasonInfo[] = [

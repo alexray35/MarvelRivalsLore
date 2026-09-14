@@ -1,10 +1,7 @@
 // LoreTimelineList.tsx
-import timelineStringsData from "./TimelineStrings.json";
-
 export interface LoreSubSection {
-  descriptionId: string;
-  description?: string;
-  image: string;
+  descriptionPath: string; // Changed from descriptionId to descriptionPath
+  image?: string;
 }
 
 export interface LoreSection {
@@ -15,31 +12,11 @@ export interface LoreSection {
   subSections: LoreSubSection[];
 }
 
-export type Chronoverse = "Present" | "Collaspsing" | "Mosaic" | "2099";
+export type Chronoverse = "Present" | "Collapsed" | "Mosaic" | "2099";
 
 export interface TimelineGroup {
   sections: LoreSection[];
 }
-
-// Function to populate descriptions
-const populateDescriptions = (groups: TimelineGroup[]): TimelineGroup[] => {
-  // Type assertion for the imported JSON
-  const timelineStrings = timelineStringsData as Record<string, string>;
-
-  return groups.map((group) => ({
-    ...group,
-    sections: group.sections.map((section) => ({
-      ...section,
-      subSections: section.subSections.map((subSection) => ({
-        ...subSection,
-        description:
-          timelineStrings[subSection.descriptionId] ||
-          timelineStrings.default ||
-          "String missing.",
-      })),
-    })),
-  }));
-};
 
 const populateSectionIds = (groups: TimelineGroup[]): TimelineGroup[] => {
   return groups.map((group) => ({
@@ -55,44 +32,182 @@ const LoreTimelineGroupsRaw: TimelineGroup[] = [
   {
     sections: [
       {
-        title: "Captain America of 2099",
-        chronoverses: ["2099", "Mosaic"],
+        title: "Timestream Entanglement",
+        major: true,
+        chronoverses: ["Present", "2099", "Mosaic", "Collapsed"],
         subSections: [
           {
-            descriptionId: "cap_1",
-            image: "timeline/captainamerica2099.png",
+            descriptionPath: "", // Empty path for sections without text
+            image: "",
+          },
+          {
+            descriptionPath: "klyntar_adam_1",
+            image: "stories/img_herostory_104601_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_knull_1",
+            image: "timeline/knull.png",
+          },
+          {
+            descriptionPath: "klyntar_venom_1",
+            image: "stories/img_herostory_103501_hover.png",
+          },
+          {
+            descriptionPath: "iew_1",
+            image: "/timeline/Chrono-Vibranium.png",
+          },
+          {
+            descriptionPath: "tse_present", // Path format matching game data structure
+            image: "timeline/captainamericapresent.png",
           },
         ],
         id: "",
       },
       {
-        title: "Hydra Charteris Base",
-        major: true,
+        title: "Knull's Corruption Spreads",
+        chronoverses: ["Mosaic"],
+        subSections: [
+          {
+            descriptionPath: "iew_1_2",
+            image: "timeline/wakandaorishacorrupted.png",
+          },
+        ],
+        id: "",
+      },
+      {
+        title: "Adam's Voyage",
+        chronoverses: [],
+        subSections: [
+          {
+            descriptionPath: "klyntar_adam_2",
+            image: "stories/img_herostory_104601_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_adam_3",
+            image: "stories/img_herostory_104601_hover.png",
+          },
+        ],
+        id: "",
+      },
+      {
+        title: "Wakanda and Knull's Corruption",
+        chronoverses: ["Mosaic"],
+        subSections: [
+          {
+            descriptionPath: "iew_2",
+            image: "timeline/wakandaorishacorrupted.png",
+          },
+          {
+            descriptionPath: "klyntar_gog_1",
+            image: "timeline/ShuriGoG.png",
+          },
+          {
+            descriptionPath: "iew_3",
+            image: "timeline/wakandaknull.png",
+          },
+        ],
+        id: "",
+      },
+      {
+        title: "Captain America of 2099",
+        chronoverses: ["2099", "Mosaic"],
+        subSections: [
+          {
+            descriptionPath: "cap_1",
+            image: "timeline/captainamerica2099.png",
+          },
+          {
+            descriptionPath: "cap_2",
+            image: "stories/img_herostory_102201_hover.png",
+          },
+        ],
+        id: "",
+      },
+      {
+        title: "Gateway to Maveth",
         chronoverses: ["Present"],
         subSections: [
           {
-            descriptionId: "hydra_0",
-            image: "map_background/img_map_hydracharterisbase.png",
+            descriptionPath: "hydra_0",
+            image: "/timeline/hydrabase.png",
           },
           {
-            descriptionId: "hydra_1",
-            image: "gallerycards_lq/img_gallery_card_horizontal_05.png",
+            descriptionPath: "hydra_1",
+            image: "gallerycards/img_gallery_card_horizontal_05.png",
           },
           {
-            descriptionId: "hydra_2",
-            image: "map_background/img_map_hydrabase_arsenal.png",
+            descriptionPath: "hydra_2",
+            image: "timeline/hawkeyesupersoldier.png",
           },
           {
-            descriptionId: "hydra_3",
-            image: "map_background/img_map_hydrabase_altar.png",
+            descriptionPath: "hydra_3",
+            image: "timeline/hydrabucky.png",
           },
           {
-            descriptionId: "hydra_4",
-            image: "",
+            descriptionPath: "hydra_4",
+            image: "stories/img_herostory_104101_hover.png",
           },
           {
-            descriptionId: "hydra_5",
+            descriptionPath: "hydra_5",
             image: "timeline/hydra_capVSbucky.png",
+          },
+        ],
+        id: "",
+      },
+      {
+        title: "Corrupted Bast",
+        chronoverses: ["Mosaic"],
+        subSections: [
+          {
+            descriptionPath: "iew_4",
+            image: "gallerycards/img_gallery_card_horizontal_03.png",
+          },
+        ],
+        id: "",
+      },
+      {
+        title: "Crashing onto Klyntar",
+        chronoverses: ["Mosaic"],
+        subSections: [
+          {
+            descriptionPath: "klyntar_gog_2",
+            image: "timeline/KlyntarGoG1.png",
+          },
+          {
+            descriptionPath: "klyntar_gog_3",
+            image: "stories/img_herostory_102301_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_gog_4",
+            image: "stories/img_herostory_102701_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_gog_5",
+            image: "stories/img_herostory_102701_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_venom_2",
+            image: "stories/img_herostory_103501_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_gog_6",
+            image: "gallerycards/img_gallery_card_horizontal_04.png",
+          },
+          {
+            descriptionPath: "klyntar_gog_7",
+            image: "stories/img_herostory_104301_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_adam_4",
+            image: "stories/img_herostory_104601_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_venom_3",
+            image: "stories/img_herostory_103501_hover.png",
+          },
+          {
+            descriptionPath: "klyntar_venom_4",
+            image: "map_background/img_map_klyntar_ruins.png",
           },
         ],
         id: "",
@@ -101,8 +216,7 @@ const LoreTimelineGroupsRaw: TimelineGroup[] = [
   },
 ];
 
-// Populate descriptions and export
-const LoreTimelineGroupsRawWithIds = populateSectionIds(LoreTimelineGroupsRaw);
-const LoreTimelineGroups = populateDescriptions(LoreTimelineGroupsRawWithIds);
+// Populate IDs and export
+const LoreTimelineGroups = populateSectionIds(LoreTimelineGroupsRaw);
 
 export { LoreTimelineGroups };

@@ -59,6 +59,7 @@ const extractIdsFromGameData = (): AccessoryInfo[] => {
           "03810630001",
           "03810640001",
           "03810660001",
+          "03810670001",
         ];
         var imagePath = specialIds.includes(id)
           ? `/textures/accessory/item_pendant_${id}.png`

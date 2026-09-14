@@ -50,14 +50,6 @@ function MainPage() {
         onMagazineSelect={handleMagazineSelect}
       />
       <div className="mainpagebackground"></div>
-
-      <h1 className="pagetitle">Events</h1>
-      <div className="mainPageActivities">
-        <GalleryActivity
-          showOnlyLatestSeason={true}
-          onActivitySelect={handleActivitySelect}
-        />
-      </div>
     </div>
   );
 }

@@ -6,11 +6,13 @@ import { getKeywordText } from "./Season9_Keywords";
 interface JsonValueProps {
   path: string;
   gameData?: object; // Optional override
+  preserveNewlines?: boolean; // New option, default false
 }
 
 const JsonValue: React.FC<JsonValueProps> = ({
   path,
   gameData = gameDataSources.default,
+  preserveNewlines = true, // Default to false (preserve original behavior)
 }) => {
   const value = getNestedValue(gameData, path);
 
@@ -18,7 +20,7 @@ const JsonValue: React.FC<JsonValueProps> = ({
     return <span>{"Not found value at " + path + " in " + gameData}</span>;
   }
 
-  // Convert string to array split by newlines, then replace single newlines with double newlines
+  // Convert string to array split by newlines
   const lines = String(value).split("\n");
 
   // Function to process text and replace tags with formatted text
@@ -93,8 +95,15 @@ const JsonValue: React.FC<JsonValueProps> = ({
     });
   };
 
+  // If preserveNewlines is false, join all lines with a space and render as a single block
+  if (!preserveNewlines) {
+    const singleLineText = lines.join(" ");
+    return <span>{processText(singleLineText)}</span>;
+  }
+
+  // Original behavior: render with line breaks
   return (
-    <span>
+    <p>
       {lines.map((line, index) => (
         <React.Fragment key={index}>
           {processText(line)}
@@ -105,7 +114,7 @@ const JsonValue: React.FC<JsonValueProps> = ({
           )}
         </React.Fragment>
       ))}
-    </span>
+    </p>
   );
 };
 

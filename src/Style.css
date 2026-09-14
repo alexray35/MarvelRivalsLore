@@ -235,6 +235,7 @@ input:checked + .toggle-slider:before {
 
 /* Tab */
 .tab-selector-container {
+  width: 100%;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -812,6 +813,19 @@ nav a.active {
 
 .story-content {
   font-size: 25px;
+  grid-column: 1;
+  position: relative;
+  z-index: 2;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  padding: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: MRFont;
+  font-size: 22px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.415);
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
 }
 
 .long-text {
@@ -1143,7 +1157,7 @@ nav a.active {
   z-index: 2;
   line-height: 1.2;
   margin-bottom: 20px;
-  margin-left: -20px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.415);
   padding: 15px;
   text-align: left;
@@ -1195,12 +1209,17 @@ nav a.active {
   display: block;
   width: 100%;
 }
+
+.map-mainimage {
+  margin: 0px;
+  padding: 0px;
+}
+
 .map-loading {
   grid-column: 1;
   position: relative;
   z-index: 2;
   line-height: 1.5;
-  margin-bottom: 10px;
   padding: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -1209,6 +1228,8 @@ nav a.active {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.415);
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .map-header {
@@ -1428,12 +1449,12 @@ nav a.active {
 
 .tabspacing {
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .teamup-heroes-section .gallery-hero {
   width: 70%;
   margin: 20px;
+  margin-left: 40px;
 }
 
 .teamup-heroes-section .gallery-hero .gallery-grid {
@@ -1877,6 +1898,7 @@ a:hover {
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
   min-width: 0;
   height: auto; /* Let height be determined by content */
+  min-height: 80px;
 }
 
 .timeline-content-title .subsection-title {

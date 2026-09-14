@@ -1,7 +1,12 @@
 import React from "react";
 import { LoreTimelineGroups } from "../0manual/LoreTimelineList";
+import JsonValue from "../JsonValue";
+import timelineStringsData from "../0manual/TimelineStrings.json"; // Adjust path as needed
 
 const TimelineContent: React.FC = () => {
+  // Use TimelineStrings as the gameData source
+  const timelineGameData = timelineStringsData as Record<string, string>;
+
   return (
     <div className="timeline-content">
       {/* Loop through each Group */}
@@ -51,7 +56,16 @@ const TimelineContent: React.FC = () => {
                     <div className="timeline-content-text">
                       <div className="timeline-content-textarea">
                         <div className="long-text">
-                          <p>{subSection.description}</p>
+                          {/* Use JsonValue with timelineGameData */}
+                          {subSection.descriptionPath ? (
+                            <JsonValue
+                              path={subSection.descriptionPath}
+                              gameData={timelineGameData}
+                              preserveNewlines={false}
+                            />
+                          ) : (
+                            <p>Empty description</p>
+                          )}
                         </div>
                       </div>
                     </div>

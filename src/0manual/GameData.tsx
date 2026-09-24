@@ -1,5 +1,5 @@
 // GameData.tsx
-import gameData from "../gamedata/Game 2026 09 11.json";
+import gameData from "../gamedata/Game 2026 09 24.json";
 import gameBetaData from "../gamedata/Game 2024 08 05 BETA.json";
 import gameSeason0Data from "../gamedata/Game 2024 12 04.json";
 import gameSeason2Data from "../gamedata/Game 2025 04 11 2.json";
@@ -135,7 +135,7 @@ export const gameDataSources: GameDataSources = {
 // Define the desired order for the tabs (newest to oldest)
 export const TAB_ORDER = [
   "default",
-  "seaso10",
+  "season10",
   "season9_5",
   "season9",
   "season8_5",

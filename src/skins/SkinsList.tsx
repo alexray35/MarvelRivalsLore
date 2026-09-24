@@ -139,6 +139,8 @@ const skinStories: { skinID: string; storyID: string }[] = [
   { skinID: "1033504", storyID: "special111" },
   { skinID: "1040303", storyID: "special111" },
   { skinID: "1060501", storyID: "special111" },
+  // Season 10
+  { skinID: "1030504", storyID: "MoonKnight3" },
 ];
 
 const extractSkinTheme = (fullSkinId: string): string => {

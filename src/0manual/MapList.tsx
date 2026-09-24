@@ -872,21 +872,33 @@ const MapInfoRegularOrdered: MapInfo[] = [
     linkID: "",
     group: "",
     name: "God Quarry",
-    domNames: [],
-    galleryImage: "soon.png",
+    domNames: [
+      "Confessional Eternity",
+      "Halls of All-Knowing",
+      "House of Ideas",
+    ],
+    galleryImage: "img_mapselect_godquarry_eternalconfession.png",
     backgroundImage: "img_map_godquarry_eternalconfession.png",
-    domImages: [],
-    loadingTips: [],
+    domImages: [
+      "img_map_godquarry_eternalconfession.png",
+      "img_map_godquarry_fulltimehall.png",
+      "img_map_godquarry_houseofcreativity.png",
+    ],
+    loadingTips: [
+      "Loading_GodQuarry_1",
+      "Loading_GodQuarry_2",
+      "Loading_GodQuarry_3",
+    ],
     videos: [
       {
         title: "Map Reveal",
-        video: "",
+        video: "https://www.youtube.com/watch?v=POxi-JheHU4",
         loreTitle: "",
       },
       {
         title: "Loading Screen",
-        video: "https://www.youtube.com/watch?v=spfIxemiHDs",
-        loreTitle: "UIGalleryFootageTable_5019_LoadingVideos_#0_VideoName",
+        video: "https://www.youtube.com/watch?v=8ZFTwqP5xn8",
+        loreTitle: "UIGalleryFootageTable_5024_LoadingVideos_#0_VideoName",
       },
       {
         title: "Outro - Attack",

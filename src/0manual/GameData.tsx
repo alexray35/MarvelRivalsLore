@@ -21,7 +21,6 @@ import gameSeason9Data from "../gamedata/Game 2026 07 10.json";
 import gameSeason9_5Data from "../gamedata/Game 2026 08 07.json";
 import gameSeason10Data from "../gamedata/Game 2026 09 11.json";
 import limboData from "../gamedata/Game Limbo.json";
-import skinData from "../gamedata/UISkinTable.json";
 
 export interface GameData {
   // Define the structure of your game data if needed
@@ -125,10 +124,6 @@ export const gameDataSources: GameDataSources = {
   limbo: {
     data: limboData,
     displayName: "Limbo",
-  },
-  skins: {
-    data: skinData,
-    displayName: "skin",
   },
 };
 

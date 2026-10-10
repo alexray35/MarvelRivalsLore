@@ -17,7 +17,7 @@ const JsonValue: React.FC<JsonValueProps> = ({
   const value = getNestedValue(gameData, path);
 
   if (value === undefined) {
-    return <span>{"Not found value at " + path + " in " + gameData}</span>;
+    return <span>{"???"}</span>;
   }
 
   // Convert string to array split by newlines

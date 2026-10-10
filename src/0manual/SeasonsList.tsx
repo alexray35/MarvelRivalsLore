@@ -1011,6 +1011,11 @@ const SeasonInfoList: SeasonInfo[] = [
             image: "img_gallerys10_card_horizontal_05.png",
             altName: "",
           },
+          {
+            id: "01010085",
+            image: "img_gallerys10_card_horizontal_06.png",
+            altName: "",
+          },
         ],
       },
     ],
@@ -1295,7 +1300,7 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
     year: "2026",
     gallerycard: [
       {
-        cover: "img_gallery_magazine_mcu2.png",
+        cover: "img_gallery_magazine_mcu3.png",
         title: "Marvel Rivals: Path to Doomsday",
         items: [
           {
@@ -1306,6 +1311,11 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
           {
             id: "01020017",
             image: "img_gallerymcu_magazine_02.png",
+            altName: "",
+          },
+          {
+            id: "01020018",
+            image: "img_gallerymcu_magazine_03.png",
             altName: "",
           },
         ],

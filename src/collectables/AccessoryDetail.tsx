@@ -154,9 +154,13 @@ const AccessoryDetail: React.FC<AccessoryDetailProps> = ({
               </h2>
               <p className="long-text accessory-source">
                 {"[ This accessory belongs to"}{" "}
-                <a href={`/hero/${heroInfo?.linkID}`} className="hero-link">
-                  {heroInfo?.displayName}
-                </a>
+                {heroInfo?.displayName ? (
+                  <a href={`/hero/${heroInfo?.linkID}`} className="hero-link">
+                    {heroInfo.displayName}
+                  </a>
+                ) : (
+                  "MULTIPLE HEROES"
+                )}
                 {" ]"}
               </p>
               <p className="long-text">

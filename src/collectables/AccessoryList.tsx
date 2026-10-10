@@ -28,10 +28,10 @@ const extractIdsFromGameData = (): AccessoryInfo[] => {
       for (const subKey in subKeys) {
         // Check if the subkey matches our pattern
         const match = subKey.match(
-          /MarvelItemTable_Slot_03810(\d{6})_ItemName/
+          /MarvelItemTable_Slot_(03810\d{6}|0389999\d{4})_ItemName/
         );
         if (match) {
-          const id = "03810" + match[1];
+          const id = match[1]; // full ID either way
           idSet.add(id);
         }
       }
@@ -91,6 +91,9 @@ const extractIdsFromGameData = (): AccessoryInfo[] => {
           id === "03810140002"
         ) {
           imagePath = `/textures/accessory/item_pandant_03899990002.png`;
+        }
+        if (id == "03899990003") {
+          imagePath = `/textures/accessory/item_pendant_03899990003.png`;
         }
         return {
           id,

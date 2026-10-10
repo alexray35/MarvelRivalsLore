@@ -1011,7 +1011,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     images: [],
     videos: [
       {
-        title: "Mode Reveal",
+        title: "Mode Trailer",
         video: "https://www.youtube.com/watch?v=r1ogvqoq09I",
         loreTitle: "",
       },
@@ -1036,7 +1036,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     images: [],
     videos: [
       {
-        title: "Mode Reveal",
+        title: "Mode Trailer",
         video: "https://www.youtube.com/watch?v=gVIUnElubKk",
         loreTitle: "",
       },
@@ -1068,7 +1068,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
         loreTitle: "",
       },
       {
-        title: "Mode Reveal",
+        title: "Mode Trailer",
         video: "https://www.youtube.com/watch?v=pGfp8UJDpdg",
         loreTitle: "",
       },
@@ -1138,7 +1138,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
         loreTitle: "",
       },
       {
-        title: "Mode Reveal",
+        title: "Mode Trailer",
         video: "https://www.youtube.com/watch?v=ZcSk1EQYW8k",
         loreTitle: "",
       },
@@ -1200,7 +1200,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       {
         loreTitle: "",
         video: "https://www.youtube.com/watch?v=2DEpKcigA30",
-        title: "Mode Reveal",
+        title: "Mode Trailer",
       },
       {
         loreTitle: "",
@@ -1340,7 +1340,7 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     linkID: "",
   },
   {
-    group: "",
+    group: "Path to Doomsday",
     name: "Avengers Tower",
     domNames: [],
     galleryImage: "avengerstower.png",
@@ -1353,13 +1353,37 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     ],
     videos: [
       {
-        title: "Event Trailer",
+        title: "Mode Trailer",
         video: "https://www.youtube.com/watch?v=W1z9DUiFi0A",
         loreTitle: "",
       },
       {
         title: "Loading Screen",
         video: "https://www.youtube.com/watch?v=B1MGMdlZrbY",
+        loreTitle: "",
+      },
+    ],
+    images: [],
+    linkID: "",
+  },
+
+  {
+    group: "Path to Doomsday",
+    name: "Jungle of Wakanda",
+    domNames: [],
+    galleryImage: "img_mapselect_infinitystones.png",
+    backgroundImage: "img_map_infinitystones.png",
+    domImages: [],
+    loadingTips: ["Loading_MCU3.0_1", "Loading_MCU3.0_2", "Loading_MCU3.0_3"],
+    videos: [
+      {
+        title: "Mode Trailer",
+        video: "https://www.youtube.com/watch?v=_Y54gzyEnPc",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=eqmrQAiRYMo",
         loreTitle: "",
       },
     ],

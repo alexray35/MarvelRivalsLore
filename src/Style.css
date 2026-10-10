@@ -249,6 +249,10 @@ input:checked + .toggle-slider:before {
   width: 100%;
 }
 
+.year-tab {
+  height: 42px;
+}
+
 .gallery-cinematic .tab-selector-container {
   margin-top: 10px;
   display: block;

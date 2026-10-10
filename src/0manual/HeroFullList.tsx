@@ -158,6 +158,12 @@ const HeroFullInfoList: HeroFullInfo[] = [
         season: "10",
         image: "",
       },
+      {
+        title: "HeroUIAssetBPTable_10160010_HeroGallerylnfo_Story_#4_Title",
+        content: "UIHeroStoryTable_10160_Story_#4_Content",
+        season: "10",
+        image: "",
+      },
     ],
     linkID: "",
     displayName: "",
@@ -837,8 +843,8 @@ const HeroFullInfoList: HeroFullInfo[] = [
       },
       {
         title: "HeroUIAssetBPTable_10360000_HeroGallerylnfo_Story_#2_Title",
-        content: "",
-        season: "",
+        content: "UIHeroStoryTable_10360_Story_#2_Content",
+        season: "10",
         image: "",
       },
     ],
@@ -940,7 +946,7 @@ const HeroFullInfoList: HeroFullInfo[] = [
       {
         title: "UIHeroStoryTable_10390_Story_#1_Title",
         content: "HeroUIAssetBPTable_10390010_HeroGalleryInfo_Story_#1_Content",
-        season: "",
+        season: "10",
         image: "",
       },
       {

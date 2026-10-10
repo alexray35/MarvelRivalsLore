@@ -14,7 +14,7 @@ const JsonValueLongText: React.FC<JsonValueProps> = ({
   const value = getNestedValue(gameData, path);
 
   if (value === undefined) {
-    return <span>{"Not found value at " + path}</span>;
+    return <span>{"???"}</span>;
   }
 
   // Convert string to array split by newlines, then replace single newlines with double newlines

@@ -1056,6 +1056,76 @@ const SeasonInfoList: SeasonInfo[] = [
       },
     ],
   },
+  {
+    id: "11",
+    name: "Doomsday",
+    altName: "",
+    year: "2026",
+    gallerycard: [
+      {
+        cover: "img_gallery_magazine_s11.png",
+        title: "Doomsday ",
+        items: [
+          {
+            id: "01010086",
+            image: "img_gallerys11_magazine_01.png",
+            altName: "Doomsday",
+          },
+          {
+            id: "01010087",
+            image: "img_gallerys11_card_horizontal_01.png",
+            altName: "",
+          },
+          {
+            id: "01010088",
+            image: "img_gallerys11_card_horizontal_02.png",
+            altName: "",
+          },
+          {
+            id: "01010089",
+            image: "img_gallerys11_card_horizontal_03.png",
+            altName: "",
+          },
+        ],
+      },
+    ],
+    video: [
+      {
+        title: "Trailer",
+        url: "https://www.youtube.com/watch?v=ZiMUF51KxIM",
+        type: "Trailer",
+      },
+      {
+        title: "Login",
+        url: "https://www.youtube.com/watch?v=zHGShnFPhjs",
+        type: "",
+      },
+      {
+        title: "Transition",
+        url: "https://www.youtube.com/watch?v=Ndqgfy82JOM",
+        type: "",
+      },
+      {
+        title: "Home",
+        url: "https://www.youtube.com/watch?v=80eT9YkQtz4",
+        type: "",
+      },
+    ],
+    image: [
+      {
+        title: "Lore 1",
+        path: "S11 Lore 1.jpg",
+      },
+      {
+        title: "Lore 2",
+        path: "S11 Lore 2.jpg",
+      },
+      {
+        title: "Lore 3",
+        path: "S11 Lore 3.jpg",
+      },
+    ],
+  },
 ];
 
 const SeasonSpecialsInfoList: SeasonInfo[] = [
@@ -1300,7 +1370,7 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
     year: "2026",
     gallerycard: [
       {
-        cover: "img_gallery_magazine_mcu3.png",
+        cover: "img_gallery_magazine_mcu4.png",
         title: "Marvel Rivals: Path to Doomsday",
         items: [
           {
@@ -1316,6 +1386,11 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
           {
             id: "01020018",
             image: "img_gallerymcu_magazine_03.png",
+            altName: "",
+          },
+          {
+            id: "01020021",
+            image: "img_gallerymcu_magazine_04.png",
             altName: "",
           },
         ],
@@ -1343,6 +1418,32 @@ const SeasonSpecialsInfoList: SeasonInfo[] = [
           {
             id: "01020016",
             image: "img_gallery_card_26summer02.png",
+            altName: "",
+          },
+        ],
+      },
+    ],
+    video: [],
+    image: [],
+  },
+  {
+    id: "-12",
+    name: "Night of Illusions",
+    altName: "",
+    year: "2026",
+    gallerycard: [
+      {
+        cover: "img_gallery_magazine_26halloween.png",
+        title: "Night of Illusions",
+        items: [
+          {
+            id: "01020019",
+            image: "img_gallery_card_26halloween.png",
+            altName: "",
+          },
+          {
+            id: "01020020",
+            image: "img_gallery_card_26halloween2.png",
             altName: "",
           },
         ],

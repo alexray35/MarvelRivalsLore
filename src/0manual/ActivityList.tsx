@@ -721,7 +721,7 @@ const ActivityInfo_Season4: ActivityInfo[] = [
   {
     linkID: "season4_event2",
     name: "MarvelActivityTable_130_Name",
-    image: "img_136activityitem_hover.png",
+    image: "img_136activityitem_normal.png",
     versionOverride: "season5",
     entries: [
       {

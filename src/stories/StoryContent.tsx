@@ -14,9 +14,7 @@ interface StoryProps {
 interface TabData {
   key: string;
   label: string;
-  content: any;
   gameData: object;
-  isDifferent: boolean;
 }
 
 const Story: React.FC<StoryProps> = ({
@@ -36,51 +34,66 @@ const Story: React.FC<StoryProps> = ({
     ? gameDataSources.beta
     : gameDataSources.default;
   const activeGameData = activeGameDataSource.data;
-  const activeContent = getNestedValue(activeGameData, loreItem.contentPath);
   const activeTitle = getNestedValue(activeGameData, loreItem.titlePath);
 
-  const allTabs: TabData[] = useMemo(() => {
-    const tabsMap = new Map<string, TabData>();
+  // Build the chronological key list: TAB_ORDER is newest -> oldest, so we
+  // reverse it to walk oldest -> newest for the rolling diff. Any keys not
+  // present in TAB_ORDER are appended at the *oldest* end so they never
+  // disturb the known chronology.
+  const orderedKeys = useMemo(() => {
+    const known = TAB_ORDER.filter((key) => key in gameDataSources);
+    const knownSet = new Set(known);
+    const extras = Object.keys(gameDataSources).filter(
+      (key) => !knownSet.has(key)
+    );
+    return [...extras, ...[...known].reverse()];
+  }, []);
 
-    Object.entries(gameDataSources).forEach(([key, gameDataSource]) => {
-      const content = getNestedValue(gameDataSource.data, loreItem.contentPath);
-      if (content === undefined) return;
+  // Walk oldest -> newest. First source that has the content path becomes the
+  // initial "current"; each time a later source differs, we emit the previous
+  // "current" as a tab and adopt the new value. The final "current" is always
+  // emitted as the last (newest) tab.
+  const versionTabs: TabData[] = useMemo(() => {
+    const tabs: TabData[] = [];
+    let current: TabData | null = null;
+    let currentContent: string | undefined;
 
-      const isDifferent =
-        JSON.stringify(content) !== JSON.stringify(activeContent);
+    for (const key of orderedKeys) {
+      const source = gameDataSources[key];
+      if (!source) continue;
 
-      tabsMap.set(key, {
-        key,
-        label: gameDataSource.displayName,
-        content,
-        gameData: gameDataSource.data,
-        isDifferent,
-      });
-    });
+      const content = getNestedValue(source.data, loreItem.contentPath);
+      if (content === undefined) continue; // skip sources missing this story
 
-    const orderedTabs: TabData[] = [];
+      const serialized = JSON.stringify(content);
 
-    TAB_ORDER.forEach((key) => {
-      const tab = tabsMap.get(key);
-      if (tab) {
-        orderedTabs.push(tab);
-        tabsMap.delete(key);
+      if (current === null) {
+        current = { key, label: source.displayName, gameData: source.data };
+        currentContent = serialized;
+        continue;
       }
-    });
 
-    tabsMap.forEach((tab) => {
-      orderedTabs.push(tab);
-    });
+      if (serialized !== currentContent) {
+        tabs.push(current);
+        current = { key, label: source.displayName, gameData: source.data };
+        currentContent = serialized;
+      }
+    }
 
-    return orderedTabs;
-  }, [loreItem.contentPath, activeContent]);
+    if (current !== null) {
+      tabs.push(current);
+    }
 
+    // `tabs` is oldest -> newest; reverse so the UI shows newest first.
+    return tabs.reverse();
+  }, [loreItem.contentPath, orderedKeys]);
+
+  // Titles across all sources that differ from the active one.
   const previousTitles = useMemo(() => {
     const titles = new Set<string>();
 
-    Object.entries(gameDataSources).forEach(([, gameDataSource]) => {
-      // FIX: use .data here, not the wrapper object
-      const title = getNestedValue(gameDataSource.data, loreItem.titlePath);
+    Object.values(gameDataSources).forEach((source) => {
+      const title = getNestedValue(source.data, loreItem.titlePath);
       if (title && title !== activeTitle && typeof title === "string") {
         titles.add(title);
       }
@@ -89,16 +102,8 @@ const Story: React.FC<StoryProps> = ({
     return Array.from(titles).filter((title) => title.trim() !== "");
   }, [loreItem.titlePath, activeTitle]);
 
-  const filteredTabs = allTabs.filter(
-    (tab) => tab.isDifferent || tab.key === "default"
-  );
+  const activeTabData = versionTabs[selectedVersionIndex] ?? versionTabs[0];
 
-  const showTabs = filteredTabs.length > 1;
-
-  // FIX: guard against empty filteredTabs
-  const activeTabData = filteredTabs[selectedVersionIndex] ?? filteredTabs[0];
-
-  // FIX: render a safe fallback instead of crashing
   if (!activeTabData) {
     return (
       <div className="story-container">
@@ -149,23 +154,21 @@ const Story: React.FC<StoryProps> = ({
         loading="lazy"
       />
 
-      {showTabs && (
-        <div className="tabspacing">
-          <div className="tab-selector-container">
-            {filteredTabs.map((tab, index) => (
-              <span
-                key={tab.key}
-                className={`tab-selector ${
-                  selectedVersionIndex === index ? "active" : ""
-                }`}
-                onClick={() => setSelectedVersionIndex(index)}
-              >
-                {tab.label}
-              </span>
-            ))}
-          </div>
+      <div className="tabspacing">
+        <div className="tab-selector-container">
+          {versionTabs.map((tab, index) => (
+            <span
+              key={tab.key}
+              className={`tab-selector ${
+                selectedVersionIndex === index ? "active" : ""
+              }`}
+              onClick={() => setSelectedVersionIndex(index)}
+            >
+              {tab.label}
+            </span>
+          ))}
         </div>
-      )}
+      </div>
 
       <div className="story-content">
         <section className="long-text">

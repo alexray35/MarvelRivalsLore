@@ -159,8 +159,8 @@ const HeroFullInfoList: HeroFullInfo[] = [
         image: "",
       },
       {
-        title: "HeroUIAssetBPTable_10160010_HeroGallerylnfo_Story_#4_Title",
-        content: "UIHeroStoryTable_10160_Story_#4_Content",
+        title: "UIHeroStoryTable_10160_Story_#3_Title",
+        content: "UIHeroStoryTable_10160_Story_#3_Content",
         season: "10",
         image: "",
       },
@@ -1933,6 +1933,41 @@ const HeroFullInfoList: HeroFullInfo[] = [
       },
       {
         title: "UIHeroStoryTable_10670_Story_#2_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+    ],
+    linkID: "",
+  },
+  {
+    // Nightcrawler
+    id: "1068",
+    displayName: "Nightcrawler",
+    heroName: "UIHeroTable_10680_HeroBasic_TName",
+    realName: "UIHeroTable_10680_HeroBasic_RealName",
+    portrait: "",
+    render: "",
+    logo: "",
+    color: "51acde",
+    description: "UIHeroTable_10680_HeroBasic_Desc",
+    biography: "UIHeroStoryTable_10680_Biography",
+    season: "",
+    story: [
+      {
+        title: "UIHeroStoryTable_10680_Story_#0_Title",
+        content: "UIHeroStoryTable_10680_Story_#0_Content",
+        season: "11",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10680_Story_#1_Title",
+        content: "",
+        season: "",
+        image: "",
+      },
+      {
+        title: "UIHeroStoryTable_10680_Story_#2_Title",
         content: "",
         season: "",
         image: "",

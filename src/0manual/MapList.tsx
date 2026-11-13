@@ -1366,7 +1366,6 @@ const MapInfoArcadeOrdered: MapInfo[] = [
     images: [],
     linkID: "",
   },
-
   {
     group: "Path to Doomsday",
     name: "Jungle of Wakanda",
@@ -1384,6 +1383,29 @@ const MapInfoArcadeOrdered: MapInfo[] = [
       {
         title: "Loading Screen",
         video: "https://www.youtube.com/watch?v=eqmrQAiRYMo",
+        loreTitle: "",
+      },
+    ],
+    images: [],
+    linkID: "",
+  },
+  {
+    group: "",
+    name: "Avengers Compound",
+    domNames: [],
+    galleryImage: "img_mapselect_infinitystones.png",
+    backgroundImage: "img_map_infinitystones.png",
+    domImages: [],
+    loadingTips: ["Loading_MCU4.0_1", "Loading_MCU4.0_2", "Loading_MCU4.0_3"],
+    videos: [
+      {
+        title: "Mode Trailer",
+        video: "https://www.youtube.com/watch?v=RUEk4Bak3Xk",
+        loreTitle: "",
+      },
+      {
+        title: "Loading Screen",
+        video: "https://www.youtube.com/watch?v=67SR612EtAs",
         loreTitle: "",
       },
     ],

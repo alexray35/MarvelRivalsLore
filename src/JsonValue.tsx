@@ -26,7 +26,7 @@ const JsonValue: React.FC<JsonValueProps> = ({
   // Function to process text and replace tags with formatted text
   const processText = (text: string) => {
     const parts = text.split(
-      /(<Slide>.*?<\/>|<GalleryStory>.*?<\/>|<Bold>.*?<\/>|<Yellow>.*?<\/>|<Red>.*?<\/>|<customwidget[^>]*>.*?<\/>)/g
+      /(<Slide>.*?<\/>|<GalleryStory>.*?<\/>|<Bold>.*?<\/>|<Yellow>.*?<\/>|<Red>.*?<\/>|<Kai>.*?<\/>|<customwidget[^>]*>.*?<\/>)/g
     );
     return parts.map((part, index) => {
       // Handle existing tags
@@ -54,6 +54,20 @@ const JsonValue: React.FC<JsonValueProps> = ({
         const content = part.slice(5, -3); // Remove <Red> and </>/
         return (
           <span key={index} style={{ color: "red" }}>
+            {content}
+          </span>
+        );
+      }
+      if (part.startsWith("<Kai>") && part.endsWith("</>")) {
+        const content = part.slice(5, -3); // Remove <Kai> and </>/
+        return (
+          <span
+            key={index}
+            style={{
+              fontFamily: "Times New Roman, serif",
+              fontStyle: "italic",
+            }}
+          >
             {content}
           </span>
         );
